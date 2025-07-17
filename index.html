@@ -22,10 +22,10 @@
             padding: 30px 20px;
             overflow-x: hidden;
             position: relative;
-            color: #444;
-            background: linear-gradient(135deg, #f5f7fa, #e4e8f0);
-            line-height: 1.7;
-            font-size: 1.05rem;
+            color: #333;
+            background: linear-gradient(135deg, #f8f9fb, #f0f3f7);
+            line-height: 1.65;
+            font-size: 1.08rem;
             letter-spacing: 0.3px;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -34,15 +34,15 @@
         .container {
             width: 100%;
             max-width: 900px;
-            background: #fff;
+            background: #ffffff;
             border-radius: 18px;
             overflow: hidden;
             position: relative;
             z-index: 10;
             margin: 0;
             padding: 40px 30px;
-            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
-            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.03);
         }
         
         .header-container {
@@ -93,7 +93,7 @@
             font-weight: 800;
             margin-bottom: 15px;
             letter-spacing: 0.5px;
-            color: #2c3e50;
+            color: #263445;
             position: relative;
             display: inline-block;
             font-family: 'Playfair Display', serif;
@@ -125,7 +125,7 @@
             position: relative;
             display: block;
             width: 100%;
-            color: #2c3e50;
+            color: #263445;
             padding-bottom: 12px;
             font-family: 'Playfair Display', serif;
         }
@@ -157,7 +157,7 @@
             background: #fff;
             border-radius: 18px;
             padding: 28px;
-            border: 1px solid #eef2f7;
+            border: 1px solid #f0f2f5;
             display: flex;
             align-items: flex-start;
             position: relative;
@@ -165,13 +165,13 @@
             min-height: 120px;
             cursor: pointer;
             transition: all 0.4s ease;
-            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.04);
         }
         
         .link-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            border-color: #e67e22;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            border-color: rgba(230, 126, 34, 0.3);
         }
         
         .link-icon {
@@ -186,7 +186,7 @@
             flex-shrink: 0;
             color: white;
             background: #e67e22;
-            box-shadow: 0 5px 12px rgba(0,0,0,0.12);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.08);
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
@@ -236,13 +236,13 @@
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 8px;
-            color: #2c3e50;
+            color: #263445;
             letter-spacing: 0.3px;
         }
         
         .link-subtitle {
             font-size: 1.05rem;
-            color: #666;
+            color: #555;
             line-height: 1.5;
             margin-bottom: 10px;
             font-weight: 500;
@@ -260,27 +260,30 @@
         .schedule-day-header {
             font-weight: 700;
             color: #e67e22;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             padding-bottom: 3px;
             border-bottom: 1px dashed #e0e0e0;
+            font-size: 1.1rem;
         }
         
         .schedule-class {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             line-height: 1.6;
         }
         
         .class-time {
             font-weight: 600;
             min-width: 65px;
-            color: #2c3e50;
+            color: #263445;
+            font-size: 1.05rem;
         }
         
         .class-name {
             flex: 1;
             padding-left: 10px;
+            font-size: 1.05rem;
         }
         
         .salsa-text {
@@ -298,7 +301,7 @@
         }
         
         .today .schedule-day-header {
-            background: linear-gradient(to right, rgba(230, 126, 34, 0.1), transparent);
+            background: linear-gradient(to right, rgba(230, 126, 34, 0.08), transparent);
             border-radius: 4px;
             padding: 3px 8px;
             margin-right: -8px;
@@ -310,7 +313,7 @@
             padding: 35px 30px;
             margin: 30px 0;
             border: 1px solid #eee;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
             position: relative;
             overflow: hidden;
         }
@@ -319,7 +322,7 @@
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 20px;
-            color: #2c3e50;
+            color: #263445;
             text-align: center;
             position: relative;
             padding-bottom: 15px;
@@ -359,7 +362,7 @@
             width: 100%;
             padding: 18px 22px;
             border-radius: 12px;
-            border: 1px solid #ddd;
+            border: 1px solid #e0e0e0;
             background: #f9f9f9;
             color: #333;
             font-size: 1.1rem;
@@ -372,7 +375,7 @@
             outline: none;
             border-color: #e67e22;
             background: #fff;
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.15);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.12);
         }
         
         .form-input::placeholder {
@@ -384,7 +387,7 @@
             width: 100%;
             padding: 18px 22px;
             border-radius: 12px;
-            border: 1px solid #ddd;
+            border: 1px solid #e0e0e0;
             background: #f9f9f9;
             color: #333;
             font-size: 1.1rem;
@@ -401,7 +404,7 @@
             outline: none;
             border-color: #e67e22;
             background: #fff;
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.15);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.12);
         }
         
         .submit-btn {
@@ -420,12 +423,12 @@
             overflow: hidden;
             display: block;
             letter-spacing: 0.5px;
-            box-shadow: 0 8px 25px rgba(230, 126, 34, 0.2);
+            box-shadow: 0 8px 25px rgba(230, 126, 34, 0.15);
         }
         
         .submit-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(230, 126, 34, 0.3);
+            box-shadow: 0 12px 30px rgba(230, 126, 34, 0.25);
         }
         
         .submit-btn:active {
@@ -440,12 +443,12 @@
             background: #fff;
             margin-top: 20px;
             border: 1px solid #eee;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.03);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.02);
         }
         
         .thank-you-message h3 {
             font-size: 1.8rem;
-            color: #2c3e50;
+            color: #263445;
             margin-bottom: 25px;
             position: relative;
             padding-bottom: 15px;
@@ -513,7 +516,7 @@
             font-size: 1.1rem;
             font-weight: 500;
             z-index: 1000;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
             animation: slideIn 0.5s ease-out, fadeOut 0.5s ease-in 2.5s forwards;
             display: flex;
             align-items: center;
@@ -549,7 +552,7 @@
             background: rgba(255, 255, 255, 0.9);
             border-radius: 30px;
             padding: 5px 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
             z-index: 20;
         }
         
@@ -570,51 +573,52 @@
             color: white;
         }
 
+        /* Optimized CTA Section */
         .class-cta-container {
             background: linear-gradient(135deg, #d35400, #e67e22);
-            border-radius: 18px;
-            padding: 25px;
-            margin: 25px 0 35px;
+            border-radius: 16px;
+            padding: 18px 20px;
+            margin: 20px 0 25px;
             display: flex;
             flex-direction: column;
             color: white;
             text-align: center;
-            box-shadow: 0 10px 35px rgba(230, 126, 34, 0.3);
-            border: 2px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 25px rgba(230, 126, 34, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             position: relative;
             overflow: hidden;
             cursor: pointer;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
         }
         
         .class-cta-container:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(230, 126, 34, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(230, 126, 34, 0.3);
         }
         
         .cta-header {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            letter-spacing: 0.3px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
+            gap: 10px;
         }
         
         .cta-header i {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             color: rgba(255, 255, 255, 0.85);
         }
         
         .cta-schedule {
             background: rgba(255, 255, 255, 0.12);
-            border-radius: 12px;
-            padding: 18px;
-            margin-bottom: 25px;
-            font-size: 1.1rem;
-            line-height: 1.6;
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
         
         .class-cta-container .salsa-text {
@@ -630,9 +634,9 @@
         }
         
         .cta-action {
-            font-size: 1.2rem;
+            font-size: 1.0rem;
             font-weight: 600;
-            padding: 15px;
+            padding: 12px;
             background: rgba(255, 255, 255, 0.2);
             border-radius: 50px;
             transition: all 0.3s ease;
@@ -640,40 +644,41 @@
         
         .cta-action:hover {
             background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.03);
+            transform: scale(1.02);
         }
         
         .cta-action i {
-            margin-left: 10px;
-            font-size: 1.1rem;
+            margin-left: 8px;
+            font-size: 0.9rem;
             animation: bounce 2s infinite;
         }
         
         .date-section {
             text-align: right;
-            margin: 0 0 25px auto;
-            padding: 12px 20px;
-            background: rgba(230, 126, 34, 0.08);
+            margin: 0 0 20px auto;
+            padding: 10px 16px;
+            background: rgba(230, 126, 34, 0.06);
             border-radius: 12px;
             display: inline-block;
             clear: both;
             color: #555;
             font-weight: 500;
+            font-size: 1.05rem;
         }
         
         .date-section strong {
             font-weight: 700;
-            color: #2c3e50;
+            color: #263445;
         }
         
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
+            50% { transform: translateY(-3px); }
         }
         
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.03); }
             100% { transform: scale(1); }
         }
         
@@ -691,16 +696,133 @@
             font-weight: 600;
             padding: 5px 12px;
             border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3);
+            box-shadow: 0 4px 15px rgba(155, 89, 182, 0.25);
             z-index: 2;
             animation: pulse 2s infinite;
             white-space: nowrap;
         }
         
         @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3); }
-            50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(155, 89, 182, 0.4); }
-            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3); }
+            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(155, 89, 182, 0.25); }
+            50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(155, 89, 182, 0.35); }
+            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(155, 89, 182, 0.25); }
+        }
+        
+        /* New polished styles */
+        .logo-container:after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(135deg, #d35400, #e67e22);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.2;
+            filter: blur(10px);
+        }
+        
+        .section-title {
+            letter-spacing: 0.8px;
+        }
+        
+        .link-card {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                        box-shadow 0.3s ease,
+                        border-color 0.3s ease;
+        }
+        
+        .link-icon {
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .registration-form {
+            border: 1px solid rgba(0, 0, 0, 0.02);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-input, .form-select {
+            border: 1px solid #e0e0e0;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.02);
+        }
+        
+        .submit-btn {
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .thank-you-message {
+            background: #fafafa;
+        }
+        
+        footer p:first-child {
+            font-weight: 500;
+            color: #444;
+            margin-bottom: 10px;
+        }
+        
+        .signature-line {
+            background: linear-gradient(to right, transparent, #e67e22, #d35400, transparent);
+        }
+        
+        .class-cta-container {
+            position: relative;
+            overflow: visible;
+        }
+        
+        .class-cta-container:before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #d35400, #e67e22);
+            border-radius: 18px;
+            z-index: -1;
+            opacity: 0.3;
+            filter: blur(8px);
+        }
+        
+        /* Brightness adjustments */
+        .container {
+            background-color: #ffffff; /* Pure white */
+        }
+        
+        body {
+            background: linear-gradient(135deg, #fafbfd, #f2f5f9); /* Brighter gradient */
+        }
+        
+        .link-card {
+            background-color: #ffffff; /* Pure white */
+        }
+        
+        .form-input, .form-select {
+            background-color: #ffffff; /* Pure white */
+        }
+        
+        .registration-form {
+            background-color: #ffffff; /* Pure white */
+        }
+        
+        .thank-you-message {
+            background-color: #ffffff; /* Pure white */
+        }
+        
+        /* Contrast improvements */
+        .link-title, .section-title, h1 {
+            color: #222; /* Darker text for better contrast */
+        }
+        
+        .link-subtitle, .tagline, .partner-notice {
+            color: #555; /* Slightly darker for better readability */
+        }
+        
+        .schedule-day-header {
+            color: #d35400; /* Brighter accent color */
         }
         
         @media (max-width: 768px) {
@@ -721,20 +843,25 @@
             }
             
             .cta-header {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             
             .cta-schedule {
-                font-size: 1.0rem;
-                padding: 15px;
+                font-size: 0.9rem;
+                padding: 10px;
             }
             
             .cta-action {
-                font-size: 1.1rem;
+                font-size: 0.95rem;
             }
         }
         
         @media (max-width: 480px) {
+            body {
+                font-size: 1.05rem;
+                padding: 15px;
+            }
+            
             .container {
                 padding: 30px 20px;
             }
@@ -784,21 +911,29 @@
             
             .cta-header {
                 flex-direction: column;
-                gap: 8px;
+                gap: 6px;
             }
             
             .cta-header i {
-                font-size: 1.4rem;
+                font-size: 1.2rem;
             }
             
             .cta-schedule {
-                font-size: 0.95rem;
-                padding: 12px;
+                font-size: 0.85rem;
+                padding: 8px 10px;
             }
             
             .cta-action {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+            
+            .schedule-day-header {
+                font-size: 1.05rem;
+            }
+            
+            .class-time, .class-name {
                 font-size: 1.0rem;
-                padding: 12px;
             }
         }
     </style>
@@ -851,6 +986,7 @@
       
       <h2 class="section-title translatable" data-i18n="classesTitle">Join Our Classes</h2>
       
+      <!-- Optimized CTA Section -->
       <div id="class-cta" class="class-cta-container">
         <div class="cta-header">
           <i class="fas fa-calendar-day pulse"></i>
@@ -871,6 +1007,7 @@
       <h3 class="section-title translatable" data-i18n="scheduleTitle">Class Schedule</h3>
       
       <div class="links-grid" id="schedule-grid">
+        <!-- Studio cards will be generated here -->
       </div>
       
       <div class="registration-form">
@@ -1087,8 +1224,13 @@
           icon: "stardust-icon",
           iconSymbol: "fas fa-star",
           schedule: [
-            { day: "Monday", time: "6:30pm", class: "Bachata" },
-            { day: "Thursday", time: "6:30pm", class: "Salsa & Bachata" }
+            { day: "Monday", time: "6:30pm", class: "Bachata Intro" },
+            { day: "Monday", time: "7:00pm", class: "Bachata Fundamentals" },
+            { day: "Monday", time: "8:00pm", class: "Bachata Next Level" },
+            { day: "Thursday", time: "6:30pm", class: "Intro to Salsa" },
+            { day: "Thursday", time: "7:00pm", class: "Salsa Open Level" },
+            { day: "Thursday", time: "8:00pm", class: "Bachata Open Level" },
+            { day: "Thursday", time: "9:15pm", class: "Bachata ELITE* (instructor approval required)" }
           ],
           url: "https://www.facebook.com/share/1TVjMczGK3/?mibextid=wwXIfr",
           id: "stardust",
@@ -1203,6 +1345,11 @@
               <div class="link-subtitle">${studio.location}</div>
               <div class="schedule-list">
         `;
+        
+        // Add "New" badge for Sensual City
+        if (studio.isNew) {
+          cardHTML += `<div class="new-class-badge">${currentLang === 'es' ? 'Nuevas Clases' : 'New Classes'}</div>`;
+        }
         
         const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         const todayIndex = new Date().getDay();
@@ -1356,9 +1503,9 @@
         if (registrationForm) {
           registrationForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
           
-          registrationForm.style.boxShadow = '0 0 0 3px rgba(230, 126, 34, 0.5)';
+          registrationForm.style.boxShadow = '0 0 0 3px rgba(230, 126, 34, 0.3)';
           setTimeout(() => {
-            registrationForm.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.04)';
+            registrationForm.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.03)';
           }, 1500);
         }
       });
