@@ -212,10 +212,6 @@
             background: linear-gradient(135deg, #2ac7c2, #1a8d88) !important;
         }
         
-        .sensual-icon {
-            background: linear-gradient(135deg, #9b59b6, #8e44ad) !important;
-        }
-        
         .contact-icon {
             background: linear-gradient(135deg, #2ac7c2, #3498db) !important;
         }
@@ -990,13 +986,12 @@
       <div id="class-cta" class="class-cta-container">
         <div class="cta-header">
           <i class="fas fa-calendar-day pulse"></i>
-          <div class="translatable" data-i18n="ctaTitle">Tomorrow's Classes at Stardust</div>
+          <div id="cta-title">Loading next class...</div>
           <i class="fas fa-star pulse"></i>
         </div>
         
-        <div class="cta-schedule">
-          6:30pm <span class="salsa-text">Salsa</span> | 7:00pm <span class="salsa-text">Salsa</span> | 
-          8:00pm <span class="bachata-text">Bachata</span>
+        <div class="cta-schedule" id="cta-schedule">
+          Loading schedule...
         </div>
         
         <div class="cta-action translatable" data-i18n="ctaAction">
@@ -1028,7 +1023,6 @@
               <option value="stardust" class="translatable" data-i18n="stardustOption">Stardust Ballroom</option>
               <option value="letsbailar" class="translatable" data-i18n="letsbailarOption">Let's Bailar</option>
               <option value="estilo" class="translatable" data-i18n="estiloOption">Estilo Dance Studio</option>
-              <option value="sensual" class="translatable" data-i18n="sensualOption">Sensual City</option>
             </select>
           </div>
           
@@ -1111,7 +1105,6 @@
           stardustOption: "Stardust Ballroom",
           letsbailarOption: "Let's Bailar",
           estiloOption: "Estilo Dance Studio",
-          sensualOption: "Sensual City",
           submitBtn: "Complete Registration",
           paymentTitle: "Payment Options",
           venmoTitle: "Venmo",
@@ -1126,9 +1119,11 @@
           thankYouTitle: "Thank You for Registering!",
           thankYouText: "We're excited to dance with you! Your spot is being saved.",
           registerAgain: "Register Another Person",
-          ctaTitle: "Tomorrow's Classes at Stardust",
           ctaAction: "Register Now",
-          cashNotification: "All locations accept cash. Exact change appreciated!"
+          cashNotification: "All locations accept cash. $20 day pass only at the icon cash",
+          todayText: "Today",
+          tomorrowText: "Tomorrow",
+          thisText: "This"
         },
         es: {
           title: "Rebecca Bachata",
@@ -1145,7 +1140,6 @@
           stardustOption: "Stardust Ballroom",
           letsbailarOption: "Let's Bailar",
           estiloOption: "Estilo Dance Studio",
-          sensualOption: "Sensual City",
           submitBtn: "Completar Registro",
           paymentTitle: "Opciones de Pago",
           venmoTitle: "Venmo",
@@ -1160,9 +1154,11 @@
           thankYouTitle: "¡Gracias por Registrarte!",
           thankYouText: "¡Estamos emocionados de bailar contigo! Tu lugar está siendo guardado.",
           registerAgain: "Registrar Otra Persona",
-          ctaTitle: "Clases de Mañana en Stardust",
           ctaAction: "Regístrate Ahora",
-          cashNotification: "Todas las ubicaciones aceptan efectivo. Se agradece el cambio exacto."
+          cashNotification: "Todas las ubicaciones aceptan efectivo. Pase diario de $20 solo en efectivo",
+          todayText: "Hoy",
+          tomorrowText: "Mañana",
+          thisText: "Este"
         }
       };
 
@@ -1207,6 +1203,7 @@
         
         updateCurrentDate();
         reorderStudioCards();
+        updateCTASection();
       }
 
       document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
@@ -1270,24 +1267,6 @@
             en: "Every Saturday • $20 day pass",
             es: "Todos los sábados • Pase diario $20"
           }
-        },
-        {
-          studio: "Sensual City",
-          location: "New York",
-          icon: "sensual-icon",
-          iconSymbol: "fas fa-building",
-          schedule: [
-            { day: "Tuesday", time: "8:00pm", class: "Intro Bachata" },
-            { day: "Tuesday", time: "9:00pm", class: "Sensual Fundamentals" },
-            { day: "Tuesday", time: "10:00pm", class: "Practica" }
-          ],
-          url: "#",
-          id: "sensual",
-          dayPassText: {
-            en: "Every Tuesday • $20 day pass",
-            es: "Todos los martes • Pase diario $20"
-          },
-          isNew: true
         }
       ];
 
@@ -1333,7 +1312,7 @@
         const { grouped, dayOrder } = groupScheduleByDay(studio.schedule);
         
         let cardHTML = `
-          <div class="link-card clickable ${studio.id} ${isActive ? 'active-studio' : ''}" 
+          <div class="link-card clickable ${studio.id}" 
                data-studio="${studio.studio}" 
                data-url="${studio.url}"
                id="${studio.id}-card">
@@ -1345,11 +1324,6 @@
               <div class="link-subtitle">${studio.location}</div>
               <div class="schedule-list">
         `;
-        
-        // Add "New" badge for Sensual City
-        if (studio.isNew) {
-          cardHTML += `<div class="new-class-badge">${currentLang === 'es' ? 'Nuevas Clases' : 'New Classes'}</div>`;
-        }
         
         const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         const todayIndex = new Date().getDay();
@@ -1470,6 +1444,91 @@
         return daysUntil * 24 * 60 + (hours * 60 + minutes - (currentHours * 60 + currentMinutes));
       }
 
+      // Function to find the next upcoming studio
+      function findNextUpcomingStudio() {
+        const now = new Date();
+        const currentDayIndex = now.getDay();
+        const currentHour = now.getHours();
+        const currentMinutes = now.getMinutes();
+
+        // Helper to convert time to minutes
+        const timeToMinutes = (timeStr) => {
+          const [time, modifier] = timeStr.toLowerCase().split(/(am|pm)/);
+          let [hours, minutes] = time.split(':').map(Number);
+          if (modifier === 'pm' && hours !== 12) hours += 12;
+          if (modifier === 'am' && hours === 12) hours = 0;
+          return hours * 60 + minutes;
+        };
+
+        let nextStudio = null;
+        let minTimeDiff = Infinity;
+
+        classSchedule.forEach(studio => {
+          studio.schedule.forEach(session => {
+            const sessionDayIndex = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].indexOf(session.day);
+            const sessionTimeMinutes = timeToMinutes(session.time);
+            
+            // Calculate time difference in minutes
+            let timeDiff = (sessionDayIndex - currentDayIndex) * 24 * 60 + 
+                          (sessionTimeMinutes - (currentHour * 60 + currentMinutes));
+            
+            // Adjust for next week if negative
+            if (timeDiff < 0) timeDiff += 7 * 24 * 60;
+            
+            if (timeDiff < minTimeDiff) {
+              minTimeDiff = timeDiff;
+              nextStudio = studio;
+            }
+          });
+        });
+
+        return nextStudio || classSchedule[0]; // Fallback to first studio
+      }
+
+      // Function to update the CTA section
+      function updateCTASection() {
+        const nextStudio = findNextUpcomingStudio();
+        const ctaContainer = document.getElementById('class-cta');
+        
+        if (!nextStudio) return;
+        
+        // Get the day for the next class
+        const now = new Date();
+        const nextClassDayIndex = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+          .indexOf(nextStudio.schedule[0].day);
+        const currentDayIndex = now.getDay();
+        
+        let dayText = '';
+        if (nextClassDayIndex === currentDayIndex) {
+          dayText = translations[currentLang]['todayText'];
+        } else if (nextClassDayIndex === (currentDayIndex + 1) % 7) {
+          dayText = translations[currentLang]['tomorrowText'];
+        } else {
+          dayText = translations[currentLang]['thisText'] + ' ' + 
+                    (dayTranslations[currentLang][nextStudio.schedule[0].day] || nextStudio.schedule[0].day);
+        }
+        
+        // Update CTA header
+        const ctaHeader = document.getElementById('cta-title');
+        ctaHeader.innerHTML = `${dayText}'s Classes at ${nextStudio.studio}`;
+        
+        // Update schedule
+        let scheduleHTML = '';
+        nextStudio.schedule.forEach((session, index) => {
+          let className = session.class
+            .replace(/Salsa/g, '<span class="salsa-text">Salsa</span>')
+            .replace(/Bachata/g, '<span class="bachata-text">Bachata</span>');
+          
+          if (index > 0) scheduleHTML += ' | ';
+          scheduleHTML += `${session.time} ${className}`;
+        });
+        
+        document.getElementById('cta-schedule').innerHTML = scheduleHTML;
+        
+        // Update data attribute for registration
+        ctaContainer.setAttribute('data-studio-id', nextStudio.id);
+      }
+
       function addClickHandlers() {
         const clickableElements = document.querySelectorAll('.clickable');
         
@@ -1495,20 +1554,26 @@
             }
           });
         });
-      }
-
-      const ctaContainer = document.getElementById('class-cta');
-      ctaContainer.addEventListener('click', function() {
-        const registrationForm = document.querySelector('.registration-form');
-        if (registrationForm) {
-          registrationForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        // Update CTA click handler
+        const ctaContainer = document.getElementById('class-cta');
+        ctaContainer.addEventListener('click', function() {
+          const studioId = this.getAttribute('data-studio-id');
+          if (studioId) {
+            document.getElementById('location').value = studioId;
+          }
           
-          registrationForm.style.boxShadow = '0 0 0 3px rgba(230, 126, 34, 0.3)';
-          setTimeout(() => {
-            registrationForm.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.03)';
-          }, 1500);
-        }
-      });
+          const registrationForm = document.querySelector('.registration-form');
+          if (registrationForm) {
+            registrationForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            registrationForm.style.boxShadow = '0 0 0 3px rgba(230, 126, 34, 0.3)';
+            setTimeout(() => {
+              registrationForm.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.03)';
+            }, 1500);
+          }
+        });
+      }
 
       function initPage() {
         updateCurrentDate();
@@ -1516,6 +1581,10 @@
         
         reorderStudioCards();
         setInterval(reorderStudioCards, 900000);
+        
+        // Initialize CTA section
+        updateCTASection();
+        setInterval(updateCTASection, 60000); // Update every minute
         
         const registrationForm = document.getElementById('dance-registration');
         const thankYouMessage = document.getElementById('thank-you-message');
