@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rebecca Bachata | Professional Dance Instruction</title>
+    <title>Daniel & Rebecca | Professional Dance Instruction</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
         
         body {
@@ -21,14 +21,9 @@
             align-items: center;
             padding: 30px 20px;
             overflow-x: hidden;
-            position: relative;
+            background: linear-gradient(135deg, #f0f4ff, #e6ebff);
             color: #333;
-            background: linear-gradient(135deg, #f8f9fb, #f0f3f7);
             line-height: 1.65;
-            font-size: 1.08rem;
-            letter-spacing: 0.3px;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
         
         .container {
@@ -41,8 +36,8 @@
             z-index: 10;
             margin: 0;
             padding: 40px 30px;
-            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.03);
+            box-shadow: 0 15px 50px rgba(93, 84, 164, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.8);
         }
         
         .header-container {
@@ -53,9 +48,9 @@
         
         .logo-container {
             position: relative;
-            width: 140px;
-            height: 140px;
-            margin: 0 auto 25px;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
             transition: transform 0.3s ease;
         }
         
@@ -66,19 +61,19 @@
         .logo {
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #d35400, #e67e22);
+            background: linear-gradient(135deg, #5d54a4, #6a5acd, #3498db);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(230, 126, 34, 0.2);
+            box-shadow: 0 10px 30px rgba(93, 84, 164, 0.2);
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         
         .logo i {
-            font-size: 60px;
+            font-size: 50px;
             color: #fff;
             z-index: 2;
             transition: transform 0.5s ease;
@@ -89,30 +84,32 @@
         }
         
         h1 {
-            font-size: 2.6rem;
+            font-size: 2.4rem;
             font-weight: 800;
             margin-bottom: 15px;
             letter-spacing: 0.5px;
-            color: #263445;
+            color: #2c3e50;
             position: relative;
             display: inline-block;
             font-family: 'Playfair Display', serif;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.03);
         }
         
         .tagline {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 400;
-            color: #555;
+            color: #5d54a4;
             margin: 15px auto 0;
             max-width: 600px;
             line-height: 1.7;
             font-weight: 500;
+            letter-spacing: 0.4px;
         }
         
         .divider {
             height: 4px;
             width: 100px;
-            background: linear-gradient(to right, #d35400, #e67e22);
+            background: linear-gradient(to right, #5d54a4, #6a5acd, #3498db);
             border-radius: 3px;
             margin: 25px auto;
         }
@@ -125,9 +122,10 @@
             position: relative;
             display: block;
             width: 100%;
-            color: #263445;
+            color: #2c3e50;
             padding-bottom: 12px;
             font-family: 'Playfair Display', serif;
+            letter-spacing: 0.3px;
         }
         
         .section-title::after {
@@ -138,14 +136,98 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background: linear-gradient(to right, #d35400, #e67e22);
+            background: linear-gradient(to right, #5d54a4, #6a5acd, #3498db);
             border-radius: 2px;
         }
         
-        .content {
-            padding: 0 15px 10px;
+        /* MINIMAL INSTRUCTOR CARDS */
+        .instructors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
         }
         
+        .instructor-card {
+            background: #fff;
+            border-radius: 18px;
+            padding: 30px;
+            border: 1px solid #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            min-height: 160px;
+            transition: all 0.4s ease;
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.04);
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .instructor-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(93, 84, 164, 0.15);
+            border-color: rgba(93, 84, 164, 0.3);
+        }
+        
+        .instructor-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, #5d54a4, #6a5acd, #3498db);
+            z-index: 1;
+        }
+        
+        .instructor-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #5d54a4;
+            text-align: center;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 3;
+        }
+        
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .social-icon.facebook {
+            background: linear-gradient(135deg, #1877f2, #3b5998);
+        }
+        
+        .social-icon.instagram {
+            background: linear-gradient(135deg, #e1306c, #c13584);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* CLASS SCHEDULE */
         .links-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -156,22 +238,21 @@
         .link-card {
             background: #fff;
             border-radius: 18px;
-            padding: 28px;
+            padding: 25px;
             border: 1px solid #f0f2f5;
             display: flex;
             align-items: flex-start;
             position: relative;
             overflow: hidden;
-            min-height: 120px;
-            cursor: pointer;
+            min-height: 180px;
             transition: all 0.4s ease;
             box-shadow: 0 6px 22px rgba(0, 0, 0, 0.04);
         }
         
         .link-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-            border-color: rgba(230, 126, 34, 0.25);
+            box-shadow: 0 15px 35px rgba(93, 84, 164, 0.1);
+            border-color: rgba(93, 84, 164, 0.2);
         }
         
         .link-icon {
@@ -185,23 +266,15 @@
             border-radius: 14px;
             flex-shrink: 0;
             color: white;
-            background: #e67e22;
+            background: #6a5acd;
             box-shadow: 0 5px 12px rgba(0,0,0,0.08);
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
         }
         
-        .facebook .link-icon {
-            background: linear-gradient(135deg, #1877f2, #3b5998);
-        }
-        
-        .instagram .link-icon {
-            background: linear-gradient(135deg, #e1306c, #c13584);
-        }
-        
         .stardust-icon {
-            background: linear-gradient(135deg, #d35400, #e67e22) !important;
+            background: linear-gradient(135deg, #5d54a4, #6a5acd) !important;
         }
         
         .letsbailar-icon {
@@ -209,19 +282,7 @@
         }
         
         .estilo-icon {
-            background: linear-gradient(135deg, #2ac7c2, #1a8d88) !important;
-        }
-        
-        .contact-icon {
-            background: linear-gradient(135deg, #2ac7c2, #3498db) !important;
-        }
-        
-        .venmo .link-icon {
-            background: linear-gradient(135deg, #2d7db0, #0066cc) !important;
-        }
-        
-        .cash .link-icon {
-            background: linear-gradient(135deg, #27ae60, #1d8c4f) !important;
+            background: linear-gradient(135deg, #5d54a4, #1a8d88) !important;
         }
         
         .link-text {
@@ -232,13 +293,13 @@
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 8px;
-            color: #263445;
+            color: #2c3e50;
             letter-spacing: 0.3px;
         }
         
         .link-subtitle {
             font-size: 1.05rem;
-            color: #555;
+            color: #5d54a4;
             line-height: 1.5;
             margin-bottom: 10px;
             font-weight: 500;
@@ -255,7 +316,7 @@
         
         .schedule-day-header {
             font-weight: 700;
-            color: #e67e22;
+            color: #6a5acd;
             margin-bottom: 10px;
             padding-bottom: 3px;
             border-bottom: 1px dashed #e0e0e0;
@@ -272,7 +333,7 @@
         .class-time {
             font-weight: 600;
             min-width: 65px;
-            color: #263445;
+            color: #2c3e50;
             font-size: 1.05rem;
         }
         
@@ -296,13 +357,7 @@
             border-radius: 3px;
         }
         
-        .today .schedule-day-header {
-            background: linear-gradient(to right, rgba(230, 126, 34, 0.08), transparent);
-            border-radius: 4px;
-            padding: 3px 8px;
-            margin-right: -8px;
-        }
-        
+        /* REGISTRATION FORM */
         .registration-form {
             background: #fdfdfd;
             border-radius: 18px;
@@ -318,7 +373,7 @@
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 20px;
-            color: #263445;
+            color: #2c3e50;
             text-align: center;
             position: relative;
             padding-bottom: 15px;
@@ -334,18 +389,23 @@
             transform: translateX(-50%);
             width: 100px;
             height: 4px;
-            background: linear-gradient(to right, #d35400, #e67e22);
+            background: linear-gradient(to right, #5d54a4, #6a5acd, #3498db);
             border-radius: 2px;
         }
         
         .partner-notice {
             text-align: center;
             margin-bottom: 30px;
-            color: #555;
+            color: #5d54a4;
             font-size: 1.15rem;
             font-weight: 500;
             display: block;
             line-height: 1.7;
+            position: relative;
+            padding: 15px;
+            background: rgba(93, 84, 164, 0.03);
+            border-radius: 10px;
+            border: 1px dashed rgba(93, 84, 164, 0.3);
         }
         
         .form-group {
@@ -369,9 +429,9 @@
         
         .form-input:focus {
             outline: none;
-            border-color: #e67e22;
+            border-color: #6a5acd;
             background: #fff;
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.12);
+            box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.12);
         }
         
         .form-input::placeholder {
@@ -388,7 +448,7 @@
             color: #333;
             font-size: 1.1rem;
             appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d35400'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%235d54a4'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 18px center;
             background-size: 20px;
@@ -398,13 +458,13 @@
         
         .form-select:focus {
             outline: none;
-            border-color: #e67e22;
+            border-color: #6a5acd;
             background: #fff;
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.12);
+            box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.12);
         }
         
         .submit-btn {
-            background: linear-gradient(135deg, #d35400, #e67e22);
+            background: linear-gradient(135deg, #5d54a4, #6a5acd, #3498db);
             color: #fff;
             border: none;
             border-radius: 12px;
@@ -419,64 +479,26 @@
             overflow: hidden;
             display: block;
             letter-spacing: 0.5px;
-            box-shadow: 0 8px 25px rgba(230, 126, 34, 0.15);
+            box-shadow: 0 8px 25px rgba(106, 90, 205, 0.15);
         }
         
         .submit-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(230, 126, 34, 0.25);
+            box-shadow: 0 12px 30px rgba(106, 90, 205, 0.25);
         }
         
         .submit-btn:active {
             transform: translateY(1px);
         }
         
-        .thank-you-message {
-            display: none;
-            text-align: center;
-            padding: 40px 30px;
-            border-radius: 18px;
-            background: #fff;
-            margin-top: 20px;
-            border: 1px solid #eee;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.02);
-        }
-        
-        .thank-you-message h3 {
-            font-size: 1.8rem;
-            color: #263445;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 15px;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .thank-you-message h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(to right, #d35400, #e67e22);
-            border-radius: 2px;
-        }
-        
-        .thank-you-message p {
-            font-size: 1.15rem;
-            margin-bottom: 30px;
-            color: #555;
-            line-height: 1.7;
-        }
-        
+        /* FOOTER */
         footer {
-            margin-top: 40px;
+            margin-top: 60px;
             padding: 30px 20px 20px;
             text-align: center;
-            color: #555;
-            font-size: 1.05rem;
-            border-top: 1px solid #eee;
+            color: #5d54a4;
+            font-size: 1.1rem;
+            border-top: 1px solid rgba(93, 84, 164, 0.2);
             line-height: 1.7;
             position: relative;
         }
@@ -493,308 +515,55 @@
         .signature-line {
             width: 200px;
             height: 2px;
-            background: linear-gradient(to right, transparent, #d35400, #e67e22, transparent);
+            background: linear-gradient(to right, transparent, #5d54a4, #6a5acd, #3498db, transparent);
             position: relative;
             transition: all 0.4s ease;
         }
         
         .signature-line:hover {
             height: 3px;
-            background: linear-gradient(to right, transparent, #e67e22, #d35400, transparent);
+            background: linear-gradient(to right, transparent, #6a5acd, #5d54a4, #3498db, transparent);
         }
         
-        .notification {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 500;
-            z-index: 1000;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-            animation: slideIn 0.5s ease-out, fadeOut 0.5s ease-in 2.5s forwards;
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        /* Animation for page load */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        .notification-success {
-            background: linear-gradient(to right, #27ae60, #2ecc71);
-            color: white;
+        .header-container, .instructor-card, .link-card {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
         }
         
-        .notification-info {
-            background: linear-gradient(to right, #3498db, #2980b9);
-            color: white;
-        }
+        .instructor-card:nth-child(1) { animation-delay: 0.1s; }
+        .instructor-card:nth-child(2) { animation-delay: 0.2s; }
+        .link-card:nth-child(1) { animation-delay: 0.3s; }
+        .link-card:nth-child(2) { animation-delay: 0.4s; }
+        .link-card:nth-child(3) { animation-delay: 0.5s; }
         
-        @keyframes slideIn {
-            from { bottom: -100px; opacity: 0; }
-            to { bottom: 30px; opacity: 1; }
-        }
-        
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; bottom: -100px; }
-        }
-        
-        /* Optimized CTA Section Only */
-        .class-cta-container {
-            background: linear-gradient(135deg, #f9f7f3, #fdfcf9);
-            border-radius: 16px;
-            padding: 25px 30px;
-            margin: 20px 0 25px;
-            display: flex;
-            flex-direction: column;
-            color: #2c3e50;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e8e4dc;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .class-cta-container:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-        }
-        
-        .cta-header {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            letter-spacing: 0.3px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            color: #d35400;
-        }
-        
-        .cta-header i {
-            font-size: 1.4rem;
-            color: #d35400;
-        }
-        
-        .cta-schedule {
-            background: rgba(230, 126, 34, 0.05);
-            border-radius: 10px;
-            padding: 12px 15px;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            color: #2c3e50;
-        }
-        
-        .cta-action {
-            font-size: 1.1rem;
-            font-weight: 600;
-            padding: 14px;
-            background: linear-gradient(135deg, #d35400, #e67e22);
-            color: white;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.15);
-        }
-        
-        .cta-action:hover {
-            background: linear-gradient(135deg, #c14f00, #d3731f);
-            transform: scale(1.02);
-        }
-        
-        .cta-action i {
-            margin-left: 8px;
-            font-size: 0.9rem;
-            animation: bounce 2s infinite;
-        }
-        
-        .date-section {
-            text-align: right;
-            margin: 0 0 20px auto;
-            padding: 10px 16px;
-            background: rgba(230, 126, 34, 0.06);
-            border-radius: 12px;
-            display: inline-block;
-            clear: both;
-            color: #555;
-            font-weight: 500;
-            font-size: 1.05rem;
-        }
-        
-        .date-section strong {
-            font-weight: 700;
-            color: #263445;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-3px); }
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-            100% { transform: scale(1); }
-        }
-        
-        .pulse {
-            animation: pulse 1.5s infinite;
-        }
-        
-        .new-class-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: linear-gradient(135deg, #9b59b6, #8e44ad);
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 5px 12px;
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(155, 89, 182, 0.25);
-            z-index: 2;
-            animation: pulse 2s infinite;
-            white-space: nowrap;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(155, 89, 182, 0.25); }
-            50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(155, 89, 182, 0.35); }
-            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(155, 89, 182, 0.25); }
-        }
-        
-        .class-cta-container:before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(135deg, #d35400, #e67e22);
-            border-radius: 18px;
-            z-index: -1;
-            opacity: 0.1;
-            filter: blur(8px);
-        }
-        
-        /* Enhanced Language Switcher at Bottom */
-        .lang-switcher-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 35px;
-            padding-top: 25px;
-            border-top: 1px solid rgba(0,0,0,0.05);
-        }
-        
-        .lang-switcher {
-            display: flex;
-            gap: 0;
-            background: #f9f9f9;
-            border-radius: 40px;
-            padding: 5px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            position: relative;
-            z-index: 20;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-        
-        .lang-btn {
-            background: transparent;
-            border: none;
-            color: #555;
-            border-radius: 40px;
-            padding: 10px 30px;
-            font-size: 1.05rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .lang-btn.active {
-            background: linear-gradient(135deg, #d35400, #e67e22);
-            color: white;
-            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.2);
-        }
-        
-        .lang-btn:not(.active):hover {
-            color: #e67e22;
-        }
-        
-        .lang-label {
-            position: absolute;
-            top: -28px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #e67e22;
-            white-space: nowrap;
-        }
-        
-        .lang-switcher:after {
-            content: '';
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            height: calc(100% - 10px);
-            width: calc(50% - 5px);
-            background: white;
-            border-radius: 40px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            z-index: 1;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        
-        .lang-switcher.es:after {
-            transform: translateX(100%);
-        }
-        
-        /* Media query adjustments */
+        /* Responsive design */
         @media (max-width: 768px) {
-            .links-grid {
-                grid-template-columns: 1fr;
-            }
-            
             h1 {
                 font-size: 2.2rem;
-            }
-            
-            .tagline {
-                font-size: 1.15rem;
             }
             
             .section-title {
                 font-size: 1.6rem;
             }
             
-            .cta-header {
-                font-size: 1.1rem;
+            .instructor-card {
+                min-height: 150px;
+                padding: 25px;
             }
             
-            .cta-schedule {
-                font-size: 0.9rem;
-                padding: 10px;
-            }
-            
-            .cta-action {
-                font-size: 0.95rem;
-            }
-            
-            .lang-btn {
-                padding: 10px 25px;
-                font-size: 0.95rem;
+            .instructor-name {
+                font-size: 1.6rem;
             }
         }
         
         @media (max-width: 480px) {
             body {
-                font-size: 1.05rem;
                 padding: 15px;
             }
             
@@ -802,66 +571,26 @@
                 padding: 30px 20px;
             }
             
-            .logo-container {
-                width: 110px;
-                height: 110px;
-            }
-            
-            .logo i {
-                font-size: 50px;
-            }
-            
             h1 {
                 font-size: 1.9rem;
-            }
-            
-            .tagline {
-                font-size: 1.05rem;
             }
             
             .section-title {
                 font-size: 1.4rem;
             }
             
-            .link-card {
-                padding: 22px;
+            .instructor-card {
+                min-height: 140px;
+                padding: 20px;
             }
             
-            .link-icon {
-                width: 50px;
-                height: 50px;
+            .instructor-name {
                 font-size: 1.5rem;
             }
             
-            .cta-header {
-                flex-direction: column;
-                gap: 6px;
-            }
-            
-            .cta-header i {
-                font-size: 1.2rem;
-            }
-            
-            .cta-schedule {
-                font-size: 0.85rem;
-                padding: 8px 10px;
-            }
-            
-            .cta-action {
-                font-size: 0.9rem;
-                padding: 10px;
-            }
-            
-            .schedule-day-header {
-                font-size: 1.05rem;
-            }
-            
-            .class-time, .class-name {
-                font-size: 1.0rem;
-            }
-            
-            .lang-btn {
-                padding: 8px 20px;
+            .social-icon {
+                width: 32px;
+                height: 32px;
                 font-size: 0.9rem;
             }
         }
@@ -875,66 +604,46 @@
           <i class="fas fa-music"></i>
         </div>
       </div>
-      <h1 class="translatable" data-i18n="title">Rebecca Bachata</h1>
+      <h1>Daniel & Rebecca</h1>
       <div class="divider"></div>
-      <p class="tagline translatable" data-i18n="tagline">Professional Bachata Instruction | Express Yourself Through Movement</p>
+      <p class="tagline">Professional Dance Instruction</p>
     </div>
     
     <div class="content">
-      <h2 class="section-title translatable" data-i18n="connectTitle">Connect With Me</h2>
+      <!-- Minimal Instructor Cards -->
+      <h2 class="section-title">Our Instructors</h2>
+      <div class="instructors-grid">
+        <!-- Rebecca Card -->
+        <div class="instructor-card">
+          <div class="social-icons">
+            <div class="social-icon facebook">
+              <i class="fab fa-facebook-f"></i>
+            </div>
+            <div class="social-icon instagram">
+              <i class="fab fa-instagram"></i>
+            </div>
+          </div>
+          <h3 class="instructor-name">Rebecca</h3>
+        </div>
+        
+        <!-- Daniel Card -->
+        <div class="instructor-card">
+          <div class="social-icons">
+            <div class="social-icon facebook">
+              <i class="fab fa-facebook-f"></i>
+            </div>
+            <div class="social-icon instagram">
+              <i class="fab fa-instagram"></i>
+            </div>
+          </div>
+          <h3 class="instructor-name">Daniel</h3>
+        </div>
+      </div>
+      
+      <!-- Class Schedule -->
+      <h2 class="section-title">Class Schedule</h2>
       <div class="links-grid">
-        <div class="link-card clickable facebook" data-url="https://www.facebook.com/share/1AXtp11f9N/?mibextid=wwXIfr">
-          <div class="link-icon">
-            <i class="fab fa-facebook-f"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title">Rebecca Bachata</div>
-            <div class="link-subtitle translatable" data-i18n="facebookSub">Facebook Profile</div>
-          </div>
-        </div>
-        
-        <div class="link-card clickable instagram" data-url="https://www.instagram.com/rebecca_bachata?igsh=MWY1cHI4c2Z0a21zcw==">
-          <div class="link-icon">
-            <i class="fab fa-instagram"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title translatable" data-i18n="instagramTitle">Instagram</div>
-            <div class="link-subtitle">@rebecca_bachata</div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="date-section" id="current-date-discreet">
-        <strong class="translatable" data-i18n="today">Today is:</strong> <span id="date-text">Loading date...</span>
-      </div>
-      
-      <h2 class="section-title translatable" data-i18n="classesTitle">Join Our Classes</h2>
-      
-      <!-- Optimized CTA Section -->
-      <div id="class-cta" class="class-cta-container">
-        <div class="cta-header">
-          <i class="fas fa-calendar-day pulse"></i>
-          <div id="cta-title">Today's Classes at Stardust Ballroom</div>
-          <i class="fas fa-star pulse"></i>
-        </div>
-        
-        <div class="cta-schedule" id="cta-schedule">
-          6:30pm Bachata Intro | 7:00pm Bachata Fundamentals | 8:00pm Bachata Next Level
-        </div>
-        
-        <div class="cta-action translatable" data-i18n="ctaAction">
-          Register Now <i class="fas fa-arrow-down"></i>
-        </div>
-      </div>
-      
-      <h3 class="section-title translatable" data-i18n="scheduleTitle">Class Schedule</h3>
-      
-      <div class="links-grid" id="schedule-grid">
-        <!-- Studio cards will be generated here -->
-        <div class="link-card clickable stardust" 
-             data-studio="Stardust Ballroom" 
-             data-url="#"
-             id="stardust-card">
+        <div class="link-card">
           <div class="link-icon stardust-icon">
             <i class="fas fa-star"></i>
           </div>
@@ -942,7 +651,7 @@
             <div class="link-title">Stardust Ballroom</div>
             <div class="link-subtitle">Bellmawr, New Jersey</div>
             <div class="schedule-list">
-              <div class="schedule-day-group today">
+              <div class="schedule-day-group">
                 <div class="schedule-day-header">Monday</div>
                 <div class="schedule-class">
                   <span class="class-time">6:30pm</span>
@@ -951,10 +660,6 @@
                 <div class="schedule-class">
                   <span class="class-time">7:00pm</span>
                   <span class="class-name"><span class="bachata-text">Bachata</span> Fundamentals</span>
-                </div>
-                <div class="schedule-class">
-                  <span class="class-time">8:00pm</span>
-                  <span class="class-name"><span class="bachata-text">Bachata</span> Next Level</span>
                 </div>
               </div>
               <div class="schedule-day-group">
@@ -967,19 +672,12 @@
                   <span class="class-time">7:00pm</span>
                   <span class="class-name"><span class="salsa-text">Salsa</span> Open Level</span>
                 </div>
-                <div class="schedule-class">
-                  <span class="class-time">8:00pm</span>
-                  <span class="class-name"><span class="bachata-text">Bachata</span> Open Level</span>
-                </div>
               </div>
             </div>
           </div>
         </div>
         
-        <div class="link-card clickable letsbailar" 
-             data-studio="Let's Bailar Dance Studio" 
-             data-url="#"
-             id="letsbailar-card">
+        <div class="link-card">
           <div class="link-icon letsbailar-icon">
             <i class="fas fa-city"></i>
           </div>
@@ -1002,10 +700,7 @@
           </div>
         </div>
         
-        <div class="link-card clickable estilo" 
-             data-studio="Estilo Dance Studio" 
-             data-url="#"
-             id="estilo-card">
+        <div class="link-card">
           <div class="link-icon estilo-icon">
             <i class="fas fa-building"></i>
           </div>
@@ -1029,9 +724,10 @@
         </div>
       </div>
       
+      <!-- Registration Form -->
       <div class="registration-form">
-        <div class="form-title translatable" data-i18n="registrationTitle">Class Registration</div>
-        <div class="partner-notice translatable" data-i18n="partnerNotice">No partner needed - come dance with us!</div>
+        <div class="form-title">Class Registration</div>
+        <div class="partner-notice">No partner needed - come dance with us!</div>
         <form id="dance-registration">
           <div class="form-group">
             <input type="text" id="name" class="form-input" placeholder="Full Name" required>
@@ -1043,78 +739,47 @@
           
           <div class="form-group">
             <select id="location" class="form-select" required>
-              <option value="" class="translatable" data-i18n="selectLocation">Select class location</option>
-              <option value="stardust" class="translatable" data-i18n="stardustOption">Stardust Ballroom</option>
-              <option value="letsbailar" class="translatable" data-i18n="letsbailarOption">Let's Bailar</option>
-              <option value="estilo" class="translatable" data-i18n="estiloOption">Estilo Dance Studio</option>
+              <option value="">Select class location</option>
+              <option value="stardust">Stardust Ballroom</option>
+              <option value="letsbailar">Let's Bailar</option>
+              <option value="estilo">Estilo Dance Studio</option>
             </select>
           </div>
           
-          <div id="location-schedule-display"></div>
-          
-          <button type="submit" class="submit-btn translatable" data-i18n="submitBtn">Complete Registration</button>
+          <button type="submit" class="submit-btn">Complete Registration</button>
         </form>
-        
-        <div id="thank-you-message" class="thank-you-message">
-          <h3 class="translatable" data-i18n="thankYouTitle">Thank You for Registering!</h3>
-          <p class="translatable" data-i18n="thankYouText">We're excited to dance with you! Your spot is being saved.</p>
-          <button class="submit-btn" id="register-again-btn" style="margin-top: 20px;">
-            <span class="translatable" data-i18n="registerAgain">Register Another Person</span>
-          </button>
-        </div>
       </div>
       
-      <h2 class="section-title translatable" data-i18n="paymentTitle">Payment Options</h2>
+      <!-- Payment Options -->
+      <h2 class="section-title">Payment Options</h2>
       <div class="links-grid">
-        <div class="link-card clickable venmo" data-url="https://venmo.com/code?user_id=2575920015605760344&created=1750346816">
+        <div class="link-card">
           <div class="link-icon">
             <i class="fab fa-vimeo-v"></i>
           </div>
           <div class="link-text">
-            <div class="link-title translatable" data-i18n="venmoTitle">Venmo</div>
-            <div class="link-subtitle translatable" data-i18n="venmoSub">Secure payment option</div>
+            <div class="link-title">Venmo</div>
+            <div class="link-subtitle">Secure payment option</div>
           </div>
         </div>
         
-        <div class="link-card clickable cash">
+        <div class="link-card">
           <div class="link-icon">
             <i class="fas fa-money-bill-wave"></i>
           </div>
           <div class="link-text">
-            <div class="link-title translatable" data-i18n="cashTitle">Cash</div>
-            <div class="link-subtitle translatable" data-i18n="cashSub">Pay at the studio</div>
-          </div>
-        </div>
-      </div>
-      
-      <h2 class="section-title translatable" data-i18n="contactTitle">Contact Me</h2>
-      <div class="links-grid">
-        <div class="link-card clickable contact" data-url="mailto:rebecca@bachata.com">
-          <div class="link-icon contact-icon">
-            <i class="fas fa-envelope"></i>
-          </div>
-          <div class="link-text">
-            <div class="link-title translatable" data-i18n="inquiriesTitle">Professional Inquiries</div>
-            <div class="link-subtitle translatable" data-i18n="inquiriesSub">Bookings and partnerships</div>
+            <div class="link-title">Cash</div>
+            <div class="link-subtitle">Pay at the studio</div>
           </div>
         </div>
       </div>
       
       <footer>
-        <p class="translatable" data-i18n="copyright">© 2025 Rebecca Bachata | Professional Instruction</p>
-        <p class="translatable" data-i18n="quote">Dance is the poetry of the foot</p>
+        <p>© 2025 DanceFirstStep | Professional Instruction</p>
+        <p>Passion in Motion | Excellence in Dance</p>
         
         <div class="signature-container">
           <div class="signature-line" id="signature-line"></div>
-        </div>
-        
-        <!-- Enhanced Language Switcher at Bottom -->
-        <div class="lang-switcher-container">
-          <div class="lang-label translatable" data-i18n="language">Language</div>
-          <div class="lang-switcher en">
-            <button class="lang-btn active" id="lang-en" data-lang="en">EN</button>
-            <button class="lang-btn" id="lang-es" data-lang="es">ES</button>
-          </div>
         </div>
       </footer>
     </div>
@@ -1122,287 +787,58 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const translations = {
-        en: {
-          title: "Rebecca Bachata",
-          tagline: "Professional Bachata Instruction | Express Yourself Through Movement",
-          today: "Today is:",
-          connectTitle: "Connect With Me",
-          facebookSub: "Facebook Profile",
-          instagramTitle: "Instagram",
-          classesTitle: "Join Our Classes",
-          scheduleTitle: "Class Schedule",
-          registrationTitle: "Class Registration",
-          partnerNotice: "No partner needed - come dance with us!",
-          selectLocation: "Select class location",
-          stardustOption: "Stardust Ballroom",
-          letsbailarOption: "Let's Bailar",
-          estiloOption: "Estilo Dance Studio",
-          submitBtn: "Complete Registration",
-          paymentTitle: "Payment Options",
-          venmoTitle: "Venmo",
-          venmoSub: "Secure payment option",
-          cashTitle: "Cash",
-          cashSub: "Pay at the studio",
-          contactTitle: "Contact Me",
-          inquiriesTitle: "Professional Inquiries",
-          inquiriesSub: "Bookings and partnerships",
-          copyright: "© 2025 Rebecca Bachata | Professional Instruction",
-          quote: "Dance is the poetry of the foot",
-          thankYouTitle: "Thank You for Registering!",
-          thankYouText: "We're excited to dance with you! Your spot is being saved.",
-          registerAgain: "Register Another Person",
-          ctaAction: "Register Now",
-          cashNotification: "All locations accept cash. $20 day pass only at the icon cash",
-          todayText: "Today",
-          tomorrowText: "Tomorrow",
-          thisText: "This",
-          language: "Language"
-        },
-        es: {
-          title: "Rebecca Bachata",
-          tagline: "Instrucción profesional de Bachata | Exprésate a través del movimiento",
-          today: "Hoy es:",
-          connectTitle: "Conéctate Conmigo",
-          facebookSub: "Perfil de Facebook",
-          instagramTitle: "Instagram",
-          classesTitle: "Únete a Nuestras Clases",
-          scheduleTitle: "Horario de Clases",
-          registrationTitle: "Registro de Clases",
-          partnerNotice: "No necesitas pareja - ¡ven a bailar con nosotros!",
-          selectLocation: "Selecciona ubicación de clase",
-          stardustOption: "Stardust Ballroom",
-          letsbailarOption: "Let's Bailar",
-          estiloOption: "Estilo Dance Studio",
-          submitBtn: "Completar Registro",
-          paymentTitle: "Opciones de Pago",
-          venmoTitle: "Venmo",
-          venmoSub: "Opción de pago segura",
-          cashTitle: "Efectivo",
-          cashSub: "Paga en el estudio",
-          contactTitle: "Contáctame",
-          inquiriesTitle: "Consultas Profesionales",
-          inquiriesSub: "Reservas y asociaciones",
-          copyright: "© 2025 Rebecca Bachata | Instrucción Profesional",
-          quote: "El baile es la poesía del pie",
-          thankYouTitle: "¡Gracias por Registrarte!",
-          thankYouText: "¡Estamos emocionados de bailar contigo! Tu lugar está siendo guardado.",
-          registerAgain: "Registrar Otra Persona",
-          ctaAction: "Regístrate Ahora",
-          cashNotification: "Todas las ubicaciones aceptan efectivo. Pase diario de $20 solo en efectivo",
-          todayText: "Hoy",
-          tomorrowText: "Mañana",
-          thisText: "Este",
-          language: "Idioma"
-        }
-      };
-
-      const dayTranslations = {
-        en: {
-          "Sunday": "Sunday",
-          "Monday": "Monday",
-          "Tuesday": "Tuesday",
-          "Wednesday": "Wednesday",
-          "Thursday": "Thursday",
-          "Friday": "Friday",
-          "Saturday": "Saturday"
-        },
-        es: {
-          "Sunday": "Domingo",
-          "Monday": "Lunes",
-          "Tuesday": "Martes",
-          "Wednesday": "Miércoles",
-          "Thursday": "Jueves",
-          "Friday": "Viernes",
-          "Saturday": "Sábado"
-        }
-      };
-
-      let currentLang = 'en';
-
-      function setLanguage(lang) {
-        if (lang === currentLang) return;
-        
-        currentLang = lang;
-        localStorage.setItem('danceLang', lang);
-        
-        document.querySelectorAll('.translatable').forEach(el => {
-          const key = el.getAttribute('data-i18n');
-          if (translations[lang][key]) {
-            el.innerHTML = translations[lang][key];
-          }
+      // Set current date
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      
+      // Instructor card hover effects
+      const cards = document.querySelectorAll('.instructor-card');
+      
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-8px)';
         });
         
-        document.getElementById('lang-en').classList.toggle('active', lang === 'en');
-        document.getElementById('lang-es').classList.toggle('active', lang === 'es');
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0)';
+        });
+      });
+      
+      // Form submission
+      const registrationForm = document.getElementById('dance-registration');
+      
+      registrationForm.addEventListener('submit', function(e) {
+        e.preventDefault();
         
-        // Update switcher visual state
-        const switcher = document.querySelector('.lang-switcher');
-        switcher.classList.toggle('en', lang === 'en');
-        switcher.classList.toggle('es', lang === 'es');
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const location = document.getElementById('location').value;
         
-        updateCurrentDate();
-      }
-
-      document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
-      document.getElementById('lang-es').addEventListener('click', () => setLanguage('es'));
-
-      const savedLang = localStorage.getItem('danceLang');
-      if (savedLang && ['en', 'es'].includes(savedLang)) {
-        setLanguage(savedLang);
-      }
-
-      function updateCurrentDate() {
-        const now = new Date();
-        const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
-        
-        let weekday, month, day, year, dateString;
-        
-        if (currentLang === 'es') {
-            weekday = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'][now.getDay()];
-            month = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'][now.getMonth()];
-            day = now.getDate();
-            year = now.getFullYear();
-            dateString = `${weekday}, ${day} de ${month} de ${year}`;
-        } else {
-            weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][now.getDay()];
-            month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][now.getMonth()];
-            day = now.getDate();
-            year = now.getFullYear();
-            dateString = `${weekday}, ${month} ${day}, ${year}`;
+        if (!name.trim()) {
+          alert("Please enter your name");
+          return;
         }
         
-        document.getElementById('date-text').textContent = dateString;
-      }
-
-      function addClickHandlers() {
-        const clickableElements = document.querySelectorAll('.clickable');
-        
-        clickableElements.forEach(el => {
-          el.addEventListener('click', function(e) {
-            const url = this.getAttribute('data-url');
-            
-            if (this.classList.contains('cash')) {
-              const cashNotification = document.createElement('div');
-              cashNotification.className = 'notification notification-success';
-              cashNotification.innerHTML = `
-                <i class="fas fa-money-bill-wave"></i>
-                ${translations[currentLang]['cashNotification']}
-              `;
-              document.body.appendChild(cashNotification);
-              
-              setTimeout(() => { 
-                cashNotification.remove(); 
-              }, 3000);
-            } 
-            else if (url) {
-              setTimeout(() => { window.open(url, '_blank'); }, 300);
-            }
-          });
-        });
-        
-        // Update CTA click handler
-        const ctaContainer = document.getElementById('class-cta');
-        ctaContainer.addEventListener('click', function() {
-          document.getElementById('location').value = 'stardust';
-          
-          const registrationForm = document.querySelector('.registration-form');
-          if (registrationForm) {
-            registrationForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            
-            registrationForm.style.boxShadow = '0 0 0 3px rgba(230, 126, 34, 0.3)';
-            setTimeout(() => {
-              registrationForm.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.03)';
-            }, 1500);
-          }
-        });
-      }
-
-      function initPage() {
-        updateCurrentDate();
-        setInterval(updateCurrentDate, 3600000);
-        
-        addClickHandlers();
-        
-        const registrationForm = document.getElementById('dance-registration');
-        const thankYouMessage = document.getElementById('thank-you-message');
-        const submitBtn = registrationForm.querySelector('button[type="submit"]');
-        const registerAgainBtn = document.getElementById('register-again-btn');
-        const locationSelect = document.getElementById('location');
-        
-        locationSelect.addEventListener('change', function() {
-          if (this.value) {
-            document.getElementById('location-schedule-display').style.display = 'block';
-          } else {
-            document.getElementById('location-schedule-display').style.display = 'none';
-          }
-        });
-        
-        function resetForm() {
-          registrationForm.reset();
-          thankYouMessage.style.display = 'none';
-          registrationForm.style.display = 'block';
-          document.getElementById('location-schedule-display').style.display = 'none';
+        if (!email.trim()) {
+          alert("Please enter your email address");
+          return;
         }
         
-        registerAgainBtn.addEventListener('click', resetForm);
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert("Please enter a valid email address");
+          return;
+        }
         
-        registrationForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          
-          const name = document.getElementById('name').value;
-          const email = document.getElementById('email').value;
-          const location = document.getElementById('location').value;
-          
-          if (!name.trim()) {
-            showNotification(currentLang === 'es' ? "Por favor ingresa tu nombre" : "Please enter your name", "info");
-            return;
-          }
-          
-          if (!email.trim()) {
-            showNotification(currentLang === 'es' ? "Por favor ingresa tu correo electrónico" : "Please enter your email address", "info");
-            return;
-          }
-          
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!emailRegex.test(email)) {
-            showNotification(currentLang === 'es' ? "Por favor ingresa un correo electrónico válido" : "Please enter a valid email address", "info");
-            return;
-          }
-          
-          if (!location) {
-            showNotification(currentLang === 'es' ? "Por favor selecciona una ubicación" : "Please select a class location", "info");
-            return;
-          }
-          
-          submitBtn.textContent = currentLang === 'es' ? 'Procesando...' : 'Processing...';
-          submitBtn.disabled = true;
-          
-          setTimeout(function() {
-            registrationForm.style.display = 'none';
-            thankYouMessage.style.display = 'block';
-            thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            submitBtn.textContent = currentLang === 'es' ? 'Completar Registro' : 'Complete Registration';
-            submitBtn.disabled = false;
-            showNotification(
-              currentLang === 'es' ? 
-              "¡Registro exitoso! Tu lugar está siendo guardado" : 
-              "Registration successful! Your spot is being saved", 
-              "success"
-            );
-          }, 1000);
-        });
-      }
-
-      function showNotification(message, type) {
-        const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
-        notification.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i> ${message}`;
-        document.body.appendChild(notification);
-        setTimeout(() => { notification.remove(); }, 3000);
-      }
-
-      initPage();
+        if (!location) {
+          alert("Please select a class location");
+          return;
+        }
+        
+        // Form submission logic would go here
+        alert("Registration successful! We'll see you in class!");
+        registrationForm.reset();
+      });
     });
   </script>
 </body>
