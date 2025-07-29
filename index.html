@@ -3,15 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel & Rebecca | Professional Dance Instruction</title>
+    <title>Rebecca & Daniel | Professional Dance Instruction</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #d35400;
+            --primary-light: #e67e22;
+            --primary-gradient: linear-gradient(135deg, #d35400, #e67e22, #f39c12);
+            --secondary: #8e44ad;
+            --accent: #e1306c;
+            --dark: #222;
+            --medium: #444;
+            --light: #f8fafc;
+            --border: #f0f2f5;
+            --success: #27ae60;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
         body {
@@ -19,113 +36,156 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 30px 20px;
+            padding: 20px;
             overflow-x: hidden;
-            background: linear-gradient(135deg, #f0f4ff, #e6ebff);
-            color: #333;
-            line-height: 1.65;
+            position: relative;
+            color: var(--medium);
+            background: linear-gradient(135deg, #f9fbfd, #f1f5fa);
+            line-height: 1.6;
+            font-size: 1rem;
         }
         
         .container {
             width: 100%;
-            max-width: 900px;
+            max-width: 960px;
             background: #ffffff;
-            border-radius: 18px;
+            border-radius: 20px;
             overflow: hidden;
             position: relative;
             z-index: 10;
-            margin: 0;
-            padding: 40px 30px;
-            box-shadow: 0 15px 50px rgba(93, 84, 164, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            padding: 40px 35px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+            border: 0.8px solid rgba(0, 0, 0, 0.04);
         }
         
         .header-container {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             position: relative;
         }
         
         .logo-container {
             position: relative;
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 20px;
-            transition: transform 0.3s ease;
-        }
-        
-        .logo-container:hover {
-            transform: scale(1.04);
+            width: 190px;
+            height: 190px;
+            margin: 0 auto 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
         .logo {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #5d54a4, #6a5acd, #3498db);
+            width: 170px;
+            height: 170px;
+            background: var(--primary-gradient);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(93, 84, 164, 0.2);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(230, 126, 34, 0.25);
+            transition: var(--transition);
+            animation: gentle-beat 4s infinite ease-in-out;
+        }
+        
+        @keyframes gentle-beat {
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 0 10px 30px rgba(230, 126, 34, 0.25);
+            }
+            50% { 
+                transform: scale(1.015); 
+                box-shadow: 0 15px 35px rgba(230, 126, 34, 0.35);
+            }
         }
         
         .logo i {
-            font-size: 50px;
+            font-size: 75px;
             color: #fff;
             z-index: 2;
             transition: transform 0.5s ease;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
         }
         
-        .logo:hover i {
-            transform: scale(1.05);
+        .radiating-ring {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 0.8px solid rgba(230, 126, 34, 0.3);
+            z-index: 1;
+        }
+        
+        .ring-1 {
+            animation: radiate 4.5s infinite ease-in-out;
+            animation-delay: 0.5s;
+        }
+        
+        .ring-2 {
+            animation: radiate 4.5s infinite ease-in-out;
+            animation-delay: 1.0s;
+        }
+        
+        .ring-3 {
+            animation: radiate 4.5s infinite ease-in-out;
+            animation-delay: 1.5s;
+        }
+        
+        @keyframes radiate {
+            0% {
+                transform: scale(1);
+                opacity: 0.85;
+            }
+            100% {
+                transform: scale(1.6);
+                opacity: 0;
+            }
         }
         
         h1 {
-            font-size: 2.4rem;
+            font-size: 2.7rem;
             font-weight: 800;
             margin-bottom: 15px;
             letter-spacing: 0.5px;
-            color: #2c3e50;
+            color: var(--dark);
             position: relative;
             display: inline-block;
             font-family: 'Playfair Display', serif;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.03);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
         
         .tagline {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: #5d54a4;
-            margin: 15px auto 0;
-            max-width: 600px;
-            line-height: 1.7;
-            font-weight: 500;
-            letter-spacing: 0.4px;
+            font-size: 1.35rem;
+            font-weight: 520;
+            color: var(--medium);
+            margin: 20px auto 0;
+            max-width: 650px;
+            line-height: 1.75;
         }
         
         .divider {
-            height: 4px;
-            width: 100px;
-            background: linear-gradient(to right, #5d54a4, #6a5acd, #3498db);
+            height: 3.5px;
+            width: 110px;
+            background: var(--primary-gradient);
             border-radius: 3px;
-            margin: 25px auto;
+            margin: 30px auto;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         
         .section-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin: 40px 0 25px;
+            font-size: 1.9rem;
+            font-weight: 750;
+            margin: 48px 0 30px;
             text-align: center;
             position: relative;
             display: block;
             width: 100%;
-            color: #2c3e50;
-            padding-bottom: 12px;
+            color: var(--dark);
+            padding-bottom: 14px;
             font-family: 'Playfair Display', serif;
-            letter-spacing: 0.3px;
         }
         
         .section-title::after {
@@ -134,147 +194,128 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(to right, #5d54a4, #6a5acd, #3498db);
+            width: 90px;
+            height: 3.5px;
+            background: var(--primary-gradient);
             border-radius: 2px;
         }
         
-        /* MINIMAL INSTRUCTOR CARDS */
-        .instructors-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
+        .content {
+            padding: 0 18px 12px;
         }
         
-        .instructor-card {
-            background: #fff;
-            border-radius: 18px;
-            padding: 30px;
-            border: 1px solid #f0f2f5;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-            min-height: 160px;
-            transition: all 0.4s ease;
-            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.04);
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-        
-        .instructor-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(93, 84, 164, 0.15);
-            border-color: rgba(93, 84, 164, 0.3);
-        }
-        
-        .instructor-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(to right, #5d54a4, #6a5acd, #3498db);
-            z-index: 1;
-        }
-        
-        .instructor-name {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #5d54a4;
-            text-align: center;
-            letter-spacing: 0.5px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 12px;
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            z-index: 3;
-        }
-        
-        .social-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        
-        .social-icon.facebook {
-            background: linear-gradient(135deg, #1877f2, #3b5998);
-        }
-        
-        .social-icon.instagram {
-            background: linear-gradient(135deg, #e1306c, #c13584);
-        }
-        
-        .social-icon:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-        }
-        
-        /* CLASS SCHEDULE */
         .links-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
+            gap: 30px;
+            margin: 35px 0;
         }
         
         .link-card {
             background: #fff;
-            border-radius: 18px;
-            padding: 25px;
-            border: 1px solid #f0f2f5;
+            border-radius: 20px;
+            padding: 30px;
+            border: 0.8px solid #f0f2f5;
             display: flex;
             align-items: flex-start;
             position: relative;
             overflow: hidden;
-            min-height: 180px;
-            transition: all 0.4s ease;
-            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.04);
+            min-height: 130px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+            text-decoration: none !important;
         }
         
         .link-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(93, 84, 164, 0.1);
-            border-color: rgba(93, 84, 164, 0.2);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            border-color: rgba(230, 126, 34, 0.3);
         }
         
         .link-icon {
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 20px;
-            font-size: 1.8rem;
-            border-radius: 14px;
+            margin-right: 22px;
+            font-size: 1.9rem;
+            border-radius: 16px;
             flex-shrink: 0;
             color: white;
-            background: #6a5acd;
-            box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+            background: var(--primary-light);
+            box-shadow: 0 5px 14px rgba(0,0,0,0.09);
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 0.8px solid rgba(0,0,0,0.03);
+        }
+        
+        .social-icon-container {
+            position: relative;
+            width: 65px;
+            height: 65px;
+            border-radius: 16px;
+            margin-right: 22px;
+            flex-shrink: 0;
+            overflow: hidden;
+            box-shadow: 0 5px 16px rgba(0,0,0,0.1);
+            transition: all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            animation: pulseSocial 3.2s infinite;
+            border: 0.8px solid rgba(0,0,0,0.03);
+        }
+        
+        .social-icon-container:hover {
+            animation: none;
+            transform: scale(1.08);
+            box-shadow: 0 8px 26px rgba(0,0,0,0.16);
+        }
+        
+        @keyframes pulseSocial {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.025); }
+        }
+        
+        .social-icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.9rem;
+            color: white;
+            z-index: 2;
+        }
+        
+        .social-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.92;
+            transition: all 0.5s ease;
+        }
+        
+        .social-icon-container:hover .social-gradient {
+            opacity: 1;
+        }
+        
+        .facebook-icon-container .social-gradient {
+            background: linear-gradient(135deg, #1877f2, #3b5998);
+        }
+        
+        .instagram-icon-container .social-gradient {
+            background: linear-gradient(135deg, #e1306c, #c13584, #f56040, #f77737, #fcaf45, #ffdc80);
         }
         
         .stardust-icon {
-            background: linear-gradient(135deg, #5d54a4, #6a5acd) !important;
+            background: var(--primary-gradient) !important;
         }
         
         .letsbailar-icon {
@@ -282,7 +323,23 @@
         }
         
         .estilo-icon {
-            background: linear-gradient(135deg, #5d54a4, #1a8d88) !important;
+            background: linear-gradient(135deg, #2ac7c2, #1a8d88) !important;
+        }
+        
+        .serrata-icon {
+            background: linear-gradient(135deg, #3498db, #8e44ad) !important;
+        }
+        
+        .contact-icon {
+            background: var(--primary-gradient) !important;
+        }
+        
+        .venmo .link-icon {
+            background: linear-gradient(135deg, #2d7db0, #0066cc) !important;
+        }
+        
+        .cash .link-icon {
+            background: linear-gradient(135deg, #27ae60, #1d8c4f) !important;
         }
         
         .link-text {
@@ -290,57 +347,57 @@
         }
         
         .link-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #2c3e50;
-            letter-spacing: 0.3px;
+            font-size: 1.35rem;
+            font-weight: 650;
+            margin-bottom: 10px;
+            color: var(--dark);
+            letter-spacing: 0.35px;
         }
         
         .link-subtitle {
-            font-size: 1.05rem;
-            color: #5d54a4;
-            line-height: 1.5;
-            margin-bottom: 10px;
-            font-weight: 500;
+            font-size: 1.08rem;
+            color: var(--medium);
+            line-height: 1.55;
+            margin-bottom: 12px;
+            font-weight: 480;
         }
         
         .schedule-list {
-            margin-top: 15px;
+            margin-top: 18px;
         }
         
         .schedule-day-group {
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             padding: 0;
         }
         
         .schedule-day-header {
-            font-weight: 700;
-            color: #6a5acd;
-            margin-bottom: 10px;
-            padding-bottom: 3px;
-            border-bottom: 1px dashed #e0e0e0;
-            font-size: 1.1rem;
+            font-weight: 650;
+            color: var(--primary-light);
+            margin-bottom: 12px;
+            padding-bottom: 4px;
+            border-bottom: 0.8px dashed #e0e0e0;
+            font-size: 1.15rem;
         }
         
         .schedule-class {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
-            line-height: 1.6;
+            margin-bottom: 12px;
+            line-height: 1.65;
         }
         
         .class-time {
-            font-weight: 600;
-            min-width: 65px;
-            color: #2c3e50;
-            font-size: 1.05rem;
+            font-weight: 620;
+            min-width: 70px;
+            color: var(--dark);
+            font-size: 1.08rem;
         }
         
         .class-name {
             flex: 1;
-            padding-left: 10px;
-            font-size: 1.05rem;
+            padding-left: 12px;
+            font-size: 1.08rem;
         }
         
         .salsa-text {
@@ -348,36 +405,146 @@
             font-weight: 700;
             padding: 0 4px;
             border-radius: 3px;
+            background: rgba(255, 140, 0, 0.08);
         }
         
         .bachata-text {
-            color: #9370DB;
+            color: #d35400;
             font-weight: 700;
             padding: 0 4px;
             border-radius: 3px;
+            background: rgba(230, 126, 34, 0.08);
         }
         
-        /* REGISTRATION FORM */
+        .date-section {
+            text-align: right;
+            margin: 0 0 25px auto;
+            padding: 12px 18px;
+            background: rgba(230, 126, 34, 0.08);
+            border-radius: 14px;
+            display: inline-block;
+            clear: both;
+            color: var(--medium);
+            font-weight: 520;
+            font-size: 1.08rem;
+        }
+        
+        .date-section strong {
+            font-weight: 680;
+            color: var(--dark);
+        }
+        
+        .class-cta-container {
+            background: linear-gradient(135deg, #f9f7f3, #fdfcf9);
+            border-radius: 18px;
+            padding: 28px 35px;
+            margin: 25px 0 30px;
+            display: flex;
+            flex-direction: column;
+            color: #2c3e50;
+            text-align: center;
+            box-shadow: 0 9px 28px rgba(0, 0, 0, 0.06);
+            border: 0.8px solid #e8e4dc;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-header {
+            font-size: 1.35rem;
+            font-weight: 680;
+            margin-bottom: 18px;
+            letter-spacing: 0.35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: var(--primary);
+        }
+        
+        .cta-header i {
+            font-size: 1.45rem;
+            color: var(--primary);
+        }
+        
+        .cta-schedule {
+            background: rgba(230, 126, 34, 0.07);
+            border-radius: 12px;
+            padding: 14px 18px;
+            margin-bottom: 18px;
+            font-size: 1.0rem;
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+        
+        .cta-action {
+            font-size: 1.15rem;
+            font-weight: 620;
+            padding: 16px;
+            background: var(--primary-gradient);
+            color: white;
+            border-radius: 50px;
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 6px 18px rgba(230, 126, 34, 0.18);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            min-height: 60px;
+        }
+        
+        .cta-action:hover {
+            background: linear-gradient(135deg, #c14f00, #d3731f);
+            transform: scale(1.025);
+        }
+        
+        .new-class-badge {
+            position: absolute;
+            top: -16px;
+            right: -6px;
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 620;
+            padding: 6px 14px;
+            border-radius: 22px;
+            box-shadow: 0 5px 18px rgba(155, 89, 182, 0.28);
+            z-index: 3;
+            animation: pulse 2.2s infinite;
+            white-space: nowrap;
+            transform: rotate(15deg);
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.025); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 1.8s infinite;
+        }
+        
         .registration-form {
             background: #fdfdfd;
-            border-radius: 18px;
-            padding: 35px 30px;
-            margin: 30px 0;
-            border: 1px solid #eee;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
+            border-radius: 20px;
+            padding: 38px 35px;
+            margin: 35px 0 30px;
+            border: 0.8px solid #eee;
+            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.04);
             position: relative;
             overflow: hidden;
         }
         
         .form-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #2c3e50;
+            font-size: 1.9rem;
+            font-weight: 750;
+            margin-bottom: 25px;
+            color: var(--dark);
             text-align: center;
             position: relative;
-            padding-bottom: 15px;
-            letter-spacing: 0.5px;
+            padding-bottom: 18px;
+            letter-spacing: 0.6px;
             font-family: 'Playfair Display', serif;
         }
         
@@ -387,271 +554,736 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(to right, #5d54a4, #6a5acd, #3498db);
+            width: 110px;
+            height: 3.5px;
+            background: var(--primary-gradient);
             border-radius: 2px;
         }
         
         .partner-notice {
             text-align: center;
-            margin-bottom: 30px;
-            color: #5d54a4;
-            font-size: 1.15rem;
-            font-weight: 500;
+            margin-bottom: 35px;
+            color: var(--medium);
+            font-size: 1.18rem;
+            font-weight: 520;
             display: block;
-            line-height: 1.7;
-            position: relative;
-            padding: 15px;
-            background: rgba(93, 84, 164, 0.03);
-            border-radius: 10px;
-            border: 1px dashed rgba(93, 84, 164, 0.3);
+            line-height: 1.75;
         }
         
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 28px;
             text-align: left;
             position: relative;
         }
         
         .form-input {
             width: 100%;
-            padding: 18px 22px;
-            border-radius: 12px;
-            border: 1px solid #e0e0e0;
+            padding: 20px 25px;
+            border-radius: 14px;
+            border: 0.8px solid #e0e0e0;
             background: #f9f9f9;
-            color: #333;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
+            color: var(--dark);
+            font-size: 1.12rem;
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             -webkit-appearance: none;
             appearance: none;
         }
         
         .form-input:focus {
             outline: none;
-            border-color: #6a5acd;
+            border-color: var(--primary-light);
             background: #fff;
-            box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.12);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.15);
         }
         
         .form-input::placeholder {
-            color: #888;
-            font-size: 1.05rem;
+            color: #777;
+            font-size: 1.08rem;
         }
         
         .form-select {
             width: 100%;
-            padding: 18px 22px;
-            border-radius: 12px;
-            border: 1px solid #e0e0e0;
+            padding: 20px 25px;
+            border-radius: 14px;
+            border: 0.8px solid #e0e0e0;
             background: #f9f9f9;
-            color: #333;
-            font-size: 1.1rem;
+            color: var(--dark);
+            font-size: 1.12rem;
             appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%235d54a4'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d35400'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
-            background-position: right 18px center;
-            background-size: 20px;
-            transition: all 0.3s ease;
+            background-position: right 20px center;
+            background-size: 22px;
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             -webkit-appearance: none;
         }
         
         .form-select:focus {
             outline: none;
-            border-color: #6a5acd;
+            border-color: var(--primary-light);
             background: #fff;
-            box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.12);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.15);
         }
         
         .submit-btn {
-            background: linear-gradient(135deg, #5d54a4, #6a5acd, #3498db);
+            background: var(--primary-gradient);
             color: #fff;
             border: none;
-            border-radius: 12px;
-            padding: 17px;
-            font-size: 1.2rem;
+            border-radius: 14px;
+            padding: 19px;
+            font-size: 1.25rem;
             font-weight: 700;
             cursor: pointer;
             width: 100%;
-            margin-top: 20px;
-            transition: all 0.3s ease;
+            margin-top: 25px;
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             position: relative;
             overflow: hidden;
             display: block;
-            letter-spacing: 0.5px;
-            box-shadow: 0 8px 25px rgba(106, 90, 205, 0.15);
+            letter-spacing: 0.6px;
+            box-shadow: 0 9px 28px rgba(230, 126, 34, 0.2);
+            border: 0.8px solid rgba(0,0,0,0.03);
         }
         
         .submit-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(106, 90, 205, 0.25);
+            box-shadow: 0 14px 35px rgba(230, 126, 34, 0.3);
         }
         
-        .submit-btn:active {
-            transform: translateY(1px);
-        }
-        
-        /* FOOTER */
-        footer {
-            margin-top: 60px;
-            padding: 30px 20px 20px;
+        .thank-you-message {
+            display: none;
             text-align: center;
-            color: #5d54a4;
-            font-size: 1.1rem;
-            border-top: 1px solid rgba(93, 84, 164, 0.2);
-            line-height: 1.7;
-            position: relative;
+            padding: 45px 35px;
+            border-radius: 20px;
+            background: #fff;
+            margin-top: 25px;
+            border: 0.8px solid #eee;
+            box-shadow: 0 16px 45px rgba(0,0,0,0.03);
         }
         
-        .signature-container {
-            margin: 30px auto 15px;
+        .thank-you-message h3 {
+            font-size: 1.9rem;
+            color: var(--dark);
+            margin-bottom: 28px;
+            position: relative;
+            padding-bottom: 18px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .thank-you-message h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 110px;
+            height: 3.5px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+        
+        .thank-you-message p {
+            font-size: 1.18rem;
+            margin-bottom: 35px;
+            color: var(--medium);
+            line-height: 1.75;
+        }
+        
+        .location-icons {
+            display: flex;
+            gap: 12px;
+            margin-top: 18px;
+        }
+        
+        .location-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17px;
+            color: white;
+            transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.35s ease;
+            min-width: 36px;
+        }
+        
+        .location-icon:hover {
+            transform: scale(1.12);
+            opacity: 0.9;
+        }
+        
+        .facebook-icon {
+            background: #3b5998;
+        }
+        
+        .maps-icon {
+            background: #34a853;
+        }
+        
+        .studio-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .studio-name-address {
+            flex: 1;
+        }
+        
+        .language-toggle {
+            margin: 25px auto 0;
             display: flex;
             justify-content: center;
-            position: relative;
-            width: 300px;
-            height: 20px;
+            gap: 12px;
         }
         
-        .signature-line {
-            width: 200px;
-            height: 2px;
-            background: linear-gradient(to right, transparent, #5d54a4, #6a5acd, #3498db, transparent);
+        .lang-btn {
+            background: transparent;
+            border: 0.8px solid #ddd;
+            border-radius: 22px;
+            padding: 7px 18px;
+            font-size: 0.95rem;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            min-width: 100px;
+            min-height: 40px;
+        }
+        
+        .lang-btn.active {
+            background: var(--primary-gradient);
+            color: white;
+            border-color: var(--primary-light);
+        }
+        
+        .lang-btn:hover:not(.active) {
+            background: rgba(230, 126, 34, 0.12);
+            color: var(--primary);
+        }
+        
+        /* New styles for participant registration */
+        .participant-form-group {
+            margin-bottom: 15px;
             position: relative;
+        }
+        
+        .participant-controls {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin: 10px 0 20px;
+        }
+        
+        .participant-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-light);
+            color: var(--primary-light);
+            background: white;
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.15);
+        }
+        
+        .participant-btn:hover {
+            background: var(--primary-light);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(230, 126, 34, 0.25);
+        }
+        
+        .participant-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: #f1f5f9;
+            color: #94a3b8;
+            border-color: #cbd5e1;
+        }
+        
+        .participant-fields {
+            background: rgba(240, 247, 255, 0.4);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(230, 126, 34, 0.1);
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
             transition: all 0.4s ease;
         }
         
-        .signature-line:hover {
-            height: 3px;
-            background: linear-gradient(to right, transparent, #6a5acd, #5d54a4, #3498db, transparent);
+        .participant-fields::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--primary-gradient);
         }
         
-        /* Animation for page load */
+        .name-field {
+            animation: fadeIn 0.4s ease;
+        }
+        
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
-        .header-container, .instructor-card, .link-card {
-            animation: fadeIn 0.8s ease-out forwards;
-            opacity: 0;
+        /* Reviews Section */
+        .reviews-section {
+            background: #f8fafc;
+            border-radius: 18px;
+            padding: 35px;
+            margin: 40px 0;
+            box-shadow: 0 9px 28px rgba(0, 0, 0, 0.06);
+            border: 0.8px solid #e8e4dc;
+            position: relative;
+            overflow: hidden;
         }
         
-        .instructor-card:nth-child(1) { animation-delay: 0.1s; }
-        .instructor-card:nth-child(2) { animation-delay: 0.2s; }
-        .link-card:nth-child(1) { animation-delay: 0.3s; }
-        .link-card:nth-child(2) { animation-delay: 0.4s; }
-        .link-card:nth-child(3) { animation-delay: 0.5s; }
+        .reviews-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
         
-        /* Responsive design */
-        @media (max-width: 768px) {
+        .review-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            padding: 15px;
+        }
+        
+        .review-item.active {
+            opacity: 1;
+        }
+        
+        .review-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            position: relative;
+            padding: 0 40px;
+            text-align: center;
+        }
+        
+        .review-text::before,
+        .review-text::after {
+            content: "❝";
+            position: absolute;
+            color: rgba(230, 126, 34, 0.25);
+            font-size: 3rem;
+            top: -20px;
+        }
+        
+        .review-text::before {
+            left: 0;
+        }
+        
+        .review-text::after {
+            right: 0;
+            transform: rotate(180deg);
+        }
+        
+        .review-author {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--primary);
+            font-style: normal;
+            text-align: center;
+        }
+        
+        .review-stars {
+            color: #f59e0b;
+            font-size: 1.3rem;
+            margin: 15px 0;
+            letter-spacing: 3px;
+            text-align: center;
+        }
+        
+        .review-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 25px;
+        }
+        
+        .review-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .review-indicator.active {
+            background: var(--primary);
+            transform: scale(1.3);
+        }
+        
+        /* Mobile-specific enhancements */
+        @media (max-width: 800px) {
+            .links-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
             h1 {
-                font-size: 2.2rem;
+                font-size: 2.4rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
             }
             
             .section-title {
-                font-size: 1.6rem;
+                font-size: 1.7rem;
+                margin: 40px 0 25px;
             }
             
-            .instructor-card {
-                min-height: 150px;
-                padding: 25px;
+            .cta-header {
+                font-size: 1.2rem;
             }
             
-            .instructor-name {
-                font-size: 1.6rem;
+            .cta-schedule {
+                font-size: 0.95rem;
+                padding: 12px;
+            }
+            
+            .cta-action {
+                font-size: 1.05rem;
+                padding: 14px;
+            }
+            
+            .registration-form {
+                padding: 30px 25px;
+            }
+            
+            .form-title {
+                font-size: 1.7rem;
+            }
+            
+            .form-input, .form-select {
+                padding: 18px 22px;
+                font-size: 1.08rem;
+            }
+            
+            .submit-btn {
+                padding: 17px;
+                font-size: 1.15rem;
+            }
+            
+            .thank-you-message {
+                padding: 35px 25px;
+            }
+            
+            .new-class-badge {
+                top: -14px;
+                right: -6px;
+                font-size: 0.75rem;
+                padding: 5px 12px;
             }
         }
         
         @media (max-width: 480px) {
             body {
-                padding: 15px;
+                font-size: 1.05rem;
+                padding: 18px 12px;
             }
             
             .container {
-                padding: 30px 20px;
+                padding: 30px 18px;
+                border-radius: 18px;
+            }
+            
+            .logo-container {
+                width: 160px;
+                height: 160px;
+            }
+            
+            .logo {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .logo i {
+                font-size: 65px;
             }
             
             h1 {
-                font-size: 1.9rem;
+                font-size: 2.1rem;
+                margin-bottom: 14px;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+                margin-top: 12px;
+            }
+            
+            .divider {
+                margin: 25px auto;
+                width: 90px;
             }
             
             .section-title {
-                font-size: 1.4rem;
-            }
-            
-            .instructor-card {
-                min-height: 140px;
-                padding: 20px;
-            }
-            
-            .instructor-name {
                 font-size: 1.5rem;
+                margin: 35px 0 25px;
+            }
+            
+            .section-title::after {
+                width: 80px;
+            }
+            
+            .link-card {
+                padding: 25px;
+                min-height: 120px;
+            }
+            
+            .social-icon-container {
+                width: 55px;
+                height: 55px;
+                margin-right: 18px;
             }
             
             .social-icon {
-                width: 32px;
-                height: 32px;
-                font-size: 0.9rem;
+                font-size: 1.7rem;
             }
+            
+            .link-icon {
+                width: 55px;
+                height: 55px;
+                margin-right: 18px;
+            }
+            
+            .link-title {
+                font-size: 1.25rem;
+            }
+            
+            .link-subtitle {
+                font-size: 1.05rem;
+            }
+            
+            .cta-header {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .cta-header i {
+                font-size: 1.25rem;
+            }
+            
+            .cta-schedule {
+                font-size: 0.9rem;
+                padding: 10px 12px;
+            }
+            
+            .cta-action {
+                font-size: 0.95rem;
+                padding: 12px;
+            }
+            
+            .schedule-day-header {
+                font-size: 1.1rem;
+            }
+            
+            .class-time, .class-name {
+                font-size: 1.05rem;
+            }
+            
+            .date-section {
+                margin: 0 0 18px auto;
+                padding: 10px 16px;
+                font-size: 1.05rem;
+            }
+            
+            .form-title {
+                font-size: 1.6rem;
+            }
+            
+            .partner-notice {
+                font-size: 1.1rem;
+            }
+            
+            .form-input, .form-select {
+                padding: 16px 20px;
+                font-size: 1.05rem;
+            }
+            
+            .submit-btn {
+                font-size: 1.1rem;
+                padding: 16px;
+            }
+            
+            .thank-you-message h3 {
+                font-size: 1.6rem;
+            }
+            
+            .thank-you-message p {
+                font-size: 1.1rem;
+            }
+            
+            .signature-container {
+                width: 270px;
+            }
+            
+            .reviews-section {
+                padding: 25px 20px;
+            }
+            
+            .review-text {
+                font-size: 1.05rem;
+                padding: 0 20px;
+            }
+        }
+        
+        /* Touch optimizations */
+        a, button, .clickable, .location-icon, .submit-btn, .form-input, .form-select {
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            cursor: pointer;
+        }
+        
+        .form-input, .form-select {
+            min-height: 62px;
+        }
+        
+        .submit-btn {
+            min-height: 62px;
         }
     </style>
 </head>
 <body>
   <div class="container">
     <div class="header-container">
-      <div class="logo-container" id="logo-container">
+      <div class="logo-container">
+        <div class="radiating-ring ring-1"></div>
+        <div class="radiating-ring ring-2"></div>
+        <div class="radiating-ring ring-3"></div>
         <div class="logo">
           <i class="fas fa-music"></i>
         </div>
       </div>
-      <h1>Daniel & Rebecca</h1>
+      <h1 id="main-title">Rebecca & Daniel</h1>
       <div class="divider"></div>
-      <p class="tagline">Professional Dance Instruction</p>
+      <p class="tagline" id="tagline">Professional Dance Instruction | Express Yourself Through Movement</p>
     </div>
     
     <div class="content">
-      <!-- Minimal Instructor Cards -->
-      <h2 class="section-title">Our Instructors</h2>
-      <div class="instructors-grid">
+      <h2 class="section-title" id="connect-title">Connect With Us</h2>
+      
+      <div class="links-grid">
         <!-- Rebecca Card -->
-        <div class="instructor-card">
-          <div class="social-icons">
-            <div class="social-icon facebook">
-              <i class="fab fa-facebook-f"></i>
-            </div>
-            <div class="social-icon instagram">
-              <i class="fab fa-instagram"></i>
+        <div class="link-card">
+          <div class="social-icon-container facebook-icon-container">
+            <div class="social-gradient"></div>
+            <div class="social-icon">
+              <i class="fas fa-user"></i>
             </div>
           </div>
-          <h3 class="instructor-name">Rebecca</h3>
+          <div class="link-text">
+            <div class="link-title" id="rebecca-title">Rebecca Bachata</div>
+            <div class="link-subtitle" id="rebecca-sub">Professional Bachata Instruction</div>
+            <div class="location-icons">
+              <a href="https://www.facebook.com/share/1CdaS5Uj5P/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Rebecca's Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://www.instagram.com/rebecca_bachata?igsh=MWY1cHI4c2Z0a21zcw==" class="location-icon maps-icon" target="_blank" title="Rebecca's Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
         </div>
         
         <!-- Daniel Card -->
-        <div class="instructor-card">
-          <div class="social-icons">
-            <div class="social-icon facebook">
-              <i class="fab fa-facebook-f"></i>
-            </div>
-            <div class="social-icon instagram">
-              <i class="fab fa-instagram"></i>
+        <div class="link-card">
+          <div class="social-icon-container instagram-icon-container">
+            <div class="social-gradient"></div>
+            <div class="social-icon">
+              <i class="fas fa-user"></i>
             </div>
           </div>
-          <h3 class="instructor-name">Daniel</h3>
+          <div class="link-text">
+            <div class="link-title" id="daniel-title">Daniel Palacios</div>
+            <div class="link-subtitle" id="daniel-sub">Professional Salsa & Bachata Instruction</div>
+            <div class="location-icons">
+              <a href="https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Daniel's Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://www.instagram.com/danielp_bachata" class="location-icon maps-icon" target="_blank" title="Daniel's Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       
-      <!-- Class Schedule -->
-      <h2 class="section-title">Class Schedule</h2>
-      <div class="links-grid">
-        <div class="link-card">
+      <div class="date-section" id="current-date-discreet">
+        <strong id="today-label">Today is:</strong> <span id="date-text"></span>
+      </div>
+      
+      <h2 class="section-title" id="upcoming-title">Upcoming Classes</h2>
+      
+      <div id="class-cta" class="class-cta-container">
+        <div class="cta-header">
+          <i class="fas fa-calendar-day pulse"></i>
+          <div id="cta-title">Tonight at Stardust Ballroom</div>
+          <i class="fas fa-star pulse"></i>
+        </div>
+        
+        <div class="cta-schedule" id="cta-schedule">
+          6:30pm Intro to Salsa | 7:00pm Salsa Open Level | 8:00pm Bachata Open Level
+        </div>
+        
+        <div class="cta-action" id="register-cta">
+          <span id="register-cta-text">Register Now</span> <span class="down-arrow"><i class="fas fa-arrow-down"></i></span>
+        </div>
+      </div>
+      
+      <h3 class="section-title" id="schedule-title">Class Schedule</h3>
+      
+      <div class="links-grid" id="schedule-grid">
+        <div class="link-card stardust" 
+             data-studio="Stardust Ballroom" 
+             id="stardust-card">
           <div class="link-icon stardust-icon">
             <i class="fas fa-star"></i>
           </div>
           <div class="link-text">
-            <div class="link-title">Stardust Ballroom</div>
-            <div class="link-subtitle">Bellmawr, New Jersey</div>
+            <div class="studio-info">
+              <div class="studio-name-address">
+                <div class="link-title">Stardust Ballroom</div>
+                <div class="link-subtitle">Bellmawr, New Jersey</div>
+              </div>
+            </div>
+            <div class="location-icons">
+              <a href="https://www.facebook.com/share/16jfEPvQbw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Stardust Ballroom on Facebook" aria-label="Stardust Ballroom Facebook Page">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Stardust+Ballroom+Bellmawr+NJ" 
+                 class="location-icon maps-icon" 
+                 title="Directions to Stardust Ballroom" 
+                 aria-label="Stardust Ballroom on Google Maps">
+                <i class="fas fa-map-marker-alt"></i>
+              </a>
+            </div>
             <div class="schedule-list">
-              <div class="schedule-day-group">
+              <div class="schedule-day-group" data-day="Monday">
                 <div class="schedule-day-header">Monday</div>
                 <div class="schedule-class">
                   <span class="class-time">6:30pm</span>
@@ -661,8 +1293,12 @@
                   <span class="class-time">7:00pm</span>
                   <span class="class-name"><span class="bachata-text">Bachata</span> Fundamentals</span>
                 </div>
+                <div class="schedule-class">
+                  <span class="class-time">8:00pm</span>
+                  <span class="class-name"><span class="bachata-text">Bachata</span> Next Level</span>
+                </div>
               </div>
-              <div class="schedule-day-group">
+              <div class="schedule-day-group" data-day="Thursday">
                 <div class="schedule-day-header">Thursday</div>
                 <div class="schedule-class">
                   <span class="class-time">6:30pm</span>
@@ -672,20 +1308,41 @@
                   <span class="class-time">7:00pm</span>
                   <span class="class-name"><span class="salsa-text">Salsa</span> Open Level</span>
                 </div>
+                <div class="schedule-class">
+                  <span class="class-time">8:00pm</span>
+                  <span class="class-name"><span class="bachata-text">Bachata</span> Open Level</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
         
-        <div class="link-card">
+        <div class="link-card letsbailar" 
+             data-studio="Let's Bailar Dance Studio" 
+             id="letsbailar-card">
           <div class="link-icon letsbailar-icon">
             <i class="fas fa-city"></i>
           </div>
           <div class="link-text">
-            <div class="link-title">Let's Bailar Dance Studio</div>
-            <div class="link-subtitle">Philly - Chinese Assoc.</div>
+            <div class="studio-info">
+              <div class="studio-name-address">
+                <div class="link-title">Let's Bailar Dance Studio</div>
+                <div class="link-subtitle">Philly - Chinese Assoc.</div>
+              </div>
+            </div>
+            <div class="location-icons">
+              <a href="https://www.facebook.com/share/1F7HATupDw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Let's Bailar Dance Studio on Facebook" aria-label="Let's Bailar Dance Studio Facebook Page">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Chinese+Association+of+Greater+Philadelphia" 
+                 class="location-icon maps-icon" 
+                 title="Directions to Let's Bailar Dance Studio" 
+                 aria-label="Let's Bailar Dance Studio on Google Maps">
+                <i class="fas fa-map-marker-alt"></i>
+              </a>
+            </div>
             <div class="schedule-list">
-              <div class="schedule-day-group">
+              <div class="schedule-day-group" data-day="Friday">
                 <div class="schedule-day-header">Friday</div>
                 <div class="schedule-class">
                   <span class="class-time">7:00pm</span>
@@ -700,15 +1357,29 @@
           </div>
         </div>
         
-        <div class="link-card">
+        <div class="link-card estilo" 
+             data-studio="Estilo Dance Studio" 
+             id="estilo-card">
           <div class="link-icon estilo-icon">
             <i class="fas fa-building"></i>
           </div>
           <div class="link-text">
-            <div class="link-title">Estilo Dance Studio</div>
-            <div class="link-subtitle">Fishtown, Philadelphia</div>
+            <div class="studio-info">
+              <div class="studio-name-address">
+                <div class="link-title">Estilo Dance Studio</div>
+                <div class="link-subtitle">Fishtown, Philadelphia</div>
+              </div>
+            </div>
+            <div class="location-icons">
+              <a href="https://www.google.com/maps/search/?api=1&query=Estilo+Dance+Studio+Fishtown+Philadelphia" 
+                 class="location-icon maps-icon" 
+                 title="Directions to Estilo Dance Studio" 
+                 aria-label="Estilo Dance Studio on Google Maps">
+                <i class="fas fa-map-marker-alt"></i>
+              </a>
+            </div>
             <div class="schedule-list">
-              <div class="schedule-day-group">
+              <div class="schedule-day-group" data-day="Saturday">
                 <div class="schedule-day-header">Saturday</div>
                 <div class="schedule-class">
                   <span class="class-time">4:00pm</span>
@@ -722,17 +1393,138 @@
             </div>
           </div>
         </div>
+        
+        <div class="link-card serrata next-class-highlight" 
+             data-studio="Serrata Studio" 
+             id="serrata-card">
+          <div class="new-class-badge" id="new-class-text">August Classes</div>
+          <div class="link-icon serrata-icon">
+            <i class="fas fa-building"></i>
+          </div>
+          <div class="link-text">
+            <div class="studio-info">
+              <div class="studio-name-address">
+                <div class="link-title">Serrata Studio</div>
+                <div class="link-subtitle">7157 Frankford Ave, Philly</div>
+              </div>
+            </div>
+            <div class="location-icons">
+              <a href="https://www.facebook.com/share/16giYF2o67/?mibextid=wwXIfr" 
+                 class="location-icon facebook-icon" 
+                 target="_blank" 
+                 rel="noopener"
+                 title="Serrata Studio on Facebook" 
+                 aria-label="Serrata Studio Facebook Page">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://maps.app.goo.gl/FY4U7T8F5fs2nB2Q8?g_st=ipc" 
+                 class="location-icon maps-icon" 
+                 target="_blank" 
+                 title="Directions to Serrata Studio" 
+                 aria-label="Serrata Studio on Google Maps">
+                <i class="fas fa-map-marker-alt"></i>
+              </a>
+            </div>
+            <div class="schedule-list">
+              <div class="schedule-day-group" data-day="Wednesday">
+                <div class="schedule-day-header">Wednesday</div>
+                <div class="schedule-class">
+                  <span class="class-time">7:15pm</span>
+                  <span class="class-name"><span class="salsa-text">Salsa</span></span>
+                </div>
+                <div class="schedule-class">
+                  <span class="class-time">8:15pm</span>
+                  <span class="class-name"><span class="bachata-text">Bachata</span></span>
+                </div>
+              </div>
+              <div class="schedule-day-group" data-day="Saturday">
+                <div class="schedule-day-header">Saturday</div>
+                <div class="schedule-class">
+                  <span class="class-time">10:30am</span>
+                  <span class="class-name"><span class="bachata-text">Bachata</span></span>
+                </div>
+                <div class="schedule-class">
+                  <span class="class-time">11:30am</span>
+                  <span class="class-name"><span class="salsa-text">Salsa</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       
-      <!-- Registration Form -->
-      <div class="registration-form">
-        <div class="form-title">Class Registration</div>
-        <div class="partner-notice">No partner needed - come dance with us!</div>
-        <form id="dance-registration">
-          <div class="form-group">
-            <input type="text" id="name" class="form-input" placeholder="Full Name" required>
+      <!-- Reviews Section -->
+      <div class="reviews-section">
+        <h2 class="section-title" id="reviews-title">Student Reviews</h2>
+        <div class="reviews-container">
+          <div class="review-item active">
+            <div class="review-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="review-text">Rebecca and Daniel are incredible teachers! Their passion for dance is contagious, and they make learning so much fun. I've improved my salsa and bachata skills tremendously since joining their classes.</div>
+            <div class="review-author">- Sarah Johnson</div>
           </div>
           
+          <div class="review-item">
+            <div class="review-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="review-text">The perfect combination of technical expertise and fun teaching style. Daniel's salsa techniques and Rebecca's bachata styling classes complement each other perfectly. Highly recommend!</div>
+            <div class="review-author">- Michael Chen</div>
+          </div>
+          
+          <div class="review-item">
+            <div class="review-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="review-text">I've been dancing for years, but Rebecca and Daniel took my skills to the next level. Their attention to detail and personalized feedback make all the difference. Best instructors in the city!</div>
+            <div class="review-author">- Jessica Martinez</div>
+          </div>
+        </div>
+        <div class="review-indicators">
+          <div class="review-indicator active" data-index="0"></div>
+          <div class="review-indicator" data-index="1"></div>
+          <div class="review-indicator" data-index="2"></div>
+        </div>
+      </div>
+      
+      <!-- Registration Form with Participant Fields -->
+      <div class="registration-form" id="registration-form">
+        <div class="form-title" id="registration-title">Class Registration</div>
+        <div class="partner-notice" id="partner-text">No partner needed - come dance with us!</div>
+        <form id="dance-registration">
+          <!-- Participant Fields -->
+          <div id="participant-container">
+            <div class="participant-fields name-field">
+              <div class="participant-form-group">
+                <input type="text" class="form-input" placeholder="Full Name" required>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Add/Remove Controls -->
+          <div class="participant-controls">
+            <button type="button" id="add-participant" class="participant-btn" title="Add another participant">
+              <i class="fas fa-plus"></i>
+            </button>
+            <button type="button" id="remove-participant" class="participant-btn" title="Remove participant" disabled>
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+          
+          <!-- Contact Information -->
           <div class="form-group">
             <input type="email" id="email" class="form-input" placeholder="Email Address" required>
           </div>
@@ -742,41 +1534,67 @@
               <option value="">Select class location</option>
               <option value="stardust">Stardust Ballroom</option>
               <option value="letsbailar">Let's Bailar</option>
-              <option value="estilo">Estilo Dance Studio</option>
+              <option value="serrata">Serrata Studio</option>
             </select>
           </div>
           
-          <button type="submit" class="submit-btn">Complete Registration</button>
+          <button type="submit" class="submit-btn">
+            <span id="register-button">Complete Registration</span> <i class="fas fa-check-circle"></i>
+          </button>
         </form>
+        
+        <div id="thank-you-message" class="thank-you-message">
+          <h3 id="thank-you-title">Thank You for Registering!</h3>
+          <p id="thank-you-text">We're excited to dance with you! Your spot is being saved.</p>
+          <button class="submit-btn" id="register-again-btn" style="margin-top: 25px;">
+            <span id="register-again-text">Register Another Person</span>
+          </button>
+        </div>
       </div>
       
-      <!-- Payment Options -->
-      <h2 class="section-title">Payment Options</h2>
+      <h2 class="section-title" id="payment-title">Payment Options</h2>
       <div class="links-grid">
-        <div class="link-card">
+        <a href="https://venmo.com/code?user_id=2575920015605760344&created=1750346816" class="link-card venmo" target="_blank">
           <div class="link-icon">
             <i class="fab fa-vimeo-v"></i>
           </div>
           <div class="link-text">
             <div class="link-title">Venmo</div>
-            <div class="link-subtitle">Secure payment option</div>
+            <div class="link-subtitle" id="venmo-sub">Secure payment option</div>
           </div>
-        </div>
+        </a>
         
-        <div class="link-card">
+        <div class="link-card cash">
           <div class="link-icon">
             <i class="fas fa-money-bill-wave"></i>
           </div>
           <div class="link-text">
-            <div class="link-title">Cash</div>
-            <div class="link-subtitle">Pay at the studio</div>
+            <div class="link-title" id="cash-title">Cash</div>
+            <div class="link-subtitle" id="cash-sub">Pay at the studio</div>
           </div>
         </div>
       </div>
       
+      <h2 class="section-title" id="contact-title">Contact Us</h2>
+      <div class="links-grid">
+        <a href="mailto:contact@rebecca-daniel-dance.com" class="link-card contact" target="_blank">
+          <div class="link-icon contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="link-text">
+            <div class="link-title" id="contact-title-text">Professional Inquiries</div>
+            <div class="link-subtitle" id="contact-subtitle">Bookings and partnerships</div>
+          </div>
+        </a>
+      </div>
+      
       <footer>
-        <p>© 2025 DanceFirstStep | Professional Instruction</p>
-        <p>Passion in Motion | Excellence in Dance</p>
+        <div class="language-toggle" id="language-toggle">
+          <button class="lang-btn active" data-lang="en">English</button>
+          <button class="lang-btn" data-lang="es">Español</button>
+        </div>
+        <p id="copyright">© 2025 Rebecca & Daniel | Professional Dance Instruction</p>
+        <p id="quote">Dance is the poetry of the foot</p>
         
         <div class="signature-container">
           <div class="signature-line" id="signature-line"></div>
@@ -788,57 +1606,582 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Set current date
-      const now = new Date();
-      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      function updateCurrentDate(lang) {
+        const now = new Date();
+        const options = { 
+          weekday: 'long', 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric',
+          locale: lang === 'es' ? 'es-ES' : 'en-US'
+        };
+        const dateText = document.getElementById('date-text');
+        dateText.textContent = now.toLocaleDateString(lang === 'es' ? 'es-ES' : 'en-US', options);
+      }
       
-      // Instructor card hover effects
-      const cards = document.querySelectorAll('.instructor-card');
+      // Language switch functionality
+      const languageToggle = document.getElementById('language-toggle');
+      const languageButtons = languageToggle.querySelectorAll('.lang-btn');
+      let currentLanguage = 'en';
       
-      cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-          this.style.transform = 'translateY(-8px)';
+      // Translations object
+      const translations = {
+        en: {
+          mainTitle: "Rebecca & Daniel",
+          tagline: "Professional Dance Instruction | Express Yourself Through Movement",
+          connectTitle: "Connect With Us",
+          rebeccaTitle: "Rebecca Bachata",
+          rebeccaSub: "Professional Bachata Instruction",
+          danielTitle: "Daniel Palacios",
+          danielSub: "Professional Salsa & Bachata Instruction",
+          todayLabel: "Today is:",
+          upcomingTitle: "Upcoming Classes",
+          registerCta: "Register Now",
+          scheduleTitle: "Class Schedule",
+          newClassText: "August Classes",
+          reviewsTitle: "Student Reviews",
+          registrationTitle: "Class Registration",
+          partnerText: "No partner needed - come dance with us!",
+          namePlaceholder: "Full Name",
+          emailPlaceholder: "Email Address",
+          locationPlaceholder: "Select class location",
+          registerButton: "Complete Registration",
+          thankYouTitle: "Thank You for Registering!",
+          thankYouText: "We're excited to dance with you! Your spot is being saved.",
+          registerAgainText: "Register Another Person",
+          paymentTitle: "Payment Options",
+          venmoSub: "Secure payment option",
+          cashTitle: "Cash",
+          cashSub: "Pay at the studio",
+          contactTitle: "Contact Us",
+          contactTitleText: "Professional Inquiries",
+          contactSubtitle: "Bookings and partnerships",
+          copyright: "© 2025 Rebecca & Daniel | Professional Dance Instruction",
+          quote: "Dance is the poetry of the foot"
+        },
+        es: {
+          mainTitle: "Rebecca & Daniel",
+          tagline: "Instrucción Profesional de Baile | Exprésate a Través del Movimiento",
+          connectTitle: "Conéctate Con Nosotros",
+          rebeccaTitle: "Rebecca Bachata",
+          rebeccaSub: "Instrucción Profesional de Bachata",
+          danielTitle: "Daniel Palacios",
+          danielSub: "Instrucción Profesional de Salsa y Bachata",
+          todayLabel: "Hoy es:",
+          upcomingTitle: "Próximas Clases",
+          registerCta: "Regístrate Ahora",
+          scheduleTitle: "Horario de Clases",
+          newClassText: "Clases de Agosto",
+          reviewsTitle: "Opiniones de Estudiantes",
+          registrationTitle: "Registro de Clase",
+          partnerText: "No necesitas pareja - ¡Ven a bailar con nosotros!",
+          namePlaceholder: "Nombre Completo",
+          emailPlaceholder: "Correo Electrónico",
+          locationPlaceholder: "Selecciona la ubicación de la clase",
+          registerButton: "Completar Registro",
+          thankYouTitle: "¡Gracias por Registrarte!",
+          thankYouText: "¡Estamos emocionados de bailar contigo! Tu lugar está siendo reservado.",
+          registerAgainText: "Registrar Otra Persona",
+          paymentTitle: "Opciones de Pago",
+          venmoSub: "Opción de pago segura",
+          cashTitle: "Efectivo",
+          cashSub: "Paga en el estudio",
+          contactTitle: "Contáctanos",
+          contactTitleText: "Consultas Profesionales",
+          contactSubtitle: "Reservas y colaboraciones",
+          copyright: "© 2025 Rebecca & Daniel | Instrucción Profesional de Baile",
+          quote: "El baile es la poesía del pie"
+        }
+      };
+      
+      // Set language function
+      function setLanguage(lang) {
+        // Update UI
+        languageButtons.forEach(btn => {
+          if (btn.dataset.lang === lang) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
         });
         
-        card.addEventListener('mouseleave', function() {
-          this.style.transform = 'translateY(0)';
+        // Update content based on language
+        const langData = translations[lang];
+        
+        document.getElementById('main-title').textContent = langData.mainTitle;
+        document.getElementById('tagline').textContent = langData.tagline;
+        document.getElementById('connect-title').textContent = langData.connectTitle;
+        document.getElementById('rebecca-title').textContent = langData.rebeccaTitle;
+        document.getElementById('rebecca-sub').textContent = langData.rebeccaSub;
+        document.getElementById('daniel-title').textContent = langData.danielTitle;
+        document.getElementById('daniel-sub').textContent = langData.danielSub;
+        document.getElementById('today-label').textContent = langData.todayLabel;
+        document.getElementById('upcoming-title').textContent = langData.upcomingTitle;
+        document.getElementById('register-cta-text').textContent = langData.registerCta;
+        document.getElementById('schedule-title').textContent = langData.scheduleTitle;
+        document.getElementById('reviews-title').textContent = langData.reviewsTitle;
+        document.getElementById('new-class-text').textContent = langData.newClassText;
+        document.getElementById('registration-title').textContent = langData.registrationTitle;
+        document.getElementById('partner-text').textContent = langData.partnerText;
+        
+        // Update participant input placeholder
+        document.querySelectorAll('.participant-fields .form-input').forEach(input => {
+          input.placeholder = langData.namePlaceholder;
+        });
+        
+        document.getElementById('email').placeholder = langData.emailPlaceholder;
+        document.getElementById('location').querySelector('option[value=""]').textContent = langData.locationPlaceholder;
+        document.getElementById('register-button').textContent = langData.registerButton;
+        document.getElementById('thank-you-title').textContent = langData.thankYouTitle;
+        document.getElementById('thank-you-text').textContent = langData.thankYouText;
+        document.getElementById('register-again-text').textContent = langData.registerAgainText;
+        document.getElementById('payment-title').textContent = langData.paymentTitle;
+        document.getElementById('venmo-sub').textContent = langData.venmoSub;
+        document.getElementById('cash-title').textContent = langData.cashTitle;
+        document.getElementById('cash-sub').textContent = langData.cashSub;
+        document.getElementById('contact-title').textContent = langData.contactTitle;
+        document.getElementById('contact-title-text').textContent = langData.contactTitleText;
+        document.getElementById('contact-subtitle').textContent = langData.contactSubtitle;
+        document.getElementById('copyright').textContent = langData.copyright;
+        document.getElementById('quote').textContent = langData.quote;
+        
+        // Update date format
+        updateCurrentDate(lang);
+        
+        currentLanguage = lang;
+        localStorage.setItem('language', lang);
+      }
+      
+      // Event listeners for language buttons
+      languageButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          setLanguage(button.dataset.lang);
         });
       });
       
-      // Form submission
-      const registrationForm = document.getElementById('dance-registration');
+      // Check for saved language preference
+      const savedLanguage = localStorage.getItem('language');
+      if (savedLanguage) {
+        setLanguage(savedLanguage);
+      } else {
+        updateCurrentDate('en');
+      }
       
-      registrationForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const location = document.getElementById('location').value;
-        
-        if (!name.trim()) {
-          alert("Please enter your name");
-          return;
+      // Participant Registration Functionality
+      const participantContainer = document.getElementById('participant-container');
+      const addParticipantBtn = document.getElementById('add-participant');
+      const removeParticipantBtn = document.getElementById('remove-participant');
+      
+      let participantCount = 1;
+      const maxParticipants = 4;
+      
+      // Add participant
+      addParticipantBtn.addEventListener('click', function() {
+        if (participantCount < maxParticipants) {
+          participantCount++;
+          
+          // Create new participant field
+          const newParticipant = document.createElement('div');
+          newParticipant.className = 'participant-fields name-field';
+          newParticipant.innerHTML = `
+            <div class="participant-form-group">
+              <input type="text" class="form-input" placeholder="${translations[currentLanguage].namePlaceholder}" required>
+            </div>
+          `;
+          
+          // Add with fade-in effect
+          participantContainer.appendChild(newParticipant);
+          
+          // Enable remove button
+          removeParticipantBtn.disabled = false;
+          
+          // Disable add button if max reached
+          if (participantCount === maxParticipants) {
+            addParticipantBtn.disabled = true;
+          }
         }
-        
-        if (!email.trim()) {
-          alert("Please enter your email address");
-          return;
-        }
-        
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-          alert("Please enter a valid email address");
-          return;
-        }
-        
-        if (!location) {
-          alert("Please select a class location");
-          return;
-        }
-        
-        // Form submission logic would go here
-        alert("Registration successful! We'll see you in class!");
-        registrationForm.reset();
       });
+      
+      // Remove participant
+      removeParticipantBtn.addEventListener('click', function() {
+        if (participantCount > 1) {
+          const lastField = participantContainer.lastChild;
+          participantContainer.removeChild(lastField);
+          participantCount--;
+          
+          // Disable remove button if only one remains
+          if (participantCount === 1) {
+            removeParticipantBtn.disabled = true;
+          }
+          
+          // Re-enable add button
+          addParticipantBtn.disabled = false;
+        }
+      });
+      
+      // Class schedule data
+      const classSchedule = [
+        { 
+          day: "Monday", 
+          dayIndex: 1,
+          studio: "Stardust Ballroom",
+          classes: [
+            "6:30pm Bachata Intro",
+            "7:00pm Bachata Fundamentals",
+            "8:00pm Bachata Next Level"
+          ],
+          locationId: "stardust-card",
+          endTime: 2100
+        },
+        { 
+          day: "Thursday", 
+          dayIndex: 4,
+          studio: "Stardust Ballroom",
+          classes: [
+            "6:30pm Intro to Salsa",
+            "7:00pm Salsa Open Level",
+            "8:00pm Bachata Open Level"
+          ],
+          locationId: "stardust-card",
+          endTime: 2100
+        },
+        { 
+          day: "Friday", 
+          dayIndex: 5,
+          studio: "Let's Bailar Dance Studio",
+          classes: [
+            "7:00pm Salsa",
+            "8:00pm Bachata"
+          ],
+          locationId: "letsbailar-card",
+          endTime: 2100
+        },
+        { 
+          day: "Saturday", 
+          dayIndex: 6,
+          studio: "Estilo Dance Studio",
+          classes: [
+            "4:00pm Salsa",
+            "5:00pm Bachata"
+          ],
+          locationId: "estilo-card",
+          endTime: 1800
+        },
+        { 
+          day: "Wednesday", 
+          dayIndex: 3,
+          studio: "Serrata Studio",
+          classes: [
+            "7:15pm Salsa",
+            "8:15pm Bachata"
+          ],
+          locationId: "serrata-card",
+          endTime: 2200
+        },
+        { 
+          day: "Saturday", 
+          dayIndex: 6,
+          studio: "Serrata Studio",
+          classes: [
+            "10:30am Bachata",
+            "11:30am Salsa"
+          ],
+          locationId: "serrata-card",
+          endTime: 1300
+        }
+      ];
+
+      // Find next class to highlight
+      function getNextClassInfo() {
+        const now = new Date();
+        const currentDayIndex = now.getDay(); 
+        const currentHours = now.getHours();
+        const currentMinutes = now.getMinutes();
+        const currentTime = currentHours * 100 + currentMinutes;
+        
+        // Find today's class if exists
+        const todayClass = classSchedule.find(s => s.dayIndex === currentDayIndex);
+        
+        // Check if today has class and current time is before studio's cutoff
+        if (todayClass && currentTime < todayClass.endTime) {
+          return {
+            day: todayClass.day,
+            studio: todayClass.studio,
+            schedule: todayClass.classes,
+            timePrefix: currentLanguage === 'es' ? "Esta noche" : "Tonight",
+            locationId: todayClass.locationId
+          };
+        }
+        
+        // Find next class in the same week
+        const futureClasses = classSchedule.filter(s => s.dayIndex > currentDayIndex);
+        
+        if (futureClasses.length > 0) {
+          const nextClass = futureClasses[0];
+          const dayDifference = nextClass.dayIndex - currentDayIndex;
+          let timePrefix = "";
+          
+          if (dayDifference === 1) {
+            timePrefix = currentLanguage === 'es' ? "Mañana" : "Tomorrow";
+          } else if (dayDifference === 2) {
+            timePrefix = currentLanguage === 'es' ? "Este " : "This " + nextClass.day;
+          } else {
+            timePrefix = currentLanguage === 'es' ? "Próximo " : "Next " + nextClass.day;
+          }
+          
+          return {
+            day: nextClass.day,
+            studio: nextClass.studio,
+            schedule: nextClass.classes,
+            timePrefix: timePrefix,
+            locationId: nextClass.locationId
+          };
+        }
+        
+        // If no future classes in same week, take first class of next week
+        const nextClass = classSchedule[0];
+        return {
+          day: nextClass.day,
+          studio: nextClass.studio,
+          schedule: nextClass.classes,
+          timePrefix: currentLanguage === 'es' ? "Próximo " : "Next " + nextClass.day,
+          locationId: nextClass.locationId
+        };
+      }
+
+      // Update the call-to-action section
+      function updateCTASection() {
+        const nextClass = getNextClassInfo();
+        
+        const ctaTitle = document.getElementById('cta-title');
+        ctaTitle.innerHTML = `<span class="pulse">${nextClass.timePrefix}</span>: ${nextClass.studio}`;
+        
+        document.getElementById('cta-schedule').textContent = nextClass.schedule.join(' | ');
+        
+        document.querySelectorAll('.link-card').forEach(card => {
+          card.classList.remove('next-class-highlight');
+        });
+        
+        const locationCard = document.getElementById(nextClass.locationId);
+        if (locationCard) {
+          locationCard.classList.add('next-class-highlight');
+        }
+      }
+      
+      // Update schedule display order
+      function updateScheduleDisplay() {
+        const now = new Date();
+        const currentDayIndex = now.getDay();
+        const currentHours = now.getHours();
+        const currentMinutes = now.getMinutes();
+        const currentTime = currentHours * 100 + currentMinutes;
+        
+        // Create a map of studios with their next class
+        const studioMap = {};
+        classSchedule.forEach(schedule => {
+          const locationId = schedule.locationId;
+          
+          // Calculate days until class
+          let daysUntil = schedule.dayIndex - currentDayIndex;
+          if (daysUntil < 0) daysUntil += 7;
+          
+          // Check if today's class has passed
+          if (daysUntil === 0 && currentTime >= schedule.endTime) {
+            daysUntil = 7; // Schedule for next week
+          }
+          
+          // If we haven't seen this studio or this class is sooner
+          if (!studioMap[locationId] || daysUntil < studioMap[locationId].daysUntil) {
+            studioMap[locationId] = {
+              daysUntil: daysUntil,
+              schedule: schedule
+            };
+          }
+        });
+        
+        // Convert to array and sort by days until next class
+        const sortedStudios = Object.values(studioMap).sort((a, b) => {
+          return a.daysUntil - b.daysUntil;
+        });
+        
+        // Reorder the cards in the schedule grid
+        const scheduleGrid = document.getElementById('schedule-grid');
+        const cards = Array.from(scheduleGrid.children);
+        
+        // Create a new array with the cards in the correct order
+        const orderedCards = sortedStudios.map(studio => {
+          return cards.find(card => card.id === studio.schedule.locationId);
+        });
+        
+        // Remove all existing cards
+        while (scheduleGrid.firstChild) {
+          scheduleGrid.removeChild(scheduleGrid.firstChild);
+        }
+        
+        // Add cards in new order
+        orderedCards.forEach(card => {
+          if (card) {
+            scheduleGrid.appendChild(card);
+          }
+        });
+      }
+
+      // Handle form submission
+      function initForm() {
+        const registrationForm = document.getElementById('dance-registration');
+        const thankYouMessage = document.getElementById('thank-you-message');
+        const submitBtn = registrationForm.querySelector('button[type="submit"]');
+        const registerAgainBtn = document.getElementById('register-again-btn');
+        
+        function resetForm() {
+          registrationForm.reset();
+          thankYouMessage.style.display = 'none';
+          registrationForm.style.display = 'block';
+          
+          // Reset participants to one
+          participantContainer.innerHTML = `
+            <div class="participant-fields name-field">
+              <div class="participant-form-group">
+                <input type="text" class="form-input" placeholder="${translations[currentLanguage].namePlaceholder}" required>
+              </div>
+            </div>
+          `;
+          participantCount = 1;
+          removeParticipantBtn.disabled = true;
+          addParticipantBtn.disabled = false;
+        }
+        
+        registerAgainBtn.addEventListener('click', resetForm);
+        
+        registrationForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Collect participant names
+          const participantNames = [];
+          const nameInputs = participantContainer.querySelectorAll('.form-input');
+          nameInputs.forEach(input => {
+            if (input.value.trim()) {
+              participantNames.push(input.value.trim());
+            }
+          });
+          
+          const email = document.getElementById('email').value;
+          const location = document.getElementById('location').value;
+          
+          if (participantNames.length === 0) {
+            showNotification(currentLanguage === 'es' ? "Por favor ingresa al menos un nombre" : "Please enter at least one name", "info");
+            return;
+          }
+          
+          if (!email.trim()) {
+            showNotification(currentLanguage === 'es' ? "Por favor ingresa tu correo electrónico" : "Please enter your email address", "info");
+            return;
+          }
+          
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            showNotification(currentLanguage === 'es' ? "Por favor ingresa un correo electrónico válido" : "Please enter a valid email address", "info");
+            return;
+          }
+          
+          if (!location) {
+            showNotification(currentLanguage === 'es' ? "Por favor selecciona una ubicación" : "Please select a class location", "info");
+            return;
+          }
+          
+          submitBtn.textContent = currentLanguage === 'es' ? 'Procesando...' : 'Processing...';
+          submitBtn.disabled = true;
+          
+          setTimeout(function() {
+            registrationForm.style.display = 'none';
+            thankYouMessage.style.display = 'block';
+            thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            submitBtn.textContent = translations[currentLanguage].registerButton;
+            submitBtn.disabled = false;
+            showNotification(
+              currentLanguage === 'es' ? 
+                "¡Registro exitoso! Tu lugar está siendo reservado" : 
+                "Registration successful! Your spot is being saved", 
+              "success"
+            );
+          }, 1000);
+        });
+      }
+      
+      // Show notification
+      function showNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i> ${message}`;
+        document.body.appendChild(notification);
+        setTimeout(() => { notification.remove(); }, 3000);
+      }
+      
+      // Enhanced registration flow
+      function initRegistrationFlow() {
+        const registerCta = document.getElementById('register-cta');
+        const registrationForm = document.getElementById('registration-form');
+        
+        registerCta.addEventListener('click', function() {
+          // Scroll to the registration form
+          registrationForm.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        });
+      }
+      
+      // Reviews Carousel
+      function initReviewsCarousel() {
+        const reviews = document.querySelectorAll('.review-item');
+        const indicators = document.querySelectorAll('.review-indicator');
+        let currentReview = 0;
+        
+        function showReview(index) {
+          reviews.forEach(review => review.classList.remove('active'));
+          indicators.forEach(indicator => indicator.classList.remove('active'));
+          
+          reviews[index].classList.add('active');
+          indicators[index].classList.add('active');
+          currentReview = index;
+        }
+        
+        indicators.forEach((indicator, index) => {
+          indicator.addEventListener('click', () => showReview(index));
+        });
+        
+        // Auto cycle reviews
+        function autoCycleReviews() {
+          currentReview = (currentReview + 1) % reviews.length;
+          showReview(currentReview);
+        }
+        
+        let reviewInterval = setInterval(autoCycleReviews, 5000);
+        
+        // Pause cycling when hovering over reviews
+        const reviewsContainer = document.querySelector('.reviews-container');
+        reviewsContainer.addEventListener('mouseenter', () => clearInterval(reviewInterval));
+        reviewsContainer.addEventListener('mouseleave', () => {
+          reviewInterval = setInterval(autoCycleReviews, 5000);
+        });
+      }
+      
+      // Initialize the page
+      function initPage() {
+        updateCTASection();
+        updateScheduleDisplay();
+        initForm();
+        initRegistrationFlow();
+        initReviewsCarousel();
+        
+        // Update every minute
+        setInterval(() => {
+          updateCTASection();
+          updateScheduleDisplay();
+        }, 60000);
+      }
+
+      initPage();
     });
   </script>
 </body>
