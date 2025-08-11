@@ -19,6 +19,9 @@
             --border: #f0f2f5;
             --success: #27ae60;
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.1);
         }
         
         * {
@@ -54,8 +57,8 @@
             position: relative;
             z-index: 10;
             padding: 40px 35px;
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
-            border: 0.8px solid rgba(0, 0, 0, 0.04);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(0, 0, 0, 0.03);
         }
         
         .header-container {
@@ -65,7 +68,7 @@
             padding-top: 80px;
         }
         
-        /* Navigation Buttons */
+        /* Navigation Buttons - Refined with elegant behavior */
         .top-nav-buttons {
             position: fixed;
             top: 20px;
@@ -75,15 +78,22 @@
             gap: 12px;
             padding: 12px 20px;
             z-index: 100;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             border-radius: 30px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-            border: 1px solid rgba(211, 84, 0, 0.15);
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(211, 84, 0, 0.1);
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             opacity: 1;
             max-width: 95%;
             width: auto;
+            transform-origin: top center;
+        }
+        
+        .top-nav-buttons.nav-hidden {
+            transform: translateX(-50%) scale(0.9);
+            opacity: 0;
+            pointer-events: none;
         }
         
         .nav-btn {
@@ -93,7 +103,7 @@
             padding: 12px 22px;
             font-size: 1rem;
             font-weight: 600;
-            color: #d35400;
+            color: var(--primary);
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
@@ -121,17 +131,13 @@
             background: rgba(211, 84, 0, 0.1);
             color: #b34700;
             transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(211, 84, 0, 0.2);
-        }
-        
-        .nav-btn:hover::before {
-            opacity: 1;
+            box-shadow: 0 6px 15px rgba(211, 84, 0, 0.15);
         }
         
         .nav-btn.active-section {
             background: linear-gradient(135deg, #d35400, #b34700);
             color: white;
-            box-shadow: 0 6px 20px rgba(211, 84, 0, 0.3);
+            box-shadow: 0 6px 20px rgba(211, 84, 0, 0.2);
         }
         
         .nav-btn i {
@@ -167,7 +173,7 @@
             justify-content: center;
             position: relative;
             z-index: 2;
-            box-shadow: 0 10px 30px rgba(230, 126, 34, 0.25);
+            box-shadow: 0 10px 30px rgba(230, 126, 34, 0.2);
             transition: var(--transition);
             animation: gentle-beat 4s infinite ease-in-out;
         }
@@ -175,11 +181,11 @@
         @keyframes gentle-beat {
             0%, 100% { 
                 transform: scale(1); 
-                box-shadow: 0 10px 30px rgba(230, 126, 34, 0.25);
+                box-shadow: 0 10px 30px rgba(230, 126, 34, 0.2);
             }
             50% { 
                 transform: scale(1.015); 
-                box-shadow: 0 15px 35px rgba(230, 126, 34, 0.35);
+                box-shadow: 0 15px 35px rgba(230, 126, 34, 0.25);
             }
         }
         
@@ -198,7 +204,7 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            border: 0.8px solid rgba(230, 126, 34, 0.3);
+            border: 1px solid rgba(230, 126, 34, 0.2);
             z-index: 1;
         }
         
@@ -299,7 +305,7 @@
             background: #fff;
             border-radius: 20px;
             padding: 30px;
-            border: 0.8px solid #f0f2f5;
+            border: 1px solid var(--border);
             display: flex;
             align-items: flex-start;
             position: relative;
@@ -307,13 +313,13 @@
             min-height: 130px;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow-sm);
             text-decoration: none !important;
         }
         
         .link-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-md);
             border-color: rgba(230, 126, 34, 0.3);
         }
         
@@ -329,11 +335,11 @@
             flex-shrink: 0;
             color: white;
             background: var(--primary-light);
-            box-shadow: 0 5px 14px rgba(0,0,0,0.09);
+            box-shadow: 0 5px 14px rgba(0,0,0,0.07);
             position: relative;
             overflow: hidden;
             transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            border: 0.8px solid rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.03);
         }
         
         .social-icon-container {
@@ -344,16 +350,16 @@
             margin-right: 22px;
             flex-shrink: 0;
             overflow: hidden;
-            box-shadow: 0 5px 16px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 16px rgba(0,0,0,0.08);
             transition: all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             animation: pulseSocial 3.2s infinite;
-            border: 0.8px solid rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.03);
         }
         
         .social-icon-container:hover {
             animation: none;
             transform: scale(1.08);
-            box-shadow: 0 8px 26px rgba(0,0,0,0.16);
+            box-shadow: 0 8px 26px rgba(0,0,0,0.12);
         }
         
         @keyframes pulseSocial {
@@ -460,7 +466,7 @@
             color: var(--primary-light);
             margin-bottom: 12px;
             padding-bottom: 4px;
-            border-bottom: 0.8px dashed #e0e0e0;
+            border-bottom: 1px dashed #e0e0e0;
             font-size: 1.15rem;
         }
         
@@ -527,8 +533,8 @@
             flex-direction: column;
             color: #2c3e50;
             text-align: center;
-            box-shadow: 0 9px 28px rgba(0, 0, 0, 0.06);
-            border: 0.8px solid #e8e4dc;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #e8e4dc;
             position: relative;
             overflow: hidden;
             scroll-margin-top: 80px;
@@ -569,7 +575,7 @@
             color: white;
             border-radius: 50px;
             transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: 0 6px 18px rgba(230, 126, 34, 0.18);
+            box-shadow: 0 6px 18px rgba(230, 126, 34, 0.15);
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -593,7 +599,7 @@
             font-weight: 620;
             padding: 6px 14px;
             border-radius: 22px;
-            box-shadow: 0 5px 18px rgba(155, 89, 182, 0.28);
+            box-shadow: 0 5px 18px rgba(155, 89, 182, 0.25);
             z-index: 3;
             animation: pulse 2.2s infinite;
             white-space: nowrap;
@@ -615,8 +621,8 @@
             border-radius: 20px;
             padding: 38px 35px;
             margin: 35px 0 30px;
-            border: 0.8px solid #eee;
-            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.04);
+            border: 1px solid #eee;
+            box-shadow: var(--shadow-sm);
             position: relative;
             overflow: hidden;
         }
@@ -665,7 +671,7 @@
             width: 100%;
             padding: 20px 25px;
             border-radius: 14px;
-            border: 0.8px solid #e0e0e0;
+            border: 1px solid #e0e0e0;
             background: #f9f9f9;
             color: var(--dark);
             font-size: 1.12rem;
@@ -678,7 +684,7 @@
             outline: none;
             border-color: var(--primary-light);
             background: #fff;
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.15);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.12);
         }
         
         .form-input::placeholder {
@@ -690,7 +696,7 @@
             width: 100%;
             padding: 20px 25px;
             border-radius: 14px;
-            border: 0.8px solid #e0e0e0;
+            border: 1px solid #e0e0e0;
             background: #f9f9f9;
             color: var(--dark);
             font-size: 1.12rem;
@@ -707,7 +713,7 @@
             outline: none;
             border-color: var(--primary-light);
             background: #fff;
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.15);
+            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.12);
         }
         
         .submit-btn {
@@ -726,13 +732,13 @@
             overflow: hidden;
             display: block;
             letter-spacing: 0.6px;
-            box-shadow: 0 9px 28px rgba(230, 126, 34, 0.2);
-            border: 0.8px solid rgba(0,0,0,0.03);
+            box-shadow: 0 9px 28px rgba(230, 126, 34, 0.15);
+            border: 1px solid rgba(0,0,0,0.03);
         }
         
         .submit-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 14px 35px rgba(230, 126, 34, 0.3);
+            box-shadow: 0 14px 35px rgba(230, 126, 34, 0.25);
         }
         
         .thank-you-message {
@@ -742,8 +748,8 @@
             border-radius: 20px;
             background: #fff;
             margin-top: 25px;
-            border: 0.8px solid #eee;
-            box-shadow: 0 16px 45px rgba(0,0,0,0.03);
+            border: 1px solid #eee;
+            box-shadow: var(--shadow-sm);
         }
         
         .thank-you-message h3 {
@@ -825,7 +831,7 @@
         
         .lang-btn {
             background: transparent;
-            border: 0.8px solid #ddd;
+            border: 1px solid #ddd;
             border-radius: 22px;
             padding: 7px 18px;
             font-size: 0.95rem;
@@ -874,14 +880,14 @@
             border: 2px solid var(--primary-light);
             color: var(--primary-light);
             background: white;
-            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.15);
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.12);
         }
         
         .participant-btn:hover {
             background: var(--primary-light);
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(230, 126, 34, 0.25);
+            box-shadow: 0 6px 15px rgba(230, 126, 34, 0.2);
         }
         
         .participant-btn:disabled {
@@ -928,8 +934,8 @@
             border-radius: 18px;
             padding: 35px;
             margin: 40px 0;
-            box-shadow: 0 9px 28px rgba(0, 0, 0, 0.06);
-            border: 0.8px solid #e8e4dc;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #e8e4dc;
             position: relative;
             overflow: hidden;
         }
@@ -971,7 +977,7 @@
         .review-text::after {
             content: "❝";
             position: absolute;
-            color: rgba(230, 126, 34, 0.25);
+            color: rgba(230, 126, 34, 0.2);
             font-size: 3rem;
             top: -20px;
         }
@@ -1285,12 +1291,46 @@
         .submit-btn {
             min-height: 62px;
         }
+        
+        /* Footer styling */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #f0f2f5;
+            color: var(--medium);
+        }
+        
+        footer p {
+            margin: 8px 0;
+            font-size: 0.95rem;
+        }
+        
+        #copyright {
+            font-weight: 500;
+            margin-top: 15px;
+        }
+        
+        #quote {
+            font-style: italic;
+            color: #777;
+            margin-bottom: 15px;
+        }
+        
+        /* Signature line */
+        .signature-container {
+            width: 300px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--primary), transparent);
+            margin: 20px auto;
+            opacity: 0.7;
+        }
     </style>
 </head>
 <body>
   <div class="container">
     <div class="header-container">
-      <!-- Navigation buttons -->
+      <!-- Navigation buttons with elegant scroll behavior -->
       <div class="top-nav-buttons" id="nav-buttons">
         <button class="nav-btn" id="btn-social">
           <i class="fas fa-hashtag"></i> <span>Social</span>
@@ -2373,6 +2413,29 @@
         }
       }
       
+      // Navigation scroll behavior
+      function initNavScrollBehavior() {
+        const navbar = document.getElementById('nav-buttons');
+        let lastScrollTop = 0;
+        const scrollThreshold = 50;
+        
+        window.addEventListener('scroll', function() {
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          
+          if (Math.abs(scrollTop - lastScrollTop) < scrollThreshold) return;
+          
+          if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+            // Scrolling down - hide nav
+            navbar.classList.add('nav-hidden');
+          } else {
+            // Scrolling up - show nav
+            navbar.classList.remove('nav-hidden');
+          }
+          
+          lastScrollTop = scrollTop;
+        });
+      }
+      
       // Initialize the page
       function initPage() {
         // Force page to start at top
@@ -2384,6 +2447,7 @@
         initRegistrationFlow();
         initReviewsCarousel();
         initNavButtons();
+        initNavScrollBehavior();
         
         // Set scroll event listener for active section
         window.addEventListener('scroll', setActiveSection);
