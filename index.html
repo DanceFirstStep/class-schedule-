@@ -62,6 +62,89 @@
             text-align: center;
             margin-bottom: 40px;
             position: relative;
+            padding-top: 80px;
+        }
+        
+        /* Navigation Buttons */
+        .top-nav-buttons {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            padding: 12px 20px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(211, 84, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            opacity: 1;
+            max-width: 95%;
+            width: auto;
+        }
+        
+        .nav-btn {
+            background: transparent;
+            border: none;
+            border-radius: 20px;
+            padding: 12px 22px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #d35400;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(211, 84, 0, 0.1), transparent);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(211, 84, 0, 0.1);
+            color: #b34700;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(211, 84, 0, 0.2);
+        }
+        
+        .nav-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .nav-btn.active-section {
+            background: linear-gradient(135deg, #d35400, #b34700);
+            color: white;
+            box-shadow: 0 6px 20px rgba(211, 84, 0, 0.3);
+        }
+        
+        .nav-btn i {
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-btn:hover i {
+            transform: scale(1.15);
+        }
+        
+        .nav-btn.active-section i {
+            color: white;
         }
         
         .logo-container {
@@ -186,6 +269,7 @@
             color: var(--dark);
             padding-bottom: 14px;
             font-family: 'Playfair Display', serif;
+            scroll-margin-top: 80px;
         }
         
         .section-title::after {
@@ -447,6 +531,7 @@
             border: 0.8px solid #e8e4dc;
             position: relative;
             overflow: hidden;
+            scroll-margin-top: 80px;
         }
         
         .cta-header {
@@ -999,6 +1084,20 @@
                 font-size: 0.75rem;
                 padding: 5px 12px;
             }
+            
+            .top-nav-buttons {
+                padding: 10px 16px;
+                gap: 8px;
+            }
+            
+            .nav-btn {
+                padding: 10px 18px;
+                font-size: 0.9rem;
+            }
+            
+            .nav-btn i {
+                font-size: 1rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -1150,6 +1249,26 @@
                 font-size: 1.05rem;
                 padding: 0 20px;
             }
+            
+            .top-nav-buttons {
+                padding: 8px 12px;
+                gap: 6px;
+                top: 15px;
+            }
+            
+            .nav-btn {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+            
+            .nav-btn span {
+                display: none;
+            }
+            
+            .nav-btn i {
+                font-size: 1rem;
+                margin: 0;
+            }
         }
         
         /* Touch optimizations */
@@ -1171,6 +1290,22 @@
 <body>
   <div class="container">
     <div class="header-container">
+      <!-- Navigation buttons -->
+      <div class="top-nav-buttons" id="nav-buttons">
+        <button class="nav-btn" id="btn-social">
+          <i class="fas fa-hashtag"></i> <span>Social</span>
+        </button>
+        <button class="nav-btn" id="btn-next-class">
+          <i class="fas fa-calendar"></i> <span>Next Class</span>
+        </button>
+        <button class="nav-btn" id="btn-schedule">
+          <i class="fas fa-clock"></i> <span>Schedule</span>
+        </button>
+        <button class="nav-btn" id="btn-location">
+          <i class="fas fa-map-marker-alt"></i> <span>Location</span>
+        </button>
+      </div>
+      
       <div class="logo-container">
         <div class="radiating-ring ring-1"></div>
         <div class="radiating-ring ring-2"></div>
@@ -2166,13 +2301,92 @@
         });
       }
       
+      // Navigation button functionality
+      function initNavButtons() {
+        // Button 1: Social media section
+        document.getElementById('btn-social').addEventListener('click', (e) => {
+          e.preventDefault();
+          document.getElementById('connect-title').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start'
+          });
+        });
+        
+        // Button 2: Next class section
+        document.getElementById('btn-next-class').addEventListener('click', (e) => {
+          e.preventDefault();
+          document.getElementById('class-cta').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start'
+          });
+        });
+        
+        // Button 3: Schedule section
+        document.getElementById('btn-schedule').addEventListener('click', (e) => {
+          e.preventDefault();
+          document.getElementById('schedule-title').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start'
+          });
+        });
+        
+        // Button 4: First location card
+        document.getElementById('btn-location').addEventListener('click', (e) => {
+          e.preventDefault();
+          const firstCard = document.querySelector('#schedule-grid > .link-card:first-child');
+          if (firstCard) {
+            firstCard.scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'start'
+            });
+          }
+        });
+      }
+      
+      // Set active section based on scroll position
+      function setActiveSection() {
+        const sections = [
+          {id: 'connect-title', btn: 'btn-social'},
+          {id: 'class-cta', btn: 'btn-next-class'},
+          {id: 'schedule-title', btn: 'btn-schedule'},
+          {id: 'schedule-grid', btn: 'btn-location'}
+        ];
+        
+        // Reset active states
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+          btn.classList.remove('active-section');
+        });
+        
+        // Find current active section
+        const currentSection = sections.find(section => {
+          const el = document.getElementById(section.id);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            return rect.top <= 200 && rect.bottom >= 100;
+          }
+          return false;
+        });
+        
+        // Set active state
+        if (currentSection) {
+          document.getElementById(currentSection.btn).classList.add('active-section');
+        }
+      }
+      
       // Initialize the page
       function initPage() {
+        // Force page to start at top
+        window.scrollTo(0, 0);
+        
         updateCTASection();
         updateScheduleDisplay();
         initForm();
         initRegistrationFlow();
         initReviewsCarousel();
+        initNavButtons();
+        
+        // Set scroll event listener for active section
+        window.addEventListener('scroll', setActiveSection);
         
         // Update every minute
         setInterval(() => {
