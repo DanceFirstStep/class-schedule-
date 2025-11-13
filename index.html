@@ -294,6 +294,89 @@
             padding: 0 18px 12px;
         }
         
+        /* NEW ANNOUNCEMENT SECTION STYLES */
+        .announcement-banner {
+            background: linear-gradient(135deg, #8e44ad, #9b59b6, #8e44ad);
+            border-radius: 16px;
+            padding: 25px 30px;
+            margin: 30px 0 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(142, 68, 173, 0.2);
+            border: 1px solid rgba(142, 68, 173, 0.2);
+            color: white;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .announcement-banner:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(142, 68, 173, 0.3);
+        }
+        
+        .announcement-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 6s infinite linear;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        .announcement-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .announcement-icon {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            display: block;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .announcement-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .announcement-details {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        
+        .announcement-highlight {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 600;
+            margin: 5px 0;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .announcement-note {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
         .links-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1030,6 +1113,19 @@
         
         /* Mobile-specific enhancements */
         @media (max-width: 800px) {
+            .announcement-banner {
+                padding: 20px 25px;
+                margin: 25px 0 35px;
+            }
+            
+            .announcement-title {
+                font-size: 1.3rem;
+            }
+            
+            .announcement-details {
+                font-size: 1.1rem;
+            }
+            
             .links-grid {
                 grid-template-columns: 1fr;
                 gap: 25px;
@@ -1115,6 +1211,24 @@
             .container {
                 padding: 30px 18px;
                 border-radius: 18px;
+            }
+            
+            .announcement-banner {
+                padding: 18px 20px;
+                margin: 20px 0 30px;
+            }
+            
+            .announcement-title {
+                font-size: 1.2rem;
+            }
+            
+            .announcement-details {
+                font-size: 1rem;
+            }
+            
+            .announcement-highlight {
+                padding: 6px 12px;
+                font-size: 0.95rem;
             }
             
             .logo-container {
@@ -1360,6 +1474,19 @@
     </div>
     
     <div class="content">
+      <!-- NEW ANNOUNCEMENT SECTION -->
+      <div class="announcement-banner">
+        <div class="announcement-content">
+          <i class="fas fa-calendar-alt announcement-icon"></i>
+          <div class="announcement-title">Thursday Nights at Buena Vista</div>
+          <div class="announcement-details">
+            Join us every Thursday for dance class and social
+          </div>
+          <div class="announcement-highlight">9:45 PM | $10 | Until 1:30 AM</div>
+          <div class="announcement-note">No partner needed - All levels welcome</div>
+        </div>
+      </div>
+      
       <h2 class="section-title" id="connect-title">Connect With Us</h2>
       
       <div class="links-grid">
@@ -1569,10 +1696,11 @@
           </div>
         </div>
         
+        <!-- UPDATED SERRATA CARD -->
         <div class="link-card serrata next-class-highlight" 
              data-studio="Serrata Studio" 
              id="serrata-card">
-          <div class="new-class-badge" id="new-class-text">August Classes</div>
+          <div class="new-class-badge" id="new-class-text">New Intro Classes</div>
           <div class="link-icon serrata-icon">
             <i class="fas fa-building"></i>
           </div>
@@ -1601,26 +1729,30 @@
               </a>
             </div>
             <div class="schedule-list">
-              <div class="schedule-day-group" data-day="Wednesday">
-                <div class="schedule-day-header">Wednesday</div>
+              <div class="schedule-day-group" data-day="Monday">
+                <div class="schedule-day-header">Monday</div>
                 <div class="schedule-class">
-                  <span class="class-time">7:15pm</span>
+                  <span class="class-time">6:30pm</span>
                   <span class="class-name"><span class="salsa-text">Salsa</span></span>
                 </div>
                 <div class="schedule-class">
-                  <span class="class-time">8:15pm</span>
+                  <span class="class-time">7:30pm</span>
                   <span class="class-name"><span class="bachata-text">Bachata</span></span>
                 </div>
               </div>
-              <div class="schedule-day-group" data-day="Saturday">
-                <div class="schedule-day-header">Saturday</div>
+              <div class="schedule-day-group" data-day="Tuesday">
+                <div class="schedule-day-header">Tuesday - 4 Week Intro Course</div>
                 <div class="schedule-class">
-                  <span class="class-time">10:30am</span>
-                  <span class="class-name"><span class="bachata-text">Bachata</span></span>
+                  <span class="class-time">7:30pm</span>
+                  <span class="class-name"><span class="salsa-text">Salsa</span> Intro</span>
                 </div>
                 <div class="schedule-class">
-                  <span class="class-time">11:30am</span>
-                  <span class="class-name"><span class="salsa-text">Salsa</span></span>
+                  <span class="class-time">8:15pm</span>
+                  <span class="class-name"><span class="bachata-text">Bachata</span> Intro</span>
+                </div>
+                <div class="schedule-class">
+                  <span class="class-time">9:00pm</span>
+                  <span class="class-name">30 Minutes Practical</span>
                 </div>
               </div>
             </div>
@@ -1813,7 +1945,7 @@
           upcomingTitle: "Upcoming Classes",
           registerCta: "Register Now",
           scheduleTitle: "Class Schedule",
-          newClassText: "August Classes",
+          newClassText: "New Intro Classes",
           reviewsTitle: "Student Reviews",
           registrationTitle: "Class Registration",
           partnerText: "No partner needed - come dance with us!",
@@ -1846,7 +1978,7 @@
           upcomingTitle: "Próximas Clases",
           registerCta: "Regístrate Ahora",
           scheduleTitle: "Horario de Clases",
-          newClassText: "Clases de Agosto",
+          newClassText: "Nuevas Clases Introductorias",
           reviewsTitle: "Opiniones de Estudiantes",
           registrationTitle: "Registro de Clase",
           partnerText: "No necesitas pareja - ¡Ven a bailar con nosotros!",
@@ -2043,26 +2175,27 @@
           endTime: 1800
         },
         { 
-          day: "Wednesday", 
-          dayIndex: 3,
+          day: "Monday", 
+          dayIndex: 1,
           studio: "Serrata Studio",
           classes: [
-            "7:15pm Salsa",
-            "8:15pm Bachata"
+            "6:30pm Salsa",
+            "7:30pm Bachata"
           ],
           locationId: "serrata-card",
-          endTime: 2200
+          endTime: 2100
         },
         { 
-          day: "Saturday", 
-          dayIndex: 6,
+          day: "Tuesday", 
+          dayIndex: 2,
           studio: "Serrata Studio",
           classes: [
-            "10:30am Bachata",
-            "11:30am Salsa"
+            "7:30pm Salsa Intro",
+            "8:15pm Bachata Intro",
+            "9:00pm 30 Minutes Practical"
           ],
           locationId: "serrata-card",
-          endTime: 1300
+          endTime: 2130
         }
       ];
 
