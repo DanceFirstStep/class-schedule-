@@ -2276,6 +2276,39 @@
         }
       }
       
+      // Reorder day groups within each studio card to show today's class first
+      function reorderDayGroupsInCards() {
+        const now = new Date();
+        const currentDayName = now.toLocaleDateString('en-US', { weekday: 'long' });
+        
+        // Get all studio cards
+        const studioCards = document.querySelectorAll('.link-card');
+        
+        studioCards.forEach(card => {
+          const scheduleList = card.querySelector('.schedule-list');
+          if (!scheduleList) return;
+          
+          const dayGroups = Array.from(scheduleList.querySelectorAll('.schedule-day-group'));
+          
+          // Check if this card has multiple day groups
+          if (dayGroups.length > 1) {
+            // Find the day group for today
+            const todayGroupIndex = dayGroups.findIndex(group => 
+              group.dataset.day === currentDayName
+            );
+            
+            // If today's class is found and not already first, reorder
+            if (todayGroupIndex > 0) {
+              const todayGroup = dayGroups[todayGroupIndex];
+              // Remove the today group from its current position
+              todayGroup.remove();
+              // Insert it at the beginning of the schedule list
+              scheduleList.insertBefore(todayGroup, scheduleList.firstChild);
+            }
+          }
+        });
+      }
+      
       // Update schedule display order
       function updateScheduleDisplay() {
         const now = new Date();
@@ -2332,6 +2365,9 @@
             scheduleGrid.appendChild(card);
           }
         });
+        
+        // Now reorder day groups within each card to show today's class first
+        reorderDayGroupsInCards();
       }
 
       // Handle form submission
