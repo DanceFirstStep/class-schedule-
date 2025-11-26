@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rebecca & Daniel | Professional Dance Instruction</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #d35400;
+            --primary: #c44536;
             --primary-light: #e67e22;
-            --primary-gradient: linear-gradient(135deg, #d35400, #e67e22, #f39c12);
+            --primary-gradient: linear-gradient(135deg, #c44536, #e74c3c, #e67e22);
             --secondary: #8e44ad;
             --accent: #e1306c;
             --dark: #222;
@@ -28,7 +28,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Montserrat', 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -45,7 +45,7 @@
             color: var(--medium);
             background: linear-gradient(135deg, #f9fbfd, #f1f5fa);
             line-height: 1.6;
-            font-size: 1rem;
+            font-size: 1.1rem; /* Increased from 1rem for better readability */
         }
         
         .container {
@@ -82,7 +82,7 @@
             backdrop-filter: blur(10px);
             border-radius: 30px;
             box-shadow: var(--shadow-md);
-            border: 1px solid rgba(211, 84, 0, 0.1);
+            border: 1px solid rgba(196, 69, 54, 0.1);
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             opacity: 1;
             max-width: 95%;
@@ -101,7 +101,7 @@
             border: none;
             border-radius: 20px;
             padding: 12px 22px;
-            font-size: 1rem;
+            font-size: 1.05rem; /* Increased from 1rem */
             font-weight: 600;
             color: var(--primary);
             cursor: pointer;
@@ -121,27 +121,27 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(211, 84, 0, 0.1), transparent);
+            background: linear-gradient(135deg, rgba(196, 69, 54, 0.1), transparent);
             z-index: -1;
             opacity: 0;
             transition: opacity 0.3s ease;
         }
         
         .nav-btn:hover {
-            background: rgba(211, 84, 0, 0.1);
-            color: #b34700;
+            background: rgba(196, 69, 54, 0.1);
+            color: #a53a2b;
             transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(211, 84, 0, 0.15);
+            box-shadow: 0 6px 15px rgba(196, 69, 54, 0.15);
         }
         
         .nav-btn.active-section {
-            background: linear-gradient(135deg, #d35400, #b34700);
+            background: linear-gradient(135deg, #c44536, #a53a2b);
             color: white;
-            box-shadow: 0 6px 20px rgba(211, 84, 0, 0.2);
+            box-shadow: 0 6px 20px rgba(196, 69, 54, 0.2);
         }
         
         .nav-btn i {
-            font-size: 1.1rem;
+            font-size: 1.15rem; /* Increased from 1.1rem */
             transition: transform 0.3s ease;
         }
         
@@ -181,11 +181,11 @@
         @keyframes gentle-beat {
             0%, 100% { 
                 transform: scale(1); 
-                box-shadow: 0 10px 30px rgba(230, 126, 34, 0.2);
+                box-shadow: 0 10px 30px rgba(196, 69, 54, 0.2);
             }
             50% { 
                 transform: scale(1.015); 
-                box-shadow: 0 15px 35px rgba(230, 126, 34, 0.25);
+                box-shadow: 0 15px 35px rgba(196, 69, 54, 0.25);
             }
         }
         
@@ -204,7 +204,7 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            border: 1px solid rgba(230, 126, 34, 0.2);
+            border: 1px solid rgba(196, 69, 54, 0.2);
             z-index: 1;
         }
         
@@ -235,7 +235,7 @@
         }
         
         h1 {
-            font-size: 2.7rem;
+            font-size: 2.8rem; /* Increased from 2.7rem */
             font-weight: 800;
             margin-bottom: 15px;
             letter-spacing: 0.5px;
@@ -247,7 +247,7 @@
         }
         
         .tagline {
-            font-size: 1.35rem;
+            font-size: 1.4rem; /* Increased from 1.35rem */
             font-weight: 520;
             color: var(--medium);
             margin: 20px auto 0;
@@ -265,7 +265,7 @@
         }
         
         .section-title {
-            font-size: 1.9rem;
+            font-size: 2rem; /* Increased from 1.9rem */
             font-weight: 750;
             margin: 48px 0 30px;
             text-align: center;
@@ -337,7 +337,7 @@
         }
         
         .announcement-icon {
-            font-size: 2.2rem;
+            font-size: 2.3rem; /* Increased from 2.2rem */
             margin-bottom: 15px;
             display: block;
             color: rgba(255, 255, 255, 0.9);
@@ -345,7 +345,7 @@
         }
         
         .announcement-title {
-            font-size: 1.5rem;
+            font-size: 1.6rem; /* Increased from 1.5rem */
             font-weight: 700;
             margin-bottom: 10px;
             letter-spacing: 0.5px;
@@ -353,7 +353,7 @@
         }
         
         .announcement-details {
-            font-size: 1.2rem;
+            font-size: 1.25rem; /* Increased from 1.2rem */
             font-weight: 500;
             margin-bottom: 12px;
             line-height: 1.5;
@@ -368,13 +368,34 @@
             margin: 5px 0;
             border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            font-size: 1.1rem; /* Added for better readability */
         }
         
         .announcement-note {
-            font-size: 1rem;
+            font-size: 1.05rem; /* Increased from 1rem */
             opacity: 0.9;
             margin-top: 10px;
             font-style: italic;
+        }
+        
+        .buena-vista-address {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .buena-vista-address:hover {
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
         
         .links-grid {
@@ -403,7 +424,7 @@
         .link-card:hover {
             transform: translateY(-3px);
             box-shadow: var(--shadow-md);
-            border-color: rgba(230, 126, 34, 0.3);
+            border-color: rgba(196, 69, 54, 0.3);
         }
         
         .link-icon {
@@ -520,7 +541,7 @@
         }
         
         .link-title {
-            font-size: 1.35rem;
+            font-size: 1.4rem; /* Increased from 1.35rem */
             font-weight: 650;
             margin-bottom: 10px;
             color: var(--dark);
@@ -528,7 +549,7 @@
         }
         
         .link-subtitle {
-            font-size: 1.08rem;
+            font-size: 1.12rem; /* Increased from 1.08rem */
             color: var(--medium);
             line-height: 1.55;
             margin-bottom: 12px;
@@ -546,11 +567,11 @@
         
         .schedule-day-header {
             font-weight: 650;
-            color: var(--primary-light);
+            color: var(--primary);
             margin-bottom: 12px;
             padding-bottom: 4px;
             border-bottom: 1px dashed #e0e0e0;
-            font-size: 1.15rem;
+            font-size: 1.2rem; /* Increased from 1.15rem */
         }
         
         .schedule-class {
@@ -564,42 +585,42 @@
             font-weight: 620;
             min-width: 70px;
             color: var(--dark);
-            font-size: 1.08rem;
+            font-size: 1.12rem; /* Increased from 1.08rem */
         }
         
         .class-name {
             flex: 1;
             padding-left: 12px;
-            font-size: 1.08rem;
+            font-size: 1.12rem; /* Increased from 1.08rem */
         }
         
         .salsa-text {
-            color: #FF8C00;
+            color: #c44536;
             font-weight: 700;
             padding: 0 4px;
             border-radius: 3px;
-            background: rgba(255, 140, 0, 0.08);
+            background: rgba(196, 69, 54, 0.08);
         }
         
         .bachata-text {
-            color: #d35400;
+            color: #c44536;
             font-weight: 700;
             padding: 0 4px;
             border-radius: 3px;
-            background: rgba(230, 126, 34, 0.08);
+            background: rgba(196, 69, 54, 0.08);
         }
         
         .date-section {
             text-align: right;
             margin: 0 0 25px auto;
             padding: 12px 18px;
-            background: rgba(230, 126, 34, 0.08);
+            background: rgba(196, 69, 54, 0.08);
             border-radius: 14px;
             display: inline-block;
             clear: both;
             color: var(--medium);
             font-weight: 520;
-            font-size: 1.08rem;
+            font-size: 1.12rem; /* Increased from 1.08rem */
         }
         
         .date-section strong {
@@ -624,7 +645,7 @@
         }
         
         .cta-header {
-            font-size: 1.35rem;
+            font-size: 1.4rem; /* Increased from 1.35rem */
             font-weight: 680;
             margin-bottom: 18px;
             letter-spacing: 0.35px;
@@ -636,29 +657,29 @@
         }
         
         .cta-header i {
-            font-size: 1.45rem;
+            font-size: 1.5rem; /* Increased from 1.45rem */
             color: var(--primary);
         }
         
         .cta-schedule {
-            background: rgba(230, 126, 34, 0.07);
+            background: rgba(196, 69, 54, 0.07);
             border-radius: 12px;
             padding: 14px 18px;
             margin-bottom: 18px;
-            font-size: 1.0rem;
+            font-size: 1.05rem; /* Increased from 1.0rem */
             line-height: 1.6;
             color: #2c3e50;
         }
         
         .cta-action {
-            font-size: 1.15rem;
+            font-size: 1.2rem; /* Increased from 1.15rem */
             font-weight: 620;
             padding: 16px;
             background: var(--primary-gradient);
             color: white;
             border-radius: 50px;
             transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: 0 6px 18px rgba(230, 126, 34, 0.15);
+            box-shadow: 0 6px 18px rgba(196, 69, 54, 0.15);
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -668,7 +689,7 @@
         }
         
         .cta-action:hover {
-            background: linear-gradient(135deg, #c14f00, #d3731f);
+            background: linear-gradient(135deg, #a53a2b, #c44536);
             transform: scale(1.025);
         }
         
@@ -678,7 +699,7 @@
             right: -6px;
             background: linear-gradient(135deg, #9b59b6, #8e44ad);
             color: white;
-            font-size: 0.8rem;
+            font-size: 0.85rem; /* Increased from 0.8rem */
             font-weight: 620;
             padding: 6px 14px;
             border-radius: 22px;
@@ -711,7 +732,7 @@
         }
         
         .form-title {
-            font-size: 1.9rem;
+            font-size: 2rem; /* Increased from 1.9rem */
             font-weight: 750;
             margin-bottom: 25px;
             color: var(--dark);
@@ -738,7 +759,7 @@
             text-align: center;
             margin-bottom: 35px;
             color: var(--medium);
-            font-size: 1.18rem;
+            font-size: 1.22rem; /* Increased from 1.18rem */
             font-weight: 520;
             display: block;
             line-height: 1.75;
@@ -757,7 +778,7 @@
             border: 1px solid #e0e0e0;
             background: #f9f9f9;
             color: var(--dark);
-            font-size: 1.12rem;
+            font-size: 1.15rem; /* Increased from 1.12rem */
             transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             -webkit-appearance: none;
             appearance: none;
@@ -765,14 +786,14 @@
         
         .form-input:focus {
             outline: none;
-            border-color: var(--primary-light);
+            border-color: var(--primary);
             background: #fff;
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.12);
+            box-shadow: 0 0 0 3px rgba(196, 69, 54, 0.12);
         }
         
         .form-input::placeholder {
             color: #777;
-            font-size: 1.08rem;
+            font-size: 1.12rem; /* Increased from 1.08rem */
         }
         
         .form-select {
@@ -782,9 +803,9 @@
             border: 1px solid #e0e0e0;
             background: #f9f9f9;
             color: var(--dark);
-            font-size: 1.12rem;
+            font-size: 1.15rem; /* Increased from 1.12rem */
             appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d35400'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23c44536'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 20px center;
             background-size: 22px;
@@ -794,9 +815,9 @@
         
         .form-select:focus {
             outline: none;
-            border-color: var(--primary-light);
+            border-color: var(--primary);
             background: #fff;
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.12);
+            box-shadow: 0 0 0 3px rgba(196, 69, 54, 0.12);
         }
         
         .submit-btn {
@@ -805,7 +826,7 @@
             border: none;
             border-radius: 14px;
             padding: 19px;
-            font-size: 1.25rem;
+            font-size: 1.3rem; /* Increased from 1.25rem */
             font-weight: 700;
             cursor: pointer;
             width: 100%;
@@ -815,13 +836,13 @@
             overflow: hidden;
             display: block;
             letter-spacing: 0.6px;
-            box-shadow: 0 9px 28px rgba(230, 126, 34, 0.15);
+            box-shadow: 0 9px 28px rgba(196, 69, 54, 0.15);
             border: 1px solid rgba(0,0,0,0.03);
         }
         
         .submit-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 14px 35px rgba(230, 126, 34, 0.25);
+            box-shadow: 0 14px 35px rgba(196, 69, 54, 0.25);
         }
         
         .thank-you-message {
@@ -836,7 +857,7 @@
         }
         
         .thank-you-message h3 {
-            font-size: 1.9rem;
+            font-size: 2rem; /* Increased from 1.9rem */
             color: var(--dark);
             margin-bottom: 28px;
             position: relative;
@@ -857,7 +878,7 @@
         }
         
         .thank-you-message p {
-            font-size: 1.18rem;
+            font-size: 1.22rem; /* Increased from 1.18rem */
             margin-bottom: 35px;
             color: var(--medium);
             line-height: 1.75;
@@ -917,7 +938,7 @@
             border: 1px solid #ddd;
             border-radius: 22px;
             padding: 7px 18px;
-            font-size: 0.95rem;
+            font-size: 1rem; /* Increased from 0.95rem */
             color: #666;
             cursor: pointer;
             transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -928,11 +949,11 @@
         .lang-btn.active {
             background: var(--primary-gradient);
             color: white;
-            border-color: var(--primary-light);
+            border-color: var(--primary);
         }
         
         .lang-btn:hover:not(.active) {
-            background: rgba(230, 126, 34, 0.12);
+            background: rgba(196, 69, 54, 0.12);
             color: var(--primary);
         }
         
@@ -960,17 +981,17 @@
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
-            border: 2px solid var(--primary-light);
-            color: var(--primary-light);
+            border: 2px solid var(--primary);
+            color: var(--primary);
             background: white;
-            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.12);
+            box-shadow: 0 4px 12px rgba(196, 69, 54, 0.12);
         }
         
         .participant-btn:hover {
-            background: var(--primary-light);
+            background: var(--primary);
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(230, 126, 34, 0.2);
+            box-shadow: 0 6px 15px rgba(196, 69, 54, 0.2);
         }
         
         .participant-btn:disabled {
@@ -985,7 +1006,7 @@
             background: rgba(240, 247, 255, 0.4);
             border-radius: 12px;
             padding: 20px;
-            border: 1px solid rgba(230, 126, 34, 0.1);
+            border: 1px solid rgba(196, 69, 54, 0.1);
             margin-bottom: 15px;
             position: relative;
             overflow: hidden;
@@ -1046,7 +1067,7 @@
         }
         
         .review-text {
-            font-size: 1.2rem;
+            font-size: 1.25rem; /* Increased from 1.2rem */
             font-style: italic;
             color: #444;
             line-height: 1.7;
@@ -1060,7 +1081,7 @@
         .review-text::after {
             content: "❝";
             position: absolute;
-            color: rgba(230, 126, 34, 0.2);
+            color: rgba(196, 69, 54, 0.2);
             font-size: 3rem;
             top: -20px;
         }
@@ -1075,7 +1096,7 @@
         }
         
         .review-author {
-            font-size: 1.15rem;
+            font-size: 1.2rem; /* Increased from 1.15rem */
             font-weight: 600;
             color: var(--primary);
             font-style: normal;
@@ -1084,7 +1105,7 @@
         
         .review-stars {
             color: #f59e0b;
-            font-size: 1.3rem;
+            font-size: 1.35rem; /* Increased from 1.3rem */
             margin: 15px 0;
             letter-spacing: 3px;
             text-align: center;
@@ -1119,11 +1140,11 @@
             }
             
             .announcement-title {
-                font-size: 1.3rem;
+                font-size: 1.4rem; /* Increased from 1.3rem */
             }
             
             .announcement-details {
-                font-size: 1.1rem;
+                font-size: 1.15rem; /* Increased from 1.1rem */
             }
             
             .links-grid {
@@ -1132,29 +1153,29 @@
             }
             
             h1 {
-                font-size: 2.4rem;
+                font-size: 2.5rem; /* Increased from 2.4rem */
             }
             
             .tagline {
-                font-size: 1.2rem;
+                font-size: 1.25rem; /* Increased from 1.2rem */
             }
             
             .section-title {
-                font-size: 1.7rem;
+                font-size: 1.8rem; /* Increased from 1.7rem */
                 margin: 40px 0 25px;
             }
             
             .cta-header {
-                font-size: 1.2rem;
+                font-size: 1.25rem; /* Increased from 1.2rem */
             }
             
             .cta-schedule {
-                font-size: 0.95rem;
+                font-size: 1rem; /* Increased from 0.95rem */
                 padding: 12px;
             }
             
             .cta-action {
-                font-size: 1.05rem;
+                font-size: 1.1rem; /* Increased from 1.05rem */
                 padding: 14px;
             }
             
@@ -1163,17 +1184,17 @@
             }
             
             .form-title {
-                font-size: 1.7rem;
+                font-size: 1.8rem; /* Increased from 1.7rem */
             }
             
             .form-input, .form-select {
                 padding: 18px 22px;
-                font-size: 1.08rem;
+                font-size: 1.12rem; /* Increased from 1.08rem */
             }
             
             .submit-btn {
                 padding: 17px;
-                font-size: 1.15rem;
+                font-size: 1.2rem; /* Increased from 1.15rem */
             }
             
             .thank-you-message {
@@ -1183,7 +1204,7 @@
             .new-class-badge {
                 top: -14px;
                 right: -6px;
-                font-size: 0.75rem;
+                font-size: 0.8rem; /* Increased from 0.75rem */
                 padding: 5px 12px;
             }
             
@@ -1194,17 +1215,17 @@
             
             .nav-btn {
                 padding: 10px 18px;
-                font-size: 0.9rem;
+                font-size: 0.95rem; /* Increased from 0.9rem */
             }
             
             .nav-btn i {
-                font-size: 1rem;
+                font-size: 1.05rem; /* Increased from 1rem */
             }
         }
         
         @media (max-width: 480px) {
             body {
-                font-size: 1.05rem;
+                font-size: 1.1rem; /* Increased from 1.05rem */
                 padding: 18px 12px;
             }
             
@@ -1219,16 +1240,16 @@
             }
             
             .announcement-title {
-                font-size: 1.2rem;
+                font-size: 1.25rem; /* Increased from 1.2rem */
             }
             
             .announcement-details {
-                font-size: 1rem;
+                font-size: 1.05rem; /* Increased from 1rem */
             }
             
             .announcement-highlight {
                 padding: 6px 12px;
-                font-size: 0.95rem;
+                font-size: 1rem; /* Increased from 0.95rem */
             }
             
             .logo-container {
@@ -1246,12 +1267,12 @@
             }
             
             h1 {
-                font-size: 2.1rem;
+                font-size: 2.2rem; /* Increased from 2.1rem */
                 margin-bottom: 14px;
             }
             
             .tagline {
-                font-size: 1.1rem;
+                font-size: 1.15rem; /* Increased from 1.1rem */
                 margin-top: 12px;
             }
             
@@ -1261,7 +1282,7 @@
             }
             
             .section-title {
-                font-size: 1.5rem;
+                font-size: 1.6rem; /* Increased from 1.5rem */
                 margin: 35px 0 25px;
             }
             
@@ -1291,11 +1312,11 @@
             }
             
             .link-title {
-                font-size: 1.25rem;
+                font-size: 1.3rem; /* Increased from 1.25rem */
             }
             
             .link-subtitle {
-                font-size: 1.05rem;
+                font-size: 1.1rem; /* Increased from 1.05rem */
             }
             
             .cta-header {
@@ -1304,57 +1325,57 @@
             }
             
             .cta-header i {
-                font-size: 1.25rem;
+                font-size: 1.3rem; /* Increased from 1.25rem */
             }
             
             .cta-schedule {
-                font-size: 0.9rem;
+                font-size: 0.95rem; /* Increased from 0.9rem */
                 padding: 10px 12px;
             }
             
             .cta-action {
-                font-size: 0.95rem;
+                font-size: 1rem; /* Increased from 0.95rem */
                 padding: 12px;
             }
             
             .schedule-day-header {
-                font-size: 1.1rem;
+                font-size: 1.15rem; /* Increased from 1.1rem */
             }
             
             .class-time, .class-name {
-                font-size: 1.05rem;
+                font-size: 1.1rem; /* Increased from 1.05rem */
             }
             
             .date-section {
                 margin: 0 0 18px auto;
                 padding: 10px 16px;
-                font-size: 1.05rem;
+                font-size: 1.1rem; /* Increased from 1.05rem */
             }
             
             .form-title {
-                font-size: 1.6rem;
+                font-size: 1.7rem; /* Increased from 1.6rem */
             }
             
             .partner-notice {
-                font-size: 1.1rem;
+                font-size: 1.15rem; /* Increased from 1.1rem */
             }
             
             .form-input, .form-select {
                 padding: 16px 20px;
-                font-size: 1.05rem;
+                font-size: 1.1rem; /* Increased from 1.05rem */
             }
             
             .submit-btn {
-                font-size: 1.1rem;
+                font-size: 1.15rem; /* Increased from 1.1rem */
                 padding: 16px;
             }
             
             .thank-you-message h3 {
-                font-size: 1.6rem;
+                font-size: 1.7rem; /* Increased from 1.6rem */
             }
             
             .thank-you-message p {
-                font-size: 1.1rem;
+                font-size: 1.15rem; /* Increased from 1.1rem */
             }
             
             .signature-container {
@@ -1366,7 +1387,7 @@
             }
             
             .review-text {
-                font-size: 1.05rem;
+                font-size: 1.1rem; /* Increased from 1.05rem */
                 padding: 0 20px;
             }
             
@@ -1378,7 +1399,7 @@
             
             .nav-btn {
                 padding: 8px 12px;
-                font-size: 0.8rem;
+                font-size: 0.85rem; /* Increased from 0.8rem */
             }
             
             .nav-btn span {
@@ -1386,7 +1407,7 @@
             }
             
             .nav-btn i {
-                font-size: 1rem;
+                font-size: 1.05rem; /* Increased from 1rem */
                 margin: 0;
             }
         }
@@ -1417,7 +1438,7 @@
         
         footer p {
             margin: 8px 0;
-            font-size: 0.95rem;
+            font-size: 1rem; /* Increased from 0.95rem */
         }
         
         #copyright {
@@ -1483,6 +1504,9 @@
             Join us every Thursday for dance class and social
           </div>
           <div class="announcement-highlight">9:45 PM | $10 | Until 1:30 AM</div>
+          <a href="https://maps.app.goo.gl/GsPaVVREBoKqsUN18?g_st=ic" class="buena-vista-address" target="_blank">
+            <i class="fas fa-map-marker-alt"></i> Buena Vista Location
+          </a>
           <div class="announcement-note">No partner needed - All levels welcome</div>
         </div>
       </div>
@@ -1502,7 +1526,7 @@
             <div class="link-title" id="rebecca-title">Rebecca Bachata</div>
             <div class="link-subtitle" id="rebecca-sub">Professional Bachata Instruction</div>
             <div class="location-icons">
-              <a href="https://www.facebook.com/share/1CdaS5Uj5P/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Rebecca's Facebook">
+              <a href="https://www.facebook.com/share/1D9jtpvP1x/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Rebecca's Facebook">
                 <i class="fab fa-facebook-f"></i>
               </a>
               <a href="https://www.instagram.com/rebecca_bachata?igsh=MWY1cHI4c2Z0a21zcw==" class="location-icon maps-icon" target="_blank" title="Rebecca's Instagram">
@@ -1524,10 +1548,10 @@
             <div class="link-title" id="daniel-title">Daniel Palacios</div>
             <div class="link-subtitle" id="daniel-sub">Professional Salsa & Bachata Instruction</div>
             <div class="location-icons">
-              <a href="https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Daniel's Facebook">
+              <a href="https://www.facebook.com/share/17ZozCRrRN/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Daniel's Facebook">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <a href="https://www.instagram.com/danielp_bachata" class="location-icon maps-icon" target="_blank" title="Daniel's Instagram">
+              <a href="https://www.instagram.com/danielp_bachata?igsh=d3Jpa3RtaTRqcm1y&utm_source=qr" class="location-icon maps-icon" target="_blank" title="Daniel's Instagram">
                 <i class="fab fa-instagram"></i>
               </a>
             </div>
@@ -1549,7 +1573,7 @@
         </div>
         
         <div class="cta-schedule" id="cta-schedule">
-          6:30pm Intro to Salsa | 7:00pm Salsa Open Level | 8:00pm Bachata Open Level
+          7:00pm Intro to Salsa & Bachata | 8:00pm Bachata Sensual
         </div>
         
         <div class="cta-action" id="register-cta">
@@ -1603,16 +1627,12 @@
               <div class="schedule-day-group" data-day="Thursday">
                 <div class="schedule-day-header">Thursday</div>
                 <div class="schedule-class">
-                  <span class="class-time">6:30pm</span>
-                  <span class="class-name">Intro to <span class="salsa-text">Salsa</span></span>
-                </div>
-                <div class="schedule-class">
                   <span class="class-time">7:00pm</span>
-                  <span class="class-name"><span class="salsa-text">Salsa</span> Open Level</span>
+                  <span class="class-name">Intro to <span class="salsa-text">Salsa</span> & <span class="bachata-text">Bachata</span></span>
                 </div>
                 <div class="schedule-class">
                   <span class="class-time">8:00pm</span>
-                  <span class="class-name"><span class="bachata-text">Bachata</span> Open Level</span>
+                  <span class="class-name"><span class="bachata-text">Bachata</span> Sensual</span>
                 </div>
               </div>
             </div>
@@ -2145,9 +2165,8 @@
           dayIndex: 4,
           studio: "Stardust Ballroom",
           classes: [
-            "6:30pm Intro to Salsa",
-            "7:00pm Salsa Open Level",
-            "8:00pm Bachata Open Level"
+            "7:00pm Intro to Salsa & Bachata",
+            "8:00pm Bachata Sensual"
           ],
           locationId: "stardust-card",
           endTime: 2100
