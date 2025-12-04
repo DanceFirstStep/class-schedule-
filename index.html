@@ -7,28 +7,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* ROOT VARIABLES AND BASE STYLES - IMPROVED COLORS */
         :root {
-            --primary: #c44536;
-            --primary-light: #e67e22;
-            --primary-gradient: linear-gradient(135deg, #c44536, #e74c3c, #e67e22);
-            --secondary: #8e44ad;
-            --accent: #e1306c;
-            --dark: #222;
-            --medium: #444;
-            --light: #f8fafc;
-            --border: #f0f2f5;
-            --success: #27ae60;
+            --primary-blue: #2c5aa0;
+            --secondary-blue: #4a7bc1;
+            --light-blue: #e8f0fe;
+            --accent-blue: #3a86ff;
+            --dark-blue: #1a3a6c;
+            --gradient-blue: linear-gradient(135deg, #2c5aa0, #4a7bc1);
+            --gradient-light-blue: linear-gradient(135deg, #4a7bc1, #6a9ae0);
+            --dark: #1a1a2e;
+            --medium: #5a6c7d;
+            --light: #ffffff;
+            --border: #e1e8f0;
+            --success: #2ecc71;
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.1);
+            --shadow-sm: 0 4px 12px rgba(44, 90, 160, 0.06);
+            --shadow-md: 0 8px 24px rgba(44, 90, 160, 0.08);
+            --shadow-lg: 0 16px 40px rgba(44, 90, 160, 0.1);
+            --salsa-color: #2c5aa0;
+            --bachata-color: #8b5cf6;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Montserrat', 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Montserrat', 'Poppins', 'Segoe UI', system-ui, sans-serif;
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -39,50 +44,106 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 24px;
             overflow-x: hidden;
             position: relative;
             color: var(--medium);
-            background: linear-gradient(135deg, #f9fbfd, #f1f5fa);
-            line-height: 1.6;
-            font-size: 1.1rem; /* Increased from 1rem for better readability */
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            line-height: 1.7;
+            font-size: 1.15rem;
+            scroll-behavior: smooth;
         }
         
         .container {
             width: 100%;
-            max-width: 960px;
-            background: #ffffff;
-            border-radius: 20px;
+            max-width: 1100px;
+            background: var(--light);
+            border-radius: 24px;
             overflow: hidden;
             position: relative;
             z-index: 10;
-            padding: 40px 35px;
+            padding: 48px 40px;
             box-shadow: var(--shadow-lg);
-            border: 1px solid rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(44, 90, 160, 0.08);
         }
         
+        /* ANIMATED SECTION TRANSITIONS - CORE IMPLEMENTATION */
+        .section-animate {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            will-change: transform, opacity;
+        }
+        
+        .section-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-animate.delay-1 { transition-delay: 0.1s; }
+        .section-animate.delay-2 { transition-delay: 0.2s; }
+        .section-animate.delay-3 { transition-delay: 0.3s; }
+        .section-animate.delay-4 { transition-delay: 0.4s; }
+        
+        /* VISUAL SECTION SEPARATORS */
+        .section-separator {
+            height: 2px;
+            width: 80%;
+            margin: 60px auto;
+            background: linear-gradient(90deg, transparent, rgba(44, 90, 160, 0.15), transparent);
+            border: none;
+            opacity: 0;
+            transform: scaleX(0.3);
+            transition: all 0.8s ease-out;
+        }
+        
+        .section-separator.visible {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+        
+        /* STAGGERED CHILD ANIMATIONS */
+        .stagger-children > * {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .stagger-children.visible > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stagger-children.visible > *:nth-child(1) { transition-delay: 0.1s; }
+        .stagger-children.visible > *:nth-child(2) { transition-delay: 0.2s; }
+        .stagger-children.visible > *:nth-child(3) { transition-delay: 0.3s; }
+        .stagger-children.visible > *:nth-child(4) { transition-delay: 0.4s; }
+        .stagger-children.visible > *:nth-child(5) { transition-delay: 0.5s; }
+        .stagger-children.visible > *:nth-child(6) { transition-delay: 0.6s; }
+        
+        /* HEADER STYLES */
         .header-container {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 48px;
             position: relative;
-            padding-top: 80px;
+            padding-top: 90px;
         }
         
-        /* Navigation Buttons - Refined with elegant behavior */
+        /* Navigation Buttons */
         .top-nav-buttons {
             position: fixed;
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 12px;
-            padding: 12px 20px;
+            gap: 14px;
+            padding: 14px 24px;
             z-index: 100;
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             border-radius: 30px;
             box-shadow: var(--shadow-md);
-            border: 1px solid rgba(196, 69, 54, 0.1);
+            border: 1px solid rgba(44, 90, 160, 0.1);
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             opacity: 1;
             max-width: 95%;
@@ -100,18 +161,18 @@
             background: transparent;
             border: none;
             border-radius: 20px;
-            padding: 12px 22px;
-            font-size: 1.05rem; /* Increased from 1rem */
+            padding: 14px 26px;
+            font-size: 1.1rem;
             font-weight: 600;
-            color: var(--primary);
+            color: var(--primary-blue);
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 8px rgba(44, 90, 160, 0.05);
         }
         
         .nav-btn::before {
@@ -121,27 +182,27 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(196, 69, 54, 0.1), transparent);
+            background: linear-gradient(135deg, rgba(44, 90, 160, 0.1), transparent);
             z-index: -1;
             opacity: 0;
             transition: opacity 0.3s ease;
         }
         
         .nav-btn:hover {
-            background: rgba(196, 69, 54, 0.1);
-            color: #a53a2b;
+            background: rgba(44, 90, 160, 0.1);
+            color: var(--dark-blue);
             transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(196, 69, 54, 0.15);
+            box-shadow: 0 6px 15px rgba(44, 90, 160, 0.15);
         }
         
         .nav-btn.active-section {
-            background: linear-gradient(135deg, #c44536, #a53a2b);
+            background: var(--gradient-blue);
             color: white;
-            box-shadow: 0 6px 20px rgba(196, 69, 54, 0.2);
+            box-shadow: 0 6px 20px rgba(44, 90, 160, 0.2);
         }
         
         .nav-btn i {
-            font-size: 1.15rem; /* Increased from 1.1rem */
+            font-size: 1.2rem;
             transition: transform 0.3s ease;
         }
         
@@ -155,25 +216,25 @@
         
         .logo-container {
             position: relative;
-            width: 190px;
-            height: 190px;
-            margin: 0 auto 25px;
+            width: 210px;
+            height: 210px;
+            margin: 0 auto 30px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
         
         .logo {
-            width: 170px;
-            height: 170px;
-            background: var(--primary-gradient);
+            width: 180px;
+            height: 180px;
+            background: var(--gradient-blue);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             z-index: 2;
-            box-shadow: 0 10px 30px rgba(230, 126, 34, 0.2);
+            box-shadow: 0 10px 30px rgba(74, 123, 193, 0.2);
             transition: var(--transition);
             animation: gentle-beat 4s infinite ease-in-out;
         }
@@ -181,16 +242,16 @@
         @keyframes gentle-beat {
             0%, 100% { 
                 transform: scale(1); 
-                box-shadow: 0 10px 30px rgba(196, 69, 54, 0.2);
+                box-shadow: 0 10px 30px rgba(74, 123, 193, 0.2);
             }
             50% { 
                 transform: scale(1.015); 
-                box-shadow: 0 15px 35px rgba(196, 69, 54, 0.25);
+                box-shadow: 0 15px 35px rgba(74, 123, 193, 0.25);
             }
         }
         
         .logo i {
-            font-size: 75px;
+            font-size: 80px;
             color: #fff;
             z-index: 2;
             transition: transform 0.5s ease;
@@ -204,7 +265,7 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            border: 1px solid rgba(196, 69, 54, 0.2);
+            border: 1px solid rgba(44, 90, 160, 0.2);
             z-index: 1;
         }
         
@@ -235,9 +296,9 @@
         }
         
         h1 {
-            font-size: 2.8rem; /* Increased from 2.7rem */
+            font-size: 3.2rem;
             font-weight: 800;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             letter-spacing: 0.5px;
             color: var(--dark);
             position: relative;
@@ -247,35 +308,36 @@
         }
         
         .tagline {
-            font-size: 1.4rem; /* Increased from 1.35rem */
-            font-weight: 520;
+            font-size: 1.5rem;
+            font-weight: 500;
             color: var(--medium);
-            margin: 20px auto 0;
-            max-width: 650px;
-            line-height: 1.75;
+            margin: 24px auto 0;
+            max-width: 700px;
+            line-height: 1.8;
+            font-family: 'Montserrat', sans-serif;
         }
         
         .divider {
-            height: 3.5px;
-            width: 110px;
-            background: var(--primary-gradient);
+            height: 4px;
+            width: 130px;
+            background: var(--gradient-blue);
             border-radius: 3px;
-            margin: 30px auto;
+            margin: 36px auto;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         
         .section-title {
-            font-size: 2rem; /* Increased from 1.9rem */
-            font-weight: 750;
-            margin: 48px 0 30px;
+            font-size: 2.3rem;
+            font-weight: 700;
+            margin: 56px 0 36px;
             text-align: center;
             position: relative;
             display: block;
             width: 100%;
-            color: var(--dark);
-            padding-bottom: 14px;
+            color: var(--dark-blue);
+            padding-bottom: 16px;
             font-family: 'Playfair Display', serif;
-            scroll-margin-top: 80px;
+            scroll-margin-top: 90px;
         }
         
         .section-title::after {
@@ -284,26 +346,26 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 90px;
-            height: 3.5px;
-            background: var(--primary-gradient);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-blue);
             border-radius: 2px;
         }
         
         .content {
-            padding: 0 18px 12px;
+            padding: 0 20px 16px;
         }
         
-        /* NEW ANNOUNCEMENT SECTION STYLES */
+        /* ANNOUNCEMENT SECTION STYLES */
         .announcement-banner {
-            background: linear-gradient(135deg, #8e44ad, #9b59b6, #8e44ad);
-            border-radius: 16px;
-            padding: 25px 30px;
-            margin: 30px 0 40px;
+            background: linear-gradient(135deg, #2c5aa0, #4a7bc1);
+            border-radius: 18px;
+            padding: 30px 36px;
+            margin: 36px 0 48px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 30px rgba(142, 68, 173, 0.2);
-            border: 1px solid rgba(142, 68, 173, 0.2);
+            box-shadow: 0 8px 30px rgba(44, 90, 160, 0.2);
+            border: 1px solid rgba(44, 90, 160, 0.2);
             color: white;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -311,7 +373,7 @@
         
         .announcement-banner:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(142, 68, 173, 0.3);
+            box-shadow: 0 12px 35px rgba(44, 90, 160, 0.3);
         }
         
         .announcement-banner::before {
@@ -337,53 +399,54 @@
         }
         
         .announcement-icon {
-            font-size: 2.3rem; /* Increased from 2.2rem */
-            margin-bottom: 15px;
+            font-size: 2.5rem;
+            margin-bottom: 18px;
             display: block;
             color: rgba(255, 255, 255, 0.9);
             text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .announcement-title {
-            font-size: 1.6rem; /* Increased from 1.5rem */
+            font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             letter-spacing: 0.5px;
             text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            font-family: 'Playfair Display', serif;
         }
         
         .announcement-details {
-            font-size: 1.25rem; /* Increased from 1.2rem */
+            font-size: 1.35rem;
             font-weight: 500;
-            margin-bottom: 12px;
-            line-height: 1.5;
+            margin-bottom: 14px;
+            line-height: 1.6;
         }
         
         .announcement-highlight {
             background: rgba(255, 255, 255, 0.2);
-            padding: 8px 16px;
+            padding: 10px 20px;
             border-radius: 50px;
             display: inline-block;
             font-weight: 600;
-            margin: 5px 0;
+            margin: 6px 0;
             border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            font-size: 1.1rem; /* Added for better readability */
+            font-size: 1.2rem;
         }
         
         .announcement-note {
-            font-size: 1.05rem; /* Increased from 1rem */
+            font-size: 1.1rem;
             opacity: 0.9;
-            margin-top: 10px;
+            margin-top: 12px;
             font-style: italic;
         }
         
         .buena-vista-address {
             display: inline-block;
-            margin-top: 12px;
-            padding: 10px 20px;
+            margin-top: 14px;
+            padding: 12px 24px;
             background: rgba(255, 255, 255, 0.25);
-            border-radius: 8px;
+            border-radius: 10px;
             font-weight: 600;
             text-decoration: none;
             color: white;
@@ -398,312 +461,264 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
         
-        .links-grid {
+        /* FIXED INSTRUCTOR CARDS - NO MORE CUTTING */
+        .instructors-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
-            margin: 35px 0;
+            margin: 40px 0;
         }
         
-        .link-card {
-            background: #fff;
-            border-radius: 20px;
-            padding: 30px;
+        .instructor-card {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 35px 30px;
             border: 1px solid var(--border);
             display: flex;
-            align-items: flex-start;
+            flex-direction: column;
             position: relative;
-            overflow: hidden;
-            min-height: 130px;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: var(--shadow-sm);
-            text-decoration: none !important;
-        }
-        
-        .link-card:hover {
-            transform: translateY(-3px);
+            overflow: visible;
             box-shadow: var(--shadow-md);
-            border-color: rgba(196, 69, 54, 0.3);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            text-decoration: none !important;
+            border-left: 6px solid var(--primary-blue);
+            min-height: 320px;
         }
         
-        .link-icon {
-            width: 65px;
-            height: 65px;
+        .instructor-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(44, 90, 160, 0.3);
+        }
+        
+        /* CHANGED: Reduced space between instructor name and professional description */
+        .instructor-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px; /* Reduced from 25px */
+            padding-bottom: 10px; /* Reduced from 20px */
+            border-bottom: 1px solid rgba(44, 90, 160, 0.1);
+        }
+        
+        .instructor-info {
+            flex: 1;
+        }
+        
+        .instructor-name {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 4px; /* Reduced from 8px */
+            color: var(--dark-blue);
+            letter-spacing: 0.3px;
+            font-family: 'Playfair Display', serif;
+            line-height: 1.3;
+        }
+        
+        .instructor-subtitle {
+            font-size: 1.2rem;
+            color: var(--medium);
+            line-height: 1.4; /* Reduced from 1.5 */
+            font-weight: 500;
+        }
+        
+        .social-links-container {
+            margin-top: 12px; /* Reduced from 15px */
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .social-links-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--medium);
+            margin-bottom: 12px; /* Reduced from 15px */
+            display: block;
+            letter-spacing: 0.5px;
+        }
+        
+        .social-links-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            flex: 1;
+        }
+        
+        .social-link-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 18px;
+            background: #f8fafc;
+            border-radius: 14px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+            min-height: 60px;
+        }
+        
+        .social-link-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(44, 90, 160, 0.1);
+            background: #f0f9ff;
+            border-color: var(--light-blue);
+        }
+        
+        .social-link-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 22px;
-            font-size: 1.9rem;
-            border-radius: 16px;
-            flex-shrink: 0;
+            margin-right: 15px;
+            font-size: 1.25rem;
             color: white;
-            background: var(--primary-light);
-            box-shadow: 0 5px 14px rgba(0,0,0,0.07);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            border: 1px solid rgba(0,0,0,0.03);
-        }
-        
-        .social-icon-container {
-            position: relative;
-            width: 65px;
-            height: 65px;
-            border-radius: 16px;
-            margin-right: 22px;
             flex-shrink: 0;
-            overflow: hidden;
-            box-shadow: 0 5px 16px rgba(0,0,0,0.08);
-            transition: all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            animation: pulseSocial 3.2s infinite;
-            border: 1px solid rgba(0,0,0,0.03);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         
-        .social-icon-container:hover {
-            animation: none;
-            transform: scale(1.08);
-            box-shadow: 0 8px 26px rgba(0,0,0,0.12);
-        }
-        
-        @keyframes pulseSocial {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.025); }
-        }
-        
-        .social-icon {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.9rem;
-            color: white;
-            z-index: 2;
-        }
-        
-        .social-gradient {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            opacity: 0.92;
-            transition: all 0.5s ease;
-        }
-        
-        .social-icon-container:hover .social-gradient {
-            opacity: 1;
-        }
-        
-        .facebook-icon-container .social-gradient {
+        .facebook-icon-bg {
             background: linear-gradient(135deg, #1877f2, #3b5998);
         }
         
-        .instagram-icon-container .social-gradient {
-            background: linear-gradient(135deg, #e1306c, #c13584, #f56040, #f77737, #fcaf45, #ffdc80);
+        .instagram-icon-bg {
+            background: linear-gradient(135deg, #e1306c, #c13584, #f56040);
         }
         
-        .stardust-icon {
-            background: var(--primary-gradient) !important;
-        }
-        
-        .letsbailar-icon {
-            background: linear-gradient(135deg, #5d54a4, #3a0066) !important;
-        }
-        
-        .estilo-icon {
-            background: linear-gradient(135deg, #2ac7c2, #1a8d88) !important;
-        }
-        
-        .serrata-icon {
-            background: linear-gradient(135deg, #3498db, #8e44ad) !important;
-        }
-        
-        .contact-icon {
-            background: var(--primary-gradient) !important;
-        }
-        
-        .venmo .link-icon {
-            background: linear-gradient(135deg, #2d7db0, #0066cc) !important;
-        }
-        
-        .cash .link-icon {
-            background: linear-gradient(135deg, #27ae60, #1d8c4f) !important;
-        }
-        
-        .link-text {
+        .social-link-text {
             flex: 1;
-        }
-        
-        .link-title {
-            font-size: 1.4rem; /* Increased from 1.35rem */
-            font-weight: 650;
-            margin-bottom: 10px;
-            color: var(--dark);
-            letter-spacing: 0.35px;
-        }
-        
-        .link-subtitle {
-            font-size: 1.12rem; /* Increased from 1.08rem */
-            color: var(--medium);
-            line-height: 1.55;
-            margin-bottom: 12px;
-            font-weight: 480;
-        }
-        
-        .schedule-list {
-            margin-top: 18px;
-        }
-        
-        .schedule-day-group {
-            margin-bottom: 18px;
-            padding: 0;
-        }
-        
-        .schedule-day-header {
-            font-weight: 650;
-            color: var(--primary);
-            margin-bottom: 12px;
-            padding-bottom: 4px;
-            border-bottom: 1px dashed #e0e0e0;
-            font-size: 1.2rem; /* Increased from 1.15rem */
-        }
-        
-        .schedule-class {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 12px;
-            line-height: 1.65;
+            flex-direction: column;
+            min-width: 0;
         }
         
-        .class-time {
-            font-weight: 620;
-            min-width: 70px;
+        .social-link-platform {
+            font-size: 1.1rem;
+            font-weight: 600;
             color: var(--dark);
-            font-size: 1.12rem; /* Increased from 1.08rem */
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
-        .class-name {
-            flex: 1;
-            padding-left: 12px;
-            font-size: 1.12rem; /* Increased from 1.08rem */
+        .social-link-username {
+            font-size: 1rem;
+            color: var(--medium);
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
-        .salsa-text {
-            color: #c44536;
-            font-weight: 700;
-            padding: 0 4px;
-            border-radius: 3px;
-            background: rgba(196, 69, 54, 0.08);
+        /* Rebecca specific styling */
+        .instructor-card.rebecca {
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+            border-left-color: #8b5cf6;
         }
         
-        .bachata-text {
-            color: #c44536;
-            font-weight: 700;
-            padding: 0 4px;
-            border-radius: 3px;
-            background: rgba(196, 69, 54, 0.08);
+        /* Daniel specific styling */
+        .instructor-card.daniel {
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+            border-left-color: var(--accent-blue);
         }
         
         .date-section {
             text-align: right;
-            margin: 0 0 25px auto;
-            padding: 12px 18px;
-            background: rgba(196, 69, 54, 0.08);
-            border-radius: 14px;
+            margin: 0 0 30px auto;
+            padding: 14px 22px;
+            background: rgba(44, 90, 160, 0.08);
+            border-radius: 16px;
             display: inline-block;
             clear: both;
             color: var(--medium);
-            font-weight: 520;
-            font-size: 1.12rem; /* Increased from 1.08rem */
+            font-weight: 500;
+            font-size: 1.2rem;
         }
         
         .date-section strong {
-            font-weight: 680;
+            font-weight: 600;
             color: var(--dark);
         }
         
         .class-cta-container {
-            background: linear-gradient(135deg, #f9f7f3, #fdfcf9);
-            border-radius: 18px;
-            padding: 28px 35px;
-            margin: 25px 0 30px;
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border-radius: 20px;
+            padding: 32px 40px;
+            margin: 30px 0 36px;
             display: flex;
             flex-direction: column;
-            color: #2c3e50;
+            color: var(--dark);
             text-align: center;
             box-shadow: var(--shadow-sm);
-            border: 1px solid #e8e4dc;
+            border: 1px solid #dbeafe;
             position: relative;
             overflow: hidden;
-            scroll-margin-top: 80px;
+            scroll-margin-top: 90px;
         }
         
         .cta-header {
-            font-size: 1.4rem; /* Increased from 1.35rem */
-            font-weight: 680;
-            margin-bottom: 18px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 22px;
             letter-spacing: 0.35px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            color: var(--primary);
+            gap: 14px;
+            color: var(--primary-blue);
         }
         
         .cta-header i {
-            font-size: 1.5rem; /* Increased from 1.45rem */
-            color: var(--primary);
+            font-size: 1.6rem;
+            color: var(--primary-blue);
         }
         
         .cta-schedule {
-            background: rgba(196, 69, 54, 0.07);
-            border-radius: 12px;
-            padding: 14px 18px;
-            margin-bottom: 18px;
-            font-size: 1.05rem; /* Increased from 1.0rem */
-            line-height: 1.6;
-            color: #2c3e50;
+            background: rgba(44, 90, 160, 0.07);
+            border-radius: 14px;
+            padding: 16px 22px;
+            margin-bottom: 22px;
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: var(--dark);
         }
         
         .cta-action {
-            font-size: 1.2rem; /* Increased from 1.15rem */
-            font-weight: 620;
-            padding: 16px;
-            background: var(--primary-gradient);
+            font-size: 1.3rem;
+            font-weight: 600;
+            padding: 18px;
+            background: var(--gradient-blue);
             color: white;
             border-radius: 50px;
             transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: 0 6px 18px rgba(196, 69, 54, 0.15);
+            box-shadow: 0 6px 18px rgba(44, 90, 160, 0.15);
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            min-height: 60px;
+            gap: 14px;
+            min-height: 66px;
+            text-decoration: none;
+            border: none;
         }
         
         .cta-action:hover {
-            background: linear-gradient(135deg, #a53a2b, #c44536);
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
             transform: scale(1.025);
         }
         
         .new-class-badge {
             position: absolute;
-            top: -16px;
+            top: -18px;
             right: -6px;
-            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
             color: white;
-            font-size: 0.85rem; /* Increased from 0.8rem */
-            font-weight: 620;
-            padding: 6px 14px;
-            border-radius: 22px;
-            box-shadow: 0 5px 18px rgba(155, 89, 182, 0.25);
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 7px 16px;
+            border-radius: 24px;
+            box-shadow: 0 5px 18px rgba(139, 92, 246, 0.25);
             z-index: 3;
             animation: pulse 2.2s infinite;
             white-space: nowrap;
@@ -720,187 +735,101 @@
             animation: pulse 1.8s infinite;
         }
         
-        .registration-form {
-            background: #fdfdfd;
-            border-radius: 20px;
-            padding: 38px 35px;
-            margin: 35px 0 30px;
-            border: 1px solid #eee;
-            box-shadow: var(--shadow-sm);
-            position: relative;
-            overflow: hidden;
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 36px;
+            margin: 40px 0;
         }
         
-        .form-title {
-            font-size: 2rem; /* Increased from 1.9rem */
-            font-weight: 750;
-            margin-bottom: 25px;
-            color: var(--dark);
-            text-align: center;
-            position: relative;
-            padding-bottom: 18px;
-            letter-spacing: 0.6px;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .form-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 110px;
-            height: 3.5px;
-            background: var(--primary-gradient);
-            border-radius: 2px;
-        }
-        
-        .partner-notice {
-            text-align: center;
-            margin-bottom: 35px;
-            color: var(--medium);
-            font-size: 1.22rem; /* Increased from 1.18rem */
-            font-weight: 520;
-            display: block;
-            line-height: 1.75;
-        }
-        
-        .form-group {
-            margin-bottom: 28px;
-            text-align: left;
-            position: relative;
-        }
-        
-        .form-input {
-            width: 100%;
-            padding: 20px 25px;
-            border-radius: 14px;
-            border: 1px solid #e0e0e0;
-            background: #f9f9f9;
-            color: var(--dark);
-            font-size: 1.15rem; /* Increased from 1.12rem */
-            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            -webkit-appearance: none;
-            appearance: none;
-        }
-        
-        .form-input:focus {
-            outline: none;
-            border-color: var(--primary);
+        /* FIXED SCHEDULE CARDS - NO OVERLAP */
+        .link-card {
             background: #fff;
-            box-shadow: 0 0 0 3px rgba(196, 69, 54, 0.12);
-        }
-        
-        .form-input::placeholder {
-            color: #777;
-            font-size: 1.12rem; /* Increased from 1.08rem */
-        }
-        
-        .form-select {
-            width: 100%;
-            padding: 20px 25px;
-            border-radius: 14px;
-            border: 1px solid #e0e0e0;
-            background: #f9f9f9;
-            color: var(--dark);
-            font-size: 1.15rem; /* Increased from 1.12rem */
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23c44536'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 20px center;
-            background-size: 22px;
-            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            -webkit-appearance: none;
-        }
-        
-        .form-select:focus {
-            outline: none;
-            border-color: var(--primary);
-            background: #fff;
-            box-shadow: 0 0 0 3px rgba(196, 69, 54, 0.12);
-        }
-        
-        .submit-btn {
-            background: var(--primary-gradient);
-            color: #fff;
-            border: none;
-            border-radius: 14px;
-            padding: 19px;
-            font-size: 1.3rem; /* Increased from 1.25rem */
-            font-weight: 700;
+            border-radius: 22px;
+            padding: 30px 28px;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: visible;
             cursor: pointer;
-            width: 100%;
-            margin-top: 25px;
-            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: var(--shadow-sm);
+            text-decoration: none !important;
+            min-height: 250px;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(44, 90, 160, 0.3);
+        }
+        
+        .link-icon {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 26px;
+            font-size: 2rem;
+            border-radius: 18px;
+            flex-shrink: 0;
+            color: white;
+            background: var(--secondary-blue);
+            box-shadow: 0 5px 14px rgba(0,0,0,0.07);
             position: relative;
             overflow: hidden;
-            display: block;
-            letter-spacing: 0.6px;
-            box-shadow: 0 9px 28px rgba(196, 69, 54, 0.15);
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border: 1px solid rgba(0,0,0,0.03);
         }
         
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 14px 35px rgba(196, 69, 54, 0.25);
+        .studio-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
         }
         
-        .thank-you-message {
-            display: none;
-            text-align: center;
-            padding: 45px 35px;
-            border-radius: 20px;
-            background: #fff;
-            margin-top: 25px;
-            border: 1px solid #eee;
-            box-shadow: var(--shadow-sm);
+        .studio-name-address {
+            flex: 1;
         }
         
-        .thank-you-message h3 {
-            font-size: 2rem; /* Increased from 1.9rem */
+        .link-title {
+            font-size: 1.5rem;
+            font-weight: 650;
+            margin-bottom: 8px;
             color: var(--dark);
-            margin-bottom: 28px;
-            position: relative;
-            padding-bottom: 18px;
-            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.35px;
+            line-height: 1.3;
         }
         
-        .thank-you-message h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 110px;
-            height: 3.5px;
-            background: var(--primary-gradient);
-            border-radius: 2px;
-        }
-        
-        .thank-you-message p {
-            font-size: 1.22rem; /* Increased from 1.18rem */
-            margin-bottom: 35px;
+        .link-subtitle {
+            font-size: 1.2rem;
             color: var(--medium);
-            line-height: 1.75;
+            line-height: 1.4;
+            margin-bottom: 10px;
+            font-weight: 480;
         }
         
         .location-icons {
             display: flex;
-            gap: 12px;
-            margin-top: 18px;
+            gap: 10px;
+            margin-top: 10px;
         }
         
         .location-icon {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 17px;
+            font-size: 18px;
             color: white;
             transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.35s ease;
-            min-width: 36px;
+            min-width: 40px;
+            text-decoration: none;
         }
         
         .location-icon:hover {
@@ -916,82 +845,264 @@
             background: #34a853;
         }
         
-        .studio-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .schedule-list {
+            margin-top: 15px;
+            flex: 1;
+            min-height: 150px;
         }
         
-        .studio-name-address {
+        .schedule-day-group {
+            margin-bottom: 18px;
+            padding: 0;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+        
+        .schedule-day-header {
+            font-weight: 650;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 1px dashed #e0e0e0;
+            font-size: 1.3rem;
+            line-height: 1.3;
+        }
+        
+        .schedule-class {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            line-height: 1.5;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+        
+        .class-time {
+            font-weight: 620;
+            min-width: 100px;
+            color: var(--dark);
+            font-size: 1.15rem;
+        }
+        
+        .class-name {
             flex: 1;
+            padding-left: 15px;
+            font-size: 1.15rem;
+            line-height: 1.4;
+        }
+        
+        /* IMPROVED COLORS FOR BETTER READABILITY */
+        .salsa-text {
+            color: #2c5aa0;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: rgba(44, 90, 160, 0.1);
+            display: inline-block;
+        }
+        
+        .bachata-text {
+            color: #4c1d95;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: rgba(76, 29, 149, 0.1);
+            display: inline-block;
+        }
+        
+        .registration-form {
+            background: #fdfdfd;
+            border-radius: 22px;
+            padding: 44px 40px;
+            margin: 40px 0 36px;
+            border: 1px solid #eee;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .form-title {
+            font-size: 2.3rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--dark);
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+            letter-spacing: 0.6px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .form-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: var(--gradient-blue);
+            border-radius: 2px;
+        }
+        
+        .partner-notice {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--medium);
+            font-size: 1.3rem;
+            font-weight: 500;
+            display: block;
+            line-height: 1.8;
+        }
+        
+        .form-group {
+            margin-bottom: 32px;
+            text-align: left;
+            position: relative;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 22px 28px;
+            border-radius: 16px;
+            border: 1px solid #e0e0e0;
+            background: #f9f9f9;
+            color: var(--dark);
+            font-size: 1.25rem;
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.12);
+        }
+        
+        .form-input::placeholder {
+            color: #777;
+            font-size: 1.2rem;
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 22px 28px;
+            border-radius: 16px;
+            border: 1px solid #e0e0e0;
+            background: #f9f9f9;
+            color: var(--dark);
+            font-size: 1.25rem;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232c5aa0'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 22px center;
+            background-size: 24px;
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            -webkit-appearance: none;
+        }
+        
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.12);
+        }
+        
+        .submit-btn {
+            background: var(--gradient-blue);
+            color: #fff;
+            border: none;
+            border-radius: 16px;
+            padding: 22px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 30px;
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            display: block;
+            letter-spacing: 0.6px;
+            box-shadow: 0 9px 28px rgba(44, 90, 160, 0.15);
+            border: 1px solid rgba(0,0,0,0.03);
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 35px rgba(44, 90, 160, 0.25);
         }
         
         .language-toggle {
-            margin: 25px auto 0;
+            margin: 30px auto 0;
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 14px;
         }
         
         .lang-btn {
             background: transparent;
             border: 1px solid #ddd;
-            border-radius: 22px;
-            padding: 7px 18px;
-            font-size: 1rem; /* Increased from 0.95rem */
+            border-radius: 24px;
+            padding: 8px 22px;
+            font-size: 1.1rem;
             color: #666;
             cursor: pointer;
             transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            min-width: 100px;
-            min-height: 40px;
+            min-width: 110px;
+            min-height: 44px;
         }
         
         .lang-btn.active {
-            background: var(--primary-gradient);
+            background: var(--gradient-blue);
             color: white;
-            border-color: var(--primary);
+            border-color: var(--primary-blue);
         }
         
         .lang-btn:hover:not(.active) {
-            background: rgba(196, 69, 54, 0.12);
-            color: var(--primary);
+            background: rgba(44, 90, 160, 0.12);
+            color: var(--primary-blue);
         }
         
-        /* New styles for participant registration */
+        /* Participant registration */
         .participant-form-group {
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             position: relative;
         }
         
         .participant-controls {
             display: flex;
             justify-content: flex-end;
-            gap: 10px;
-            margin: 10px 0 20px;
+            gap: 12px;
+            margin: 12px 0 24px;
         }
         
         .participant-btn {
-            width: 42px;
-            height: 42px;
+            width: 46px;
+            height: 46px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
-            border: 2px solid var(--primary);
-            color: var(--primary);
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
             background: white;
-            box-shadow: 0 4px 12px rgba(196, 69, 54, 0.12);
+            box-shadow: 0 4px 12px rgba(44, 90, 160, 0.12);
         }
         
         .participant-btn:hover {
-            background: var(--primary);
+            background: var(--primary-blue);
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(196, 69, 54, 0.2);
+            box-shadow: 0 6px 15px rgba(44, 90, 160, 0.2);
         }
         
         .participant-btn:disabled {
@@ -1004,10 +1115,10 @@
         
         .participant-fields {
             background: rgba(240, 247, 255, 0.4);
-            border-radius: 12px;
-            padding: 20px;
-            border: 1px solid rgba(196, 69, 54, 0.1);
-            margin-bottom: 15px;
+            border-radius: 14px;
+            padding: 24px;
+            border: 1px solid rgba(44, 90, 160, 0.1);
+            margin-bottom: 18px;
             position: relative;
             overflow: hidden;
             transition: all 0.4s ease;
@@ -1018,9 +1129,9 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 5px;
+            width: 6px;
             height: 100%;
-            background: var(--primary-gradient);
+            background: var(--gradient-blue);
         }
         
         .name-field {
@@ -1035,20 +1146,20 @@
         /* Reviews Section */
         .reviews-section {
             background: #f8fafc;
-            border-radius: 18px;
-            padding: 35px;
-            margin: 40px 0;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 48px 0;
             box-shadow: var(--shadow-sm);
-            border: 1px solid #e8e4dc;
+            border: 1px solid #e5e7eb;
             position: relative;
             overflow: hidden;
         }
         
         .reviews-container {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
             position: relative;
-            height: 200px;
+            height: 220px;
             overflow: hidden;
         }
         
@@ -1059,7 +1170,7 @@
             width: 100%;
             opacity: 0;
             transition: opacity 0.8s ease-in-out;
-            padding: 15px;
+            padding: 18px;
         }
         
         .review-item.active {
@@ -1067,13 +1178,13 @@
         }
         
         .review-text {
-            font-size: 1.25rem; /* Increased from 1.2rem */
+            font-size: 1.35rem;
             font-style: italic;
             color: #444;
-            line-height: 1.7;
-            margin-bottom: 25px;
+            line-height: 1.8;
+            margin-bottom: 30px;
             position: relative;
-            padding: 0 40px;
+            padding: 0 50px;
             text-align: center;
         }
         
@@ -1081,8 +1192,8 @@
         .review-text::after {
             content: "❝";
             position: absolute;
-            color: rgba(196, 69, 54, 0.2);
-            font-size: 3rem;
+            color: rgba(44, 90, 160, 0.2);
+            font-size: 3.5rem;
             top: -20px;
         }
         
@@ -1096,31 +1207,31 @@
         }
         
         .review-author {
-            font-size: 1.2rem; /* Increased from 1.15rem */
+            font-size: 1.3rem;
             font-weight: 600;
-            color: var(--primary);
+            color: var(--primary-blue);
             font-style: normal;
             text-align: center;
         }
         
         .review-stars {
             color: #f59e0b;
-            font-size: 1.35rem; /* Increased from 1.3rem */
-            margin: 15px 0;
-            letter-spacing: 3px;
+            font-size: 1.45rem;
+            margin: 18px 0;
+            letter-spacing: 4px;
             text-align: center;
         }
         
         .review-indicators {
             display: flex;
             justify-content: center;
-            gap: 8px;
-            margin-top: 25px;
+            gap: 10px;
+            margin-top: 30px;
         }
         
         .review-indicator {
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
             background: #cbd5e1;
             cursor: pointer;
@@ -1128,278 +1239,372 @@
         }
         
         .review-indicator.active {
-            background: var(--primary);
+            background: var(--primary-blue);
             transform: scale(1.3);
         }
         
+        /* Highlight for next class */
+        .next-class-highlight {
+            border: 2px solid var(--primary-blue);
+            background: linear-gradient(145deg, #ffffff, #f0f9ff);
+            box-shadow: 0 10px 30px rgba(44, 90, 160, 0.15);
+        }
+        
         /* Mobile-specific enhancements */
-        @media (max-width: 800px) {
-            .announcement-banner {
-                padding: 20px 25px;
-                margin: 25px 0 35px;
+        @media (max-width: 1000px) {
+            .instructors-grid {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 25px;
             }
             
-            .announcement-title {
-                font-size: 1.4rem; /* Increased from 1.3rem */
+            .instructor-card {
+                padding: 30px 25px;
+                min-height: 300px;
             }
             
-            .announcement-details {
-                font-size: 1.15rem; /* Increased from 1.1rem */
+            .instructor-name {
+                font-size: 1.6rem;
+            }
+            
+            .social-links-grid {
+                grid-template-columns: 1fr;
             }
             
             .links-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 30px;
+            }
+            
+            /* Adjusted for mobile */
+            .instructor-header {
+                margin-bottom: 12px;
+                padding-bottom: 8px;
+            }
+            
+            .social-links-container {
+                margin-top: 10px;
+            }
+        }
+        
+        @media (max-width: 850px) {
+            .announcement-banner {
+                padding: 26px 30px;
+                margin: 30px 0 40px;
+            }
+            
+            .announcement-title {
+                font-size: 1.6rem;
+            }
+            
+            .announcement-details {
+                font-size: 1.25rem;
+            }
+            
+            .links-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
                 gap: 25px;
             }
             
             h1 {
-                font-size: 2.5rem; /* Increased from 2.4rem */
+                font-size: 2.8rem;
             }
             
             .tagline {
-                font-size: 1.25rem; /* Increased from 1.2rem */
+                font-size: 1.35rem;
             }
             
             .section-title {
-                font-size: 1.8rem; /* Increased from 1.7rem */
-                margin: 40px 0 25px;
+                font-size: 2rem;
+                margin: 48px 0 30px;
             }
             
             .cta-header {
-                font-size: 1.25rem; /* Increased from 1.2rem */
+                font-size: 1.35rem;
             }
             
             .cta-schedule {
-                font-size: 1rem; /* Increased from 0.95rem */
-                padding: 12px;
-            }
-            
-            .cta-action {
-                font-size: 1.1rem; /* Increased from 1.05rem */
+                font-size: 1.1rem;
                 padding: 14px;
             }
             
+            .cta-action {
+                font-size: 1.2rem;
+                padding: 16px;
+            }
+            
             .registration-form {
-                padding: 30px 25px;
+                padding: 36px 30px;
             }
             
             .form-title {
-                font-size: 1.8rem; /* Increased from 1.7rem */
+                font-size: 2rem;
             }
             
             .form-input, .form-select {
-                padding: 18px 22px;
-                font-size: 1.12rem; /* Increased from 1.08rem */
+                padding: 20px 26px;
+                font-size: 1.2rem;
             }
             
             .submit-btn {
-                padding: 17px;
-                font-size: 1.2rem; /* Increased from 1.15rem */
-            }
-            
-            .thank-you-message {
-                padding: 35px 25px;
+                padding: 20px;
+                font-size: 1.3rem;
             }
             
             .new-class-badge {
-                top: -14px;
+                top: -16px;
                 right: -6px;
-                font-size: 0.8rem; /* Increased from 0.75rem */
-                padding: 5px 12px;
+                font-size: 0.85rem;
+                padding: 6px 14px;
             }
             
             .top-nav-buttons {
-                padding: 10px 16px;
-                gap: 8px;
+                padding: 12px 20px;
+                gap: 10px;
             }
             
             .nav-btn {
-                padding: 10px 18px;
-                font-size: 0.95rem; /* Increased from 0.9rem */
+                padding: 12px 22px;
+                font-size: 1rem;
             }
             
             .nav-btn i {
-                font-size: 1.05rem; /* Increased from 1rem */
-            }
-        }
-        
-        @media (max-width: 480px) {
-            body {
-                font-size: 1.1rem; /* Increased from 1.05rem */
-                padding: 18px 12px;
-            }
-            
-            .container {
-                padding: 30px 18px;
-                border-radius: 18px;
-            }
-            
-            .announcement-banner {
-                padding: 18px 20px;
-                margin: 20px 0 30px;
-            }
-            
-            .announcement-title {
-                font-size: 1.25rem; /* Increased from 1.2rem */
-            }
-            
-            .announcement-details {
-                font-size: 1.05rem; /* Increased from 1rem */
-            }
-            
-            .announcement-highlight {
-                padding: 6px 12px;
-                font-size: 1rem; /* Increased from 0.95rem */
-            }
-            
-            .logo-container {
-                width: 160px;
-                height: 160px;
-            }
-            
-            .logo {
-                width: 140px;
-                height: 140px;
-            }
-            
-            .logo i {
-                font-size: 65px;
-            }
-            
-            h1 {
-                font-size: 2.2rem; /* Increased from 2.1rem */
-                margin-bottom: 14px;
-            }
-            
-            .tagline {
-                font-size: 1.15rem; /* Increased from 1.1rem */
-                margin-top: 12px;
-            }
-            
-            .divider {
-                margin: 25px auto;
-                width: 90px;
-            }
-            
-            .section-title {
-                font-size: 1.6rem; /* Increased from 1.5rem */
-                margin: 35px 0 25px;
-            }
-            
-            .section-title::after {
-                width: 80px;
+                font-size: 1.1rem;
             }
             
             .link-card {
-                padding: 25px;
-                min-height: 120px;
+                padding: 28px 24px;
             }
             
-            .social-icon-container {
-                width: 55px;
-                height: 55px;
-                margin-right: 18px;
+            .schedule-day-header {
+                font-size: 1.25rem;
             }
             
-            .social-icon {
-                font-size: 1.7rem;
+            .class-time, .class-name {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 550px) {
+            body {
+                font-size: 1.15rem;
+                padding: 20px 14px;
+            }
+            
+            .container {
+                padding: 36px 22px;
+                border-radius: 20px;
+            }
+            
+            .instructors-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .instructor-card {
+                padding: 25px 20px;
+                min-height: 280px;
+            }
+            
+            .instructor-header {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 10px; /* Adjusted for mobile */
+                padding-bottom: 8px; /* Adjusted for mobile */
+            }
+            
+            .instructor-name {
+                font-size: 1.5rem;
+                margin-bottom: 3px; /* Adjusted for mobile */
+            }
+            
+            .instructor-subtitle {
+                font-size: 1.1rem;
+                line-height: 1.3; /* Adjusted for mobile */
+            }
+            
+            .social-links-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-link-item {
+                padding: 14px 16px;
+                min-height: 55px;
+            }
+            
+            .social-link-icon {
+                width: 36px;
+                height: 36px;
+                margin-right: 12px;
+                font-size: 1.1rem;
+            }
+            
+            .social-link-platform {
+                font-size: 1rem;
+            }
+            
+            .social-link-username {
+                font-size: 0.95rem;
+            }
+            
+            .announcement-banner {
+                padding: 22px 20px;
+                margin: 24px 0 36px;
+            }
+            
+            .announcement-title {
+                font-size: 1.45rem;
+            }
+            
+            .announcement-details {
+                font-size: 1.15rem;
+            }
+            
+            .announcement-highlight {
+                padding: 8px 16px;
+                font-size: 1.1rem;
+            }
+            
+            .logo-container {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .logo {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .logo i {
+                font-size: 70px;
+            }
+            
+            h1 {
+                font-size: 2.4rem;
+                margin-bottom: 16px;
+            }
+            
+            .tagline {
+                font-size: 1.25rem;
+                margin-top: 14px;
+            }
+            
+            .divider {
+                margin: 30px auto;
+                width: 100px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+                margin: 40px 0 30px;
+            }
+            
+            .section-title::after {
+                width: 90px;
+            }
+            
+            .link-card {
+                padding: 24px 20px;
+                min-height: auto;
+            }
+            
+            .studio-info {
+                flex-direction: column;
+                align-items: flex-start;
             }
             
             .link-icon {
-                width: 55px;
-                height: 55px;
-                margin-right: 18px;
+                width: 60px;
+                height: 60px;
+                margin-right: 20px;
+                margin-bottom: 15px;
             }
             
             .link-title {
-                font-size: 1.3rem; /* Increased from 1.25rem */
+                font-size: 1.4rem;
             }
             
             .link-subtitle {
-                font-size: 1.1rem; /* Increased from 1.05rem */
+                font-size: 1.15rem;
+            }
+            
+            .schedule-list {
+                min-height: auto;
+            }
+            
+            .schedule-day-header {
+                font-size: 1.2rem;
+            }
+            
+            .class-time, .class-name {
+                font-size: 1.05rem;
+            }
+            
+            .salsa-text, .bachata-text {
+                padding: 1px 4px;
+                font-size: 0.95rem;
             }
             
             .cta-header {
                 flex-direction: column;
-                gap: 8px;
+                gap: 10px;
             }
             
             .cta-header i {
-                font-size: 1.3rem; /* Increased from 1.25rem */
+                font-size: 1.4rem;
             }
             
             .cta-schedule {
-                font-size: 0.95rem; /* Increased from 0.9rem */
-                padding: 10px 12px;
+                font-size: 1.05rem;
+                padding: 12px 14px;
             }
             
             .cta-action {
-                font-size: 1rem; /* Increased from 0.95rem */
-                padding: 12px;
-            }
-            
-            .schedule-day-header {
-                font-size: 1.15rem; /* Increased from 1.1rem */
-            }
-            
-            .class-time, .class-name {
-                font-size: 1.1rem; /* Increased from 1.05rem */
+                font-size: 1.1rem;
+                padding: 14px;
             }
             
             .date-section {
-                margin: 0 0 18px auto;
-                padding: 10px 16px;
-                font-size: 1.1rem; /* Increased from 1.05rem */
+                margin: 0 0 22px auto;
+                padding: 12px 20px;
+                font-size: 1.15rem;
             }
             
             .form-title {
-                font-size: 1.7rem; /* Increased from 1.6rem */
+                font-size: 1.9rem;
             }
             
             .partner-notice {
-                font-size: 1.15rem; /* Increased from 1.1rem */
+                font-size: 1.2rem;
             }
             
             .form-input, .form-select {
-                padding: 16px 20px;
-                font-size: 1.1rem; /* Increased from 1.05rem */
+                padding: 18px 24px;
+                font-size: 1.15rem;
             }
             
             .submit-btn {
-                font-size: 1.15rem; /* Increased from 1.1rem */
-                padding: 16px;
-            }
-            
-            .thank-you-message h3 {
-                font-size: 1.7rem; /* Increased from 1.6rem */
-            }
-            
-            .thank-you-message p {
-                font-size: 1.15rem; /* Increased from 1.1rem */
-            }
-            
-            .signature-container {
-                width: 270px;
+                font-size: 1.25rem;
+                padding: 18px;
             }
             
             .reviews-section {
-                padding: 25px 20px;
+                padding: 30px 24px;
             }
             
             .review-text {
-                font-size: 1.1rem; /* Increased from 1.05rem */
-                padding: 0 20px;
+                font-size: 1.2rem;
+                padding: 0 30px;
             }
             
             .top-nav-buttons {
-                padding: 8px 12px;
-                gap: 6px;
-                top: 15px;
+                padding: 10px 16px;
+                gap: 8px;
+                top: 16px;
             }
             
             .nav-btn {
-                padding: 8px 12px;
-                font-size: 0.85rem; /* Increased from 0.8rem */
+                padding: 10px 16px;
+                font-size: 0.9rem;
             }
             
             .nav-btn span {
@@ -1407,8 +1612,17 @@
             }
             
             .nav-btn i {
-                font-size: 1.05rem; /* Increased from 1rem */
+                font-size: 1.1rem;
                 margin: 0;
+            }
+            
+            /* Adjusted for mobile */
+            .social-links-container {
+                margin-top: 8px;
+            }
+            
+            .social-links-title {
+                margin-bottom: 10px;
             }
         }
         
@@ -1420,44 +1634,44 @@
         }
         
         .form-input, .form-select {
-            min-height: 62px;
+            min-height: 68px;
         }
         
         .submit-btn {
-            min-height: 62px;
+            min-height: 68px;
         }
         
         /* Footer styling */
         footer {
             text-align: center;
-            margin-top: 50px;
-            padding-top: 30px;
+            margin-top: 60px;
+            padding-top: 36px;
             border-top: 1px solid #f0f2f5;
             color: var(--medium);
         }
         
         footer p {
-            margin: 8px 0;
-            font-size: 1rem; /* Increased from 0.95rem */
+            margin: 10px 0;
+            font-size: 1.1rem;
         }
         
         #copyright {
             font-weight: 500;
-            margin-top: 15px;
+            margin-top: 18px;
         }
         
         #quote {
             font-style: italic;
             color: #777;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
         
         /* Signature line */
         .signature-container {
-            width: 300px;
+            width: 320px;
             height: 2px;
-            background: linear-gradient(to right, transparent, var(--primary), transparent);
-            margin: 20px auto;
+            background: linear-gradient(to right, transparent, var(--primary-blue), transparent);
+            margin: 24px auto;
             opacity: 0.7;
         }
     </style>
@@ -1495,8 +1709,8 @@
     </div>
     
     <div class="content">
-      <!-- NEW ANNOUNCEMENT SECTION -->
-      <div class="announcement-banner">
+      <!-- NEW ANNOUNCEMENT SECTION with animation -->
+      <div class="announcement-banner section-animate">
         <div class="announcement-content">
           <i class="fas fa-calendar-alt announcement-icon"></i>
           <div class="announcement-title">Thursday Nights at Buena Vista</div>
@@ -1511,61 +1725,94 @@
         </div>
       </div>
       
+      <!-- Section separator -->
+      <hr class="section-separator" id="separator-1">
+      
       <h2 class="section-title" id="connect-title">Connect With Us</h2>
       
-      <div class="links-grid">
+      <!-- FIXED INSTRUCTOR CARDS - NO MORE CUTTING -->
+      <div class="instructors-grid section-animate stagger-children">
         <!-- Rebecca Card -->
-        <div class="link-card">
-          <div class="social-icon-container facebook-icon-container">
-            <div class="social-gradient"></div>
-            <div class="social-icon">
-              <i class="fas fa-user"></i>
+        <div class="instructor-card rebecca">
+          <div class="instructor-header">
+            <div class="instructor-info">
+              <div class="instructor-name" id="rebecca-title">Rebecca Bachata</div>
+              <div class="instructor-subtitle" id="rebecca-sub">Professional Bachata Instruction</div>
             </div>
           </div>
-          <div class="link-text">
-            <div class="link-title" id="rebecca-title">Rebecca Bachata</div>
-            <div class="link-subtitle" id="rebecca-sub">Professional Bachata Instruction</div>
-            <div class="location-icons">
-              <a href="https://www.facebook.com/share/1D9jtpvP1x/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Rebecca's Facebook">
-                <i class="fab fa-facebook-f"></i>
+          
+          <div class="social-links-container">
+            <span class="social-links-title">Follow Rebecca on Social Media:</span>
+            <div class="social-links-grid">
+              <a href="https://www.facebook.com/share/1D9jtpvP1x/?mibextid=wwXIfr" class="social-link-item" target="_blank" rel="noopener">
+                <div class="social-link-icon facebook-icon-bg">
+                  <i class="fab fa-facebook-f"></i>
+                </div>
+                <div class="social-link-text">
+                  <span class="social-link-platform">Facebook</span>
+                  <span class="social-link-username">@RebeccaBachata</span>
+                </div>
               </a>
-              <a href="https://www.instagram.com/rebecca_bachata?igsh=MWY1cHI4c2Z0a21zcw==" class="location-icon maps-icon" target="_blank" title="Rebecca's Instagram">
-                <i class="fab fa-instagram"></i>
+              
+              <a href="https://www.instagram.com/rebecca_bachata?igsh=MWY1cHI4c2Z0a21zcw==" class="social-link-item" target="_blank">
+                <div class="social-link-icon instagram-icon-bg">
+                  <i class="fab fa-instagram"></i>
+                </div>
+                <div class="social-link-text">
+                  <span class="social-link-platform">Instagram</span>
+                  <span class="social-link-username">@rebecca_bachata</span>
+                </div>
               </a>
             </div>
           </div>
         </div>
         
         <!-- Daniel Card -->
-        <div class="link-card">
-          <div class="social-icon-container instagram-icon-container">
-            <div class="social-gradient"></div>
-            <div class="social-icon">
-              <i class="fas fa-user"></i>
+        <div class="instructor-card daniel">
+          <div class="instructor-header">
+            <div class="instructor-info">
+              <div class="instructor-name" id="daniel-title">Daniel Palacios</div>
+              <div class="instructor-subtitle" id="daniel-sub">Professional Salsa & Bachata Instruction</div>
             </div>
           </div>
-          <div class="link-text">
-            <div class="link-title" id="daniel-title">Daniel Palacios</div>
-            <div class="link-subtitle" id="daniel-sub">Professional Salsa & Bachata Instruction</div>
-            <div class="location-icons">
-              <a href="https://www.facebook.com/share/17ZozCRrRN/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Daniel's Facebook">
-                <i class="fab fa-facebook-f"></i>
+          
+          <div class="social-links-container">
+            <span class="social-links-title">Follow Daniel on Social Media:</span>
+            <div class="social-links-grid">
+              <a href="https://www.facebook.com/share/17ZozCRrRN/?mibextid=wwXIfr" class="social-link-item" target="_blank" rel="noopener">
+                <div class="social-link-icon facebook-icon-bg">
+                  <i class="fab fa-facebook-f"></i>
+                </div>
+                <div class="social-link-text">
+                  <span class="social-link-platform">Facebook</span>
+                  <span class="social-link-username">@DanielPalaciosDance</span>
+                </div>
               </a>
-              <a href="https://www.instagram.com/danielp_bachata?igsh=d3Jpa3RtaTRqcm1y&utm_source=qr" class="location-icon maps-icon" target="_blank" title="Daniel's Instagram">
-                <i class="fab fa-instagram"></i>
+              
+              <a href="https://www.instagram.com/danielp_bachata?igsh=d3Jpa3RtaTRqcm1y&utm_source=qr" class="social-link-item" target="_blank">
+                <div class="social-link-icon instagram-icon-bg">
+                  <i class="fab fa-instagram"></i>
+                </div>
+                <div class="social-link-text">
+                  <span class="social-link-platform">Instagram</span>
+                  <span class="social-link-username">@danielp_bachata</span>
+                </div>
               </a>
             </div>
           </div>
         </div>
       </div>
       
-      <div class="date-section" id="current-date-discreet">
+      <!-- Section separator -->
+      <hr class="section-separator" id="separator-2">
+      
+      <div class="date-section section-animate delay-1" id="current-date-discreet">
         <strong id="today-label">Today is:</strong> <span id="date-text"></span>
       </div>
       
       <h2 class="section-title" id="upcoming-title">Upcoming Classes</h2>
       
-      <div id="class-cta" class="class-cta-container">
+      <div id="class-cta" class="class-cta-container section-animate">
         <div class="cta-header">
           <i class="fas fa-calendar-day pulse"></i>
           <div id="cta-title">Tonight at Stardust Ballroom</div>
@@ -1576,14 +1823,17 @@
           7:00pm Intro to Salsa & Bachata | 8:00pm Bachata Sensual
         </div>
         
-        <div class="cta-action" id="register-cta">
-          <span id="register-cta-text">Register Now</span> <span class="down-arrow"><i class="fas fa-arrow-down"></i></span>
-        </div>
+        <a href="https://forms.gle/tT9wLLevJEjF1iez9" target="_blank" class="cta-action" id="register-cta">
+          <span id="register-cta-text">Register</span>
+        </a>
       </div>
+      
+      <!-- Section separator -->
+      <hr class="section-separator" id="separator-3">
       
       <h3 class="section-title" id="schedule-title">Class Schedule</h3>
       
-      <div class="links-grid" id="schedule-grid">
+      <div class="links-grid stagger-children section-animate" id="schedule-grid">
         <div class="link-card stardust" 
              data-studio="Stardust Ballroom" 
              id="stardust-card">
@@ -1596,17 +1846,17 @@
                 <div class="link-title">Stardust Ballroom</div>
                 <div class="link-subtitle">Bellmawr, New Jersey</div>
               </div>
-            </div>
-            <div class="location-icons">
-              <a href="https://www.facebook.com/share/16jfEPvQbw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Stardust Ballroom on Facebook" aria-label="Stardust Ballroom Facebook Page">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=Stardust+Ballroom+Bellmawr+NJ" 
-                 class="location-icon maps-icon" 
-                 title="Directions to Stardust Ballroom" 
-                 aria-label="Stardust Ballroom on Google Maps">
-                <i class="fas fa-map-marker-alt"></i>
-              </a>
+              <div class="location-icons">
+                <a href="https://www.facebook.com/share/16jfEPvQbw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Stardust Ballroom on Facebook" aria-label="Stardust Ballroom Facebook Page">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Stardust+Ballroom+Bellmawr+NJ" 
+                   class="location-icon maps-icon" 
+                   title="Directions to Stardust Ballroom" 
+                   aria-label="Stardust Ballroom on Google Maps">
+                  <i class="fas fa-map-marker-alt"></i>
+                </a>
+              </div>
             </div>
             <div class="schedule-list">
               <div class="schedule-day-group" data-day="Monday">
@@ -1651,17 +1901,17 @@
                 <div class="link-title">Let's Bailar Dance Studio</div>
                 <div class="link-subtitle">Philly - Chinese Assoc.</div>
               </div>
-            </div>
-            <div class="location-icons">
-              <a href="https://www.facebook.com/share/1F7HATupDw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Let's Bailar Dance Studio on Facebook" aria-label="Let's Bailar Dance Studio Facebook Page">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="https://www.google.com/maps/search/?api=1&query=Chinese+Association+of+Greater+Philadelphia" 
-                 class="location-icon maps-icon" 
-                 title="Directions to Let's Bailar Dance Studio" 
-                 aria-label="Let's Bailar Dance Studio on Google Maps">
-                <i class="fas fa-map-marker-alt"></i>
-              </a>
+              <div class="location-icons">
+                <a href="https://www.facebook.com/share/1F7HATupDw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Let's Bailar Dance Studio on Facebook" aria-label="Let's Bailar Dance Studio Facebook Page">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Chinese+Association+of+Greater+Philadelphia" 
+                   class="location-icon maps-icon" 
+                   title="Directions to Let's Bailar Dance Studio" 
+                   aria-label="Let's Bailar Dance Studio on Google Maps">
+                  <i class="fas fa-map-marker-alt"></i>
+                </a>
+              </div>
             </div>
             <div class="schedule-list">
               <div class="schedule-day-group" data-day="Friday">
@@ -1691,14 +1941,14 @@
                 <div class="link-title">Estilo Dance Studio</div>
                 <div class="link-subtitle">Fishtown, Philadelphia</div>
               </div>
-            </div>
-            <div class="location-icons">
-              <a href="https://www.google.com/maps/search/?api=1&query=Estilo+Dance+Studio+Fishtown+Philadelphia" 
-                 class="location-icon maps-icon" 
-                 title="Directions to Estilo Dance Studio" 
-                 aria-label="Estilo Dance Studio on Google Maps">
-                <i class="fas fa-map-marker-alt"></i>
-              </a>
+              <div class="location-icons">
+                <a href="https://www.google.com/maps/search/?api=1&query=Estilo+Dance+Studio+Fishtown+Philadelphia" 
+                   class="location-icon maps-icon" 
+                   title="Directions to Estilo Dance Studio" 
+                   aria-label="Estilo Dance Studio on Google Maps">
+                  <i class="fas fa-map-marker-alt"></i>
+                </a>
+              </div>
             </div>
             <div class="schedule-list">
               <div class="schedule-day-group" data-day="Saturday">
@@ -1716,11 +1966,11 @@
           </div>
         </div>
         
-        <!-- UPDATED SERRATA CARD -->
+        <!-- UPDATED SERRATA CARD - REMOVED THE "NEW INTRO CLASS" BADGE -->
         <div class="link-card serrata next-class-highlight" 
              data-studio="Serrata Studio" 
              id="serrata-card">
-          <div class="new-class-badge" id="new-class-text">New Intro Classes</div>
+          <!-- REMOVED: <div class="new-class-badge" id="new-class-text">New Intro Classes</div> -->
           <div class="link-icon serrata-icon">
             <i class="fas fa-building"></i>
           </div>
@@ -1730,23 +1980,23 @@
                 <div class="link-title">Serrata Studio</div>
                 <div class="link-subtitle">7157 Frankford Ave, Philly</div>
               </div>
-            </div>
-            <div class="location-icons">
-              <a href="https://www.facebook.com/share/16giYF2o67/?mibextid=wwXIfr" 
-                 class="location-icon facebook-icon" 
-                 target="_blank" 
-                 rel="noopener"
-                 title="Serrata Studio on Facebook" 
-                 aria-label="Serrata Studio Facebook Page">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="https://maps.app.goo.gl/FY4U7T8F5fs2nB2Q8?g_st=ipc" 
-                 class="location-icon maps-icon" 
-                 target="_blank" 
-                 title="Directions to Serrata Studio" 
-                 aria-label="Serrata Studio on Google Maps">
-                <i class="fas fa-map-marker-alt"></i>
-              </a>
+              <div class="location-icons">
+                <a href="https://www.facebook.com/share/16giYF2o67/?mibextid=wwXIfr" 
+                   class="location-icon facebook-icon" 
+                   target="_blank" 
+                   rel="noopener"
+                   title="Serrata Studio on Facebook" 
+                   aria-label="Serrata Studio Facebook Page">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://maps.app.goo.gl/FY4U7T8F5fs2nB2Q8?g_st=ipc" 
+                   class="location-icon maps-icon" 
+                   target="_blank" 
+                   title="Directions to Serrata Studio" 
+                   aria-label="Serrata Studio on Google Maps">
+                  <i class="fas fa-map-marker-alt"></i>
+                </a>
+              </div>
             </div>
             <div class="schedule-list">
               <div class="schedule-day-group" data-day="Monday">
@@ -1780,8 +2030,11 @@
         </div>
       </div>
       
+      <!-- Section separator -->
+      <hr class="section-separator" id="separator-4">
+      
       <!-- Reviews Section -->
-      <div class="reviews-section">
+      <div class="reviews-section section-animate">
         <h2 class="section-title" id="reviews-title">Student Reviews</h2>
         <div class="reviews-container">
           <div class="review-item active">
@@ -1827,16 +2080,19 @@
         </div>
       </div>
       
-      <!-- Registration Form with Participant Fields -->
-      <div class="registration-form" id="registration-form">
+      <!-- Section separator -->
+      <hr class="section-separator" id="separator-5">
+      
+      <!-- Registration Form with Participant Fields - EMAIL REMOVED -->
+      <div class="registration-form section-animate" id="registration-form">
         <div class="form-title" id="registration-title">Class Registration</div>
         <div class="partner-notice" id="partner-text">No partner needed - come dance with us!</div>
-        <form id="dance-registration">
+        <form id="dance-registration" action="https://forms.gle/tT9wLLevJEjF1iez9" method="get" target="_blank">
           <!-- Participant Fields -->
           <div id="participant-container">
             <div class="participant-fields name-field">
               <div class="participant-form-group">
-                <input type="text" class="form-input" placeholder="Full Name" required>
+                <input type="text" class="form-input" name="entry.[YOUR_NAME_FIELD_ID]" placeholder="Full Name" required>
               </div>
             </div>
           </div>
@@ -1851,13 +2107,10 @@
             </button>
           </div>
           
-          <!-- Contact Information -->
-          <div class="form-group">
-            <input type="email" id="email" class="form-input" placeholder="Email Address" required>
-          </div>
+          <!-- Contact Information - EMAIL FIELD REMOVED -->
           
           <div class="form-group">
-            <select id="location" class="form-select" required>
+            <select id="location" class="form-select" name="entry.[YOUR_LOCATION_FIELD_ID]" required>
               <option value="">Select class location</option>
               <option value="stardust">Stardust Ballroom</option>
               <option value="letsbailar">Let's Bailar</option>
@@ -1866,21 +2119,16 @@
           </div>
           
           <button type="submit" class="submit-btn">
-            <span id="register-button">Complete Registration</span> <i class="fas fa-check-circle"></i>
+            <span id="register-button">Register</span>
           </button>
         </form>
-        
-        <div id="thank-you-message" class="thank-you-message">
-          <h3 id="thank-you-title">Thank You for Registering!</h3>
-          <p id="thank-you-text">We're excited to dance with you! Your spot is being saved.</p>
-          <button class="submit-btn" id="register-again-btn" style="margin-top: 25px;">
-            <span id="register-again-text">Register Another Person</span>
-          </button>
-        </div>
       </div>
       
+      <!-- Section separator -->
+      <hr class="section-separator" id="separator-6">
+      
       <h2 class="section-title" id="payment-title">Payment Options</h2>
-      <div class="links-grid">
+      <div class="links-grid stagger-children section-animate">
         <a href="https://venmo.com/code?user_id=2575920015605760344&created=1750346816" class="link-card venmo" target="_blank">
           <div class="link-icon">
             <i class="fab fa-vimeo-v"></i>
@@ -1902,8 +2150,11 @@
         </div>
       </div>
       
+      <!-- Section separator -->
+      <hr class="section-separator" id="separator-7">
+      
       <h2 class="section-title" id="contact-title">Contact Us</h2>
-      <div class="links-grid">
+      <div class="links-grid section-animate">
         <a href="mailto:contact@rebecca-daniel-dance.com" class="link-card contact" target="_blank">
           <div class="link-icon contact-icon">
             <i class="fas fa-envelope"></i>
@@ -1915,7 +2166,7 @@
         </a>
       </div>
       
-      <footer>
+      <footer class="section-animate">
         <div class="language-toggle" id="language-toggle">
           <button class="lang-btn active" data-lang="en">English</button>
           <button class="lang-btn" data-lang="es">Español</button>
@@ -1931,7 +2182,73 @@
   </div>
 
   <script>
+    // Progressive Disclosure with Animated Section Transitions Implementation
     document.addEventListener('DOMContentLoaded', function() {
+      // Section Animation System
+      function initSectionAnimations() {
+        // Select all elements to animate
+        const animatedSections = document.querySelectorAll('.section-animate');
+        const animatedSeparators = document.querySelectorAll('.section-separator');
+        
+        // Function to check if element is in viewport
+        function isElementInViewport(el) {
+          const rect = el.getBoundingClientRect();
+          const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+          
+          // Element is in viewport if it's within 100px of the viewport
+          return (
+            rect.top <= (windowHeight - 100) &&
+            rect.bottom >= 100
+          );
+        }
+        
+        // Function to handle scroll animation
+        function handleScrollAnimation() {
+          // Animate sections
+          animatedSections.forEach(section => {
+            if (isElementInViewport(section)) {
+              section.classList.add('visible');
+            }
+          });
+          
+          // Animate separators
+          animatedSeparators.forEach(separator => {
+            if (isElementInViewport(separator)) {
+              separator.classList.add('visible');
+            }
+          });
+        }
+        
+        // Initial check on page load
+        handleScrollAnimation();
+        
+        // Add scroll event listener with throttling
+        let scrollTimeout;
+        window.addEventListener('scroll', function() {
+          if (!scrollTimeout) {
+            scrollTimeout = setTimeout(function() {
+              scrollTimeout = null;
+              handleScrollAnimation();
+            }, 50); // Throttle to 50ms
+          }
+        });
+        
+        // Trigger animations for elements already in viewport on load
+        setTimeout(() => {
+          animatedSections.forEach(section => {
+            if (isElementInViewport(section)) {
+              section.classList.add('visible');
+            }
+          });
+          
+          animatedSeparators.forEach(separator => {
+            if (isElementInViewport(separator)) {
+              separator.classList.add('visible');
+            }
+          });
+        }, 300);
+      }
+      
       // Set current date
       function updateCurrentDate(lang) {
         const now = new Date();
@@ -1963,19 +2280,15 @@
           danielSub: "Professional Salsa & Bachata Instruction",
           todayLabel: "Today is:",
           upcomingTitle: "Upcoming Classes",
-          registerCta: "Register Now",
+          registerCta: "Register",
           scheduleTitle: "Class Schedule",
           newClassText: "New Intro Classes",
           reviewsTitle: "Student Reviews",
           registrationTitle: "Class Registration",
           partnerText: "No partner needed - come dance with us!",
           namePlaceholder: "Full Name",
-          emailPlaceholder: "Email Address",
           locationPlaceholder: "Select class location",
-          registerButton: "Complete Registration",
-          thankYouTitle: "Thank You for Registering!",
-          thankYouText: "We're excited to dance with you! Your spot is being saved.",
-          registerAgainText: "Register Another Person",
+          registerButton: "Register",
           paymentTitle: "Payment Options",
           venmoSub: "Secure payment option",
           cashTitle: "Cash",
@@ -1996,19 +2309,15 @@
           danielSub: "Instrucción Profesional de Salsa y Bachata",
           todayLabel: "Hoy es:",
           upcomingTitle: "Próximas Clases",
-          registerCta: "Regístrate Ahora",
+          registerCta: "Registrarse",
           scheduleTitle: "Horario de Clases",
           newClassText: "Nuevas Clases Introductorias",
           reviewsTitle: "Opiniones de Estudiantes",
           registrationTitle: "Registro de Clase",
           partnerText: "No necesitas pareja - ¡Ven a bailar con nosotros!",
           namePlaceholder: "Nombre Completo",
-          emailPlaceholder: "Correo Electrónico",
           locationPlaceholder: "Selecciona la ubicación de la clase",
-          registerButton: "Completar Registro",
-          thankYouTitle: "¡Gracias por Registrarte!",
-          thankYouText: "¡Estamos emocionados de bailar contigo! Tu lugar está siendo reservado.",
-          registerAgainText: "Registrar Otra Persona",
+          registerButton: "Registrarse",
           paymentTitle: "Opciones de Pago",
           venmoSub: "Opción de pago segura",
           cashTitle: "Efectivo",
@@ -2056,12 +2365,8 @@
           input.placeholder = langData.namePlaceholder;
         });
         
-        document.getElementById('email').placeholder = langData.emailPlaceholder;
         document.getElementById('location').querySelector('option[value=""]').textContent = langData.locationPlaceholder;
         document.getElementById('register-button').textContent = langData.registerButton;
-        document.getElementById('thank-you-title').textContent = langData.thankYouTitle;
-        document.getElementById('thank-you-text').textContent = langData.thankYouText;
-        document.getElementById('register-again-text').textContent = langData.registerAgainText;
         document.getElementById('payment-title').textContent = langData.paymentTitle;
         document.getElementById('venmo-sub').textContent = langData.venmoSub;
         document.getElementById('cash-title').textContent = langData.cashTitle;
@@ -2389,85 +2694,48 @@
         reorderDayGroupsInCards();
       }
 
-      // Handle form submission
+      // Handle form submission - Direct to Google Form
       function initForm() {
         const registrationForm = document.getElementById('dance-registration');
-        const thankYouMessage = document.getElementById('thank-you-message');
-        const submitBtn = registrationForm.querySelector('button[type="submit"]');
-        const registerAgainBtn = document.getElementById('register-again-btn');
         
-        function resetForm() {
-          registrationForm.reset();
-          thankYouMessage.style.display = 'none';
-          registrationForm.style.display = 'block';
-          
-          // Reset participants to one
-          participantContainer.innerHTML = `
-            <div class="participant-fields name-field">
-              <div class="participant-form-group">
-                <input type="text" class="form-input" placeholder="${translations[currentLanguage].namePlaceholder}" required>
-              </div>
-            </div>
-          `;
-          participantCount = 1;
-          removeParticipantBtn.disabled = true;
-          addParticipantBtn.disabled = false;
-        }
-        
-        registerAgainBtn.addEventListener('click', resetForm);
-        
+        // Form now directly submits to Google Form
+        // Validation will happen on the Google Form side
+        // We keep basic validation for user experience
         registrationForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          
-          // Collect participant names
-          const participantNames = [];
+          // Basic validation
           const nameInputs = participantContainer.querySelectorAll('.form-input');
+          let hasName = false;
           nameInputs.forEach(input => {
             if (input.value.trim()) {
-              participantNames.push(input.value.trim());
+              hasName = true;
             }
           });
           
-          const email = document.getElementById('email').value;
           const location = document.getElementById('location').value;
           
-          if (participantNames.length === 0) {
+          if (!hasName) {
+            e.preventDefault();
             showNotification(currentLanguage === 'es' ? "Por favor ingresa al menos un nombre" : "Please enter at least one name", "info");
             return;
           }
           
-          if (!email.trim()) {
-            showNotification(currentLanguage === 'es' ? "Por favor ingresa tu correo electrónico" : "Please enter your email address", "info");
-            return;
-          }
-          
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!emailRegex.test(email)) {
-            showNotification(currentLanguage === 'es' ? "Por favor ingresa un correo electrónico válido" : "Please enter a valid email address", "info");
-            return;
-          }
-          
           if (!location) {
+            e.preventDefault();
             showNotification(currentLanguage === 'es' ? "Por favor selecciona una ubicación" : "Please select a class location", "info");
             return;
           }
           
-          submitBtn.textContent = currentLanguage === 'es' ? 'Procesando...' : 'Processing...';
+          // Form will submit to Google Form
+          // Show loading indicator
+          const submitBtn = registrationForm.querySelector('button[type="submit"]');
+          const originalText = submitBtn.innerHTML;
+          submitBtn.innerHTML = currentLanguage === 'es' ? 'Redirigiendo...' : 'Redirecting...';
           submitBtn.disabled = true;
           
           setTimeout(function() {
-            registrationForm.style.display = 'none';
-            thankYouMessage.style.display = 'block';
-            thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            submitBtn.textContent = translations[currentLanguage].registerButton;
+            submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
-            showNotification(
-              currentLanguage === 'es' ? 
-                "¡Registro exitoso! Tu lugar está siendo reservado" : 
-                "Registration successful! Your spot is being saved", 
-              "success"
-            );
-          }, 1000);
+          }, 2000);
         });
       }
       
@@ -2476,22 +2744,30 @@
         const notification = document.createElement('div');
         notification.className = `notification notification-${type}`;
         notification.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i> ${message}`;
+        notification.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background: ${type === 'success' ? '#2ecc71' : '#4a7bc1'};
+          color: white;
+          padding: 16px 24px;
+          border-radius: 12px;
+          box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+          z-index: 1000;
+          animation: slideIn 0.3s ease;
+        `;
+        
         document.body.appendChild(notification);
-        setTimeout(() => { notification.remove(); }, 3000);
+        setTimeout(() => { 
+          notification.style.animation = 'slideOut 0.3s ease';
+          setTimeout(() => { notification.remove(); }, 300);
+        }, 3000);
       }
       
       // Enhanced registration flow
       function initRegistrationFlow() {
-        const registerCta = document.getElementById('register-cta');
-        const registrationForm = document.getElementById('registration-form');
-        
-        registerCta.addEventListener('click', function() {
-          // Scroll to the registration form
-          registrationForm.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        });
+        // CTA button already has direct link to Google Form
+        // We keep this function for any future enhancements
       }
       
       // Reviews Carousel
@@ -2628,6 +2904,9 @@
       function initPage() {
         // Force page to start at top
         window.scrollTo(0, 0);
+        
+        // Initialize animated section transitions
+        initSectionAnimations();
         
         updateCTASection();
         updateScheduleDisplay();
