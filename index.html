@@ -2143,8 +2143,8 @@
         <button class="nav-btn" id="btn-schedule">
           <i class="fas fa-clock"></i> <span>Schedule</span>
         </button>
-        <button class="nav-btn" id="btn-location">
-          <i class="fas fa-map-marker-alt"></i> <span>Location</span>
+        <button class="nav-btn" id="btn-payment">
+          <i class="fas fa-credit-card"></i> <span>Payment</span>
         </button>
         <button class="nav-btn" id="btn-videos">
           <i class="fas fa-play-circle"></i> <span>Videos</span>
@@ -2582,18 +2582,16 @@
       <!-- Section separator -->
       <hr class="section-separator" id="separator-6">
       
-      <!-- NEW TIKTOK-STYLE VIDEO LIBRARY SECTION -->
+      <!-- UPDATED TIKTOK-STYLE VIDEO LIBRARY SECTION WITH NEW VIDEOS -->
       <section class="video-library-section section-animate" id="video-library">
         <div class="video-header">
           <h2 class="video-title">Dance Video Library</h2>
-          <p class="video-subtitle">Learn from Rebecca & Daniel's expert tutorials</p>
+          <p class="video-subtitle">Learn Bachata rhythm and timing with Rebecca & Daniel</p>
         </div>
         
         <div class="video-categories">
           <button class="category-btn active" data-category="all">All Videos</button>
-          <button class="category-btn" data-category="salsa">Salsa Tutorials</button>
-          <button class="category-btn" data-category="bachata">Bachata Tutorials</button>
-          <button class="category-btn bachata-counts" data-category="bachata-counts">Bachata Counts/Beat</button>
+          <button class="category-btn bachata-counts" data-category="bachata-counts">Bachata Rhythm Tutorials</button>
         </div>
         
         <div class="tiktok-video-feed">
@@ -3327,16 +3325,13 @@
           });
         });
         
-        // Button 4: First location card
-        document.getElementById('btn-location').addEventListener('click', (e) => {
+        // Button 4: Payment section
+        document.getElementById('btn-payment').addEventListener('click', (e) => {
           e.preventDefault();
-          const firstCard = document.querySelector('#schedule-grid > .link-card:first-child');
-          if (firstCard) {
-            firstCard.scrollIntoView({ 
-              behavior: 'smooth', 
-              block: 'start'
-            });
-          }
+          document.getElementById('payment-title').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start'
+          });
         });
         
         // Button 5: Video library section
@@ -3355,7 +3350,7 @@
           {id: 'connect-title', btn: 'btn-social'},
           {id: 'class-cta', btn: 'btn-next-class'},
           {id: 'schedule-title', btn: 'btn-schedule'},
-          {id: 'schedule-grid', btn: 'btn-location'},
+          {id: 'payment-title', btn: 'btn-payment'},
           {id: 'video-library', btn: 'btn-videos'}
         ];
         
@@ -3403,7 +3398,7 @@
         });
       }
       
-      // NEW TIKTOK-STYLE VIDEO LIBRARY FUNCTIONALITY
+      // UPDATED TIKTOK-STYLE VIDEO LIBRARY FUNCTIONALITY WITH NEW VIDEOS
       function initVideoLibrary() {
         const videoFeed = document.getElementById('video-feed');
         const videoIndicators = document.getElementById('video-indicators');
@@ -3411,73 +3406,62 @@
         const prevVideoBtn = document.querySelector('.prev-video');
         const nextVideoBtn = document.querySelector('.next-video');
         
-        // Video data for Daniel and Rebecca
+        // UPDATED VIDEO DATA WITH NEW BACHATA INSTRUMENT VIDEOS
         const videoData = [
           {
             id: 0,
-            title: "Bachata Counts & Beat Mastery",
-            description: "Learn the fundamental rhythm and timing of Bachata with Daniel",
+            title: "Bongo and Güira - Bachata Rhythm",
+            description: "Learn the essential bongo and güira patterns in Bachata music",
             duration: "5:30",
             level: "Beginner",
-            views: "2.5K",
+            views: "1.2K",
             category: ["bachata-counts"],
-            thumbnail: "https://img.youtube.com/vi/rAVYL74OgKM/maxresdefault.jpg",
-            videoId: "rAVYL74OgKM"
+            thumbnail: "https://img.youtube.com/vi/NcpGLZVhKDc/maxresdefault.jpg",
+            videoId: "NcpGLZVhKDc"
           },
           {
             id: 1,
-            title: "Salsa Basic Steps Tutorial",
-            description: "Master the basic salsa steps with Daniel's expert guidance",
-            duration: "6:15",
+            title: "Bass and Guira - Bachata Rhythm",
+            description: "Understand how bass and güira work together in Bachata rhythm",
+            duration: "4:45",
             level: "Beginner",
-            views: "3.2K",
-            category: ["salsa"],
-            thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-            videoId: "dQw4w9WgXcQ"
+            views: "980",
+            category: ["bachata-counts"],
+            thumbnail: "https://img.youtube.com/vi/9o73jWbb3gU/maxresdefault.jpg",
+            videoId: "9o73jWbb3gU"
           },
           {
             id: 2,
-            title: "Bachata Sensual Styling",
-            description: "Rebecca teaches sensual bachata styling techniques",
-            duration: "7:45",
+            title: "Lead Guitar (Requinto) - Bachata Melody",
+            description: "Master the lead guitar (requinto) patterns in Bachata music",
+            duration: "6:15",
             level: "Intermediate",
-            views: "4.1K",
-            category: ["bachata"],
-            thumbnail: "https://img.youtube.com/vi/9bZkp7q19f0/maxresdefault.jpg",
-            videoId: "9bZkp7q19f0"
-          },
-          {
-            id: 3,
-            title: "Salsa Turn Patterns",
-            description: "Daniel demonstrates advanced salsa turn patterns",
-            duration: "8:20",
-            level: "Intermediate",
-            views: "2.8K",
-            category: ["salsa"],
+            views: "1.5K",
+            category: ["bachata-counts"],
             thumbnail: "https://img.youtube.com/vi/J5SEMr4vmTM/maxresdefault.jpg",
             videoId: "J5SEMr4vmTM"
           },
           {
-            id: 4,
-            title: "Bachata Musicality Workshop",
-            description: "Rebecca explains bachata musicality and interpretation",
-            duration: "9:10",
-            level: "Advanced",
-            views: "1.9K",
-            category: ["bachata", "bachata-counts"],
+            id: 3,
+            title: "All Instruments Together - Bachata Full Arrangement",
+            description: "See how all Bachata instruments come together in a complete arrangement",
+            duration: "7:30",
+            level: "Intermediate",
+            views: "2.1K",
+            category: ["bachata-counts"],
             thumbnail: "https://img.youtube.com/vi/PPnVKETxf6I/maxresdefault.jpg",
             videoId: "PPnVKETxf6I"
           },
           {
-            id: 5,
-            title: "Salsa Shines & Footwork",
-            description: "Daniel teaches impressive salsa shines and footwork",
-            duration: "6:50",
-            level: "Intermediate",
+            id: 4,
+            title: "3 Rhythm Básicos de Bachata",
+            description: "Learn the 3 basic rhythms of Bachata music",
+            duration: "8:20",
+            level: "Beginner",
             views: "3.5K",
-            category: ["salsa"],
-            thumbnail: "https://img.youtube.com/vi/OWLylEYSroA/maxresdefault.jpg",
-            videoId: "OWLylEYSroA"
+            category: ["bachata-counts"],
+            thumbnail: "https://img.youtube.com/vi/kSQVKBmtZu4/maxresdefault.jpg",
+            videoId: "kSQVKBmtZu4"
           }
         ];
         
