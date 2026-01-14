@@ -202,6 +202,21 @@
             color: #2E7D32;
         }
         
+        /* NEW: Calendar icon styling */
+        .app-icon.calendar {
+            background: linear-gradient(135deg, rgba(155, 89, 182, 0.15), rgba(142, 68, 173, 0.1));
+            border: 2px solid rgba(155, 89, 182, 0.3);
+        }
+        
+        .app-icon.calendar i {
+            color: #9b59b6;
+            text-shadow: 0 2px 8px rgba(155, 89, 182, 0.3);
+        }
+        
+        .app-icon.calendar span {
+            color: #8e44ad;
+        }
+        
         .app-icon:hover {
             transform: translateY(-8px) scale(1.05);
             box-shadow: 
@@ -222,6 +237,7 @@
         .app-icon.instagram.loaded { animation-delay: 0.15s; }
         .app-icon.venmo.loaded { animation-delay: 0.3s; }
         .app-icon.register.loaded { animation-delay: 0.45s; }
+        .app-icon.calendar.loaded { animation-delay: 0.6s; } /* NEW: Calendar animation delay */
         
         .welcome-footer {
             margin-top: 40px;
@@ -735,6 +751,7 @@
             font-size: 1.15rem;
             color: var(--medium);
             line-height: 1.4;
+            margin-bottom: 10px;
             font-weight: 500;
         }
         
@@ -2055,11 +2072,6 @@
             
             .app-icon i {
                 font-size: 30px;
-                margin-bottom: 8px;
-            }
-            
-            .app-icon span {
-                font-size: 11px;
             }
         }
         
@@ -2508,13 +2520,21 @@
                     <i class="fas fa-clipboard-list"></i>
                     <span>Register</span>
                 </a>
+                
+                <!-- NEW: Calendar icon for schedule -->
+                <a href="#" 
+                   class="app-icon calendar" 
+                   id="welcome-calendar-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Schedule</span>
+                </a>
             </div>
             
             <p class="welcome-footer">Tap any icon to get started</p>
         </div>
     </div>
 
-    <!-- Rest of the HTML remains exactly the same -->
+    <!-- The rest of the HTML remains exactly the same -->
     <div class="container" style="opacity: 0;">
         <div class="header-container">
             <div class="top-nav-buttons" id="nav-buttons">
@@ -3013,6 +3033,23 @@
                     welcomeArray.style.display = 'none';
                     initMainPage();
                 }, 500);
+            }
+            
+            // Add event listener for the new calendar icon
+            const calendarIcon = document.getElementById('welcome-calendar-icon');
+            if (calendarIcon) {
+                calendarIcon.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    fadeOutWelcomeArray();
+                    
+                    // Scroll to schedule section after a delay
+                    setTimeout(function() {
+                        document.getElementById('schedule-title').scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'start'
+                        });
+                    }, 600);
+                });
             }
             
             // CHANGED FROM 7000 TO 9000 (9 SECONDS)
