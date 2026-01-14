@@ -7,247 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        #welcome-array {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.5s ease-out;
-            pointer-events: none;
-        }
-        
-        #welcome-array.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-        
-        body.welcome-active .container {
-            filter: blur(8px);
-            opacity: 0.9;
-        }
-        
-        .welcome-content {
-            text-align: center;
-            width: 100%;
-            max-width: 800px;
-            padding: 40px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .welcome-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--dark-blue);
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-        
-        .welcome-subtitle {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.3rem;
-            color: var(--medium);
-            margin-bottom: 50px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-        
-        .apps-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .app-icon {
-            width: 110px;
-            height: 110px;
-            border-radius: 24px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 
-                0 10px 30px rgba(0, 0, 0, 0.15),
-                0 0 0 1.5px rgba(255, 255, 255, 0.8),
-                inset 0 1px 0 rgba(255, 255, 255, 0.4);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            pointer-events: all;
-            opacity: 0;
-            transform: translateY(30px) scale(0.9);
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-        
-        .app-icon::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
-            z-index: 3;
-        }
-        
-        .app-icon.loaded {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-        
-        @keyframes attention-arrival {
-            0% {
-                transform: translateY(30px) scale(0.9);
-                opacity: 0;
-            }
-            70% {
-                transform: translateY(-10px) scale(1.05);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(0) scale(1);
-                opacity: 1;
-            }
-        }
-        
-        .app-icon i {
-            font-size: 42px;
-            margin-bottom: 12px;
-            z-index: 2;
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-        
-        .app-icon span {
-            font-size: 13px;
-            font-weight: 700;
-            z-index: 2;
-            position: relative;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-family: 'Montserrat', sans-serif;
-            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
-        }
-        
-        /* Professional color schemes for each app */
-        .app-icon.facebook {
-            background: linear-gradient(135deg, rgba(24, 119, 242, 0.15), rgba(59, 89, 152, 0.1));
-            border: 2px solid rgba(24, 119, 242, 0.3);
-        }
-        
-        .app-icon.facebook i {
-            color: #1877f2;
-            text-shadow: 0 2px 8px rgba(24, 119, 242, 0.3);
-        }
-        
-        .app-icon.facebook span {
-            color: #1877f2;
-        }
-        
-        .app-icon.instagram {
-            background: linear-gradient(135deg, rgba(225, 48, 108, 0.15), rgba(193, 53, 132, 0.1));
-            border: 2px solid rgba(225, 48, 108, 0.3);
-        }
-        
-        .app-icon.instagram i {
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .app-icon.instagram span {
-            color: #c13584;
-        }
-        
-        .app-icon.venmo {
-            background: linear-gradient(135deg, rgba(61, 149, 206, 0.15), rgba(0, 140, 255, 0.1));
-            border: 2px solid rgba(61, 149, 206, 0.3);
-        }
-        
-        .app-icon.venmo i {
-            color: #3d95ce;
-            text-shadow: 0 2px 8px rgba(61, 149, 206, 0.3);
-        }
-        
-        .app-icon.venmo span {
-            color: #3d95ce;
-        }
-        
-        .app-icon.register {
-            background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(46, 125, 50, 0.1));
-            border: 2px solid rgba(76, 175, 80, 0.3);
-        }
-        
-        .app-icon.register i {
-            color: #4CAF50;
-            text-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
-        }
-        
-        .app-icon.register span {
-            color: #2E7D32;
-        }
-        
-        /* NEW: Calendar icon styling */
-        .app-icon.calendar {
-            background: linear-gradient(135deg, rgba(155, 89, 182, 0.15), rgba(142, 68, 173, 0.1));
-            border: 2px solid rgba(155, 89, 182, 0.3);
-        }
-        
-        .app-icon.calendar i {
-            color: #9b59b6;
-            text-shadow: 0 2px 8px rgba(155, 89, 182, 0.3);
-        }
-        
-        .app-icon.calendar span {
-            color: #8e44ad;
-        }
-        
-        .app-icon:hover {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.2),
-                0 0 0 2px rgba(255, 255, 255, 0.9),
-                inset 0 2px 0 rgba(255, 255, 255, 0.6);
-        }
-        
-        .app-icon:hover i {
-            transform: scale(1.1);
-        }
-        
-        .app-icon.loaded {
-            animation: attention-arrival 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        }
-        
-        .app-icon.facebook.loaded { animation-delay: 0s; }
-        .app-icon.instagram.loaded { animation-delay: 0.15s; }
-        .app-icon.venmo.loaded { animation-delay: 0.3s; }
-        .app-icon.register.loaded { animation-delay: 0.45s; }
-        .app-icon.calendar.loaded { animation-delay: 0.6s; } /* NEW: Calendar animation delay */
-        
-        .welcome-footer {
-            margin-top: 40px;
-            color: var(--medium);
-            font-size: 1rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            opacity: 0.8;
-        }
-
         :root {
             --primary-blue: #2c5aa0;
             --secondary-blue: #4a7bc1;
@@ -308,7 +67,242 @@
             transition: filter 0.5s ease, opacity 0.5s ease;
         }
         
-        /* Rest of the CSS remains exactly the same */
+        #welcome-array {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease-out;
+            pointer-events: none;
+        }
+        
+        #welcome-array.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        body.welcome-active .container {
+            filter: blur(8px);
+            opacity: 0.9;
+        }
+        
+        .welcome-content {
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+            padding: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .welcome-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+        
+        .welcome-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            color: var(--medium);
+            margin-bottom: 50px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            line-height: 1.5;
+        }
+        
+        .apps-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .app-icon {
+            width: 110px;
+            height: 110px;
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 0 0 1.5px rgba(255, 255, 255, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: all;
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .app-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+            z-index: 3;
+        }
+        
+        .app-icon.loaded {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        
+        @keyframes attention-arrival {
+            0% {
+                transform: translateY(30px) scale(0.9);
+                opacity: 0;
+            }
+            70% {
+                transform: translateY(-10px) scale(1.05);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .app-icon i {
+            font-size: 42px;
+            margin-bottom: 12px;
+            z-index: 2;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .app-icon span {
+            font-size: 13px;
+            font-weight: 700;
+            z-index: 2;
+            position: relative;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+        }
+        
+        .app-icon.facebook {
+            background: linear-gradient(135deg, rgba(24, 119, 242, 0.15), rgba(59, 89, 152, 0.1));
+            border: 2px solid rgba(24, 119, 242, 0.3);
+        }
+        
+        .app-icon.facebook i {
+            color: #1877f2;
+            text-shadow: 0 2px 8px rgba(24, 119, 242, 0.3);
+        }
+        
+        .app-icon.facebook span {
+            color: #1877f2;
+        }
+        
+        .app-icon.instagram {
+            background: linear-gradient(135deg, rgba(225, 48, 108, 0.15), rgba(193, 53, 132, 0.1));
+            border: 2px solid rgba(225, 48, 108, 0.3);
+        }
+        
+        .app-icon.instagram i {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .app-icon.instagram span {
+            color: #c13584;
+        }
+        
+        .app-icon.venmo {
+            background: linear-gradient(135deg, rgba(61, 149, 206, 0.15), rgba(0, 140, 255, 0.1));
+            border: 2px solid rgba(61, 149, 206, 0.3);
+        }
+        
+        .app-icon.venmo i {
+            color: #3d95ce;
+            text-shadow: 0 2px 8px rgba(61, 149, 206, 0.3);
+        }
+        
+        .app-icon.venmo span {
+            color: #3d95ce;
+        }
+        
+        .app-icon.register {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(46, 125, 50, 0.1));
+            border: 2px solid rgba(76, 175, 80, 0.3);
+        }
+        
+        .app-icon.register i {
+            color: #4CAF50;
+            text-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+        }
+        
+        .app-icon.register span {
+            color: #2E7D32;
+        }
+        
+        .app-icon.calendar {
+            background: linear-gradient(135deg, rgba(155, 89, 182, 0.15), rgba(142, 68, 173, 0.1));
+            border: 2px solid rgba(155, 89, 182, 0.3);
+        }
+        
+        .app-icon.calendar i {
+            color: #9b59b6;
+            text-shadow: 0 2px 8px rgba(155, 89, 182, 0.3);
+        }
+        
+        .app-icon.calendar span {
+            color: #8e44ad;
+        }
+        
+        .app-icon:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(255, 255, 255, 0.9), inset 0 2px 0 rgba(255, 255, 255, 0.6);
+        }
+        
+        .app-icon:hover i {
+            transform: scale(1.1);
+        }
+        
+        .app-icon.loaded {
+            animation: attention-arrival 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        
+        .app-icon.facebook.loaded { animation-delay: 0s; }
+        .app-icon.instagram.loaded { animation-delay: 0.15s; }
+        .app-icon.venmo.loaded { animation-delay: 0.3s; }
+        .app-icon.register.loaded { animation-delay: 0.45s; }
+        .app-icon.calendar.loaded { animation-delay: 0.6s; }
+        
+        .welcome-footer {
+            margin-top: 40px;
+            color: var(--medium);
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+        
         .section-animate {
             opacity: 0;
             transform: translateY(30px);
@@ -541,6 +535,7 @@
             display: inline-block;
             font-family: 'Playfair Display', serif;
             text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            line-height: 1.2;
         }
         
         .tagline {
@@ -574,6 +569,7 @@
             padding-bottom: 16px;
             font-family: 'Playfair Display', serif;
             scroll-margin-top: 90px;
+            line-height: 1.3;
         }
         
         .section-title::after {
@@ -648,6 +644,7 @@
             letter-spacing: 0.5px;
             text-shadow: 0 1px 2px rgba(0,0,0,0.1);
             font-family: 'Playfair Display', serif;
+            line-height: 1.3;
         }
         
         .announcement-details {
@@ -667,6 +664,7 @@
             border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             font-size: 1.2rem;
+            line-height: 1.5;
         }
         
         .announcement-note {
@@ -674,6 +672,7 @@
             opacity: 0.9;
             margin-top: 12px;
             font-style: italic;
+            line-height: 1.5;
         }
         
         .buena-vista-address {
@@ -688,6 +687,7 @@
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            line-height: 1.5;
         }
         
         .buena-vista-address:hover {
@@ -769,6 +769,7 @@
             margin-bottom: 12px;
             display: block;
             letter-spacing: 0.5px;
+            line-height: 1.5;
         }
         
         .social-links-grid {
@@ -834,6 +835,7 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            line-height: 1.3;
         }
         
         .social-link-username {
@@ -843,6 +845,7 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            line-height: 1.3;
         }
         
         .instructor-card.rebecca {
@@ -866,6 +869,7 @@
             color: var(--medium);
             font-weight: 500;
             font-size: 1.2rem;
+            line-height: 1.5;
         }
         
         .date-section strong {
@@ -899,6 +903,7 @@
             justify-content: center;
             gap: 14px;
             color: var(--primary-blue);
+            line-height: 1.4;
         }
         
         .cta-header i {
@@ -933,6 +938,7 @@
             min-height: 66px;
             text-decoration: none;
             border: none;
+            line-height: 1.5;
         }
         
         .cta-action:hover {
@@ -1144,6 +1150,7 @@
             padding-bottom: 20px;
             letter-spacing: 0.6px;
             font-family: 'Playfair Display', serif;
+            line-height: 1.3;
         }
         
         .form-title::after {
@@ -1185,6 +1192,7 @@
             transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             -webkit-appearance: none;
             appearance: none;
+            line-height: 1.5;
         }
         
         .form-input:focus {
@@ -1214,6 +1222,7 @@
             background-size: 24px;
             transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             -webkit-appearance: none;
+            line-height: 1.5;
         }
         
         .form-select:focus {
@@ -1243,6 +1252,7 @@
             border: 1px solid rgba(0,0,0,0.03);
             text-decoration: none;
             text-align: center;
+            line-height: 1.5;
         }
         
         .submit-btn:hover {
@@ -1268,6 +1278,7 @@
             transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             min-width: 110px;
             min-height: 44px;
+            line-height: 1.5;
         }
         
         .lang-btn.active {
@@ -1423,6 +1434,7 @@
             color: var(--primary-blue);
             font-style: normal;
             text-align: center;
+            line-height: 1.5;
         }
         
         .review-stars {
@@ -1479,6 +1491,7 @@
             font-family: 'Playfair Display', serif;
             position: relative;
             display: inline-block;
+            line-height: 1.3;
         }
         
         .video-title::after {
@@ -1645,6 +1658,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 10px;
+            line-height: 1.3;
         }
         
         .video-meta {
@@ -1660,6 +1674,7 @@
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
+            line-height: 1.5;
         }
         
         .video-views {
@@ -1668,6 +1683,7 @@
             display: flex;
             align-items: center;
             gap: 5px;
+            line-height: 1.5;
         }
         
         .video-nav {
@@ -1750,6 +1766,7 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+            line-height: 1.5;
         }
         
         .category-btn::before {
@@ -1807,6 +1824,7 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
+            line-height: 1.5;
         }
         
         .video-cta-button:hover {
@@ -1853,6 +1871,7 @@
         .video-loading-text {
             font-size: 1.1rem;
             opacity: 0.8;
+            line-height: 1.5;
         }
 
         .youtube-overlay {
@@ -1869,6 +1888,7 @@
             color: white;
             font-size: 1.2rem;
             transition: opacity 0.5s ease;
+            line-height: 1.5;
         }
         
         .youtube-overlay.hidden {
@@ -2460,6 +2480,7 @@
         footer p {
             margin: 10px 0;
             font-size: 1.1rem;
+            line-height: 1.5;
         }
         
         #copyright {
@@ -2521,7 +2542,6 @@
                     <span>Register</span>
                 </a>
                 
-                <!-- NEW: Calendar icon for schedule -->
                 <a href="#" 
                    class="app-icon calendar" 
                    id="welcome-calendar-icon">
@@ -2534,7 +2554,6 @@
         </div>
     </div>
 
-    <!-- The rest of the HTML remains exactly the same -->
     <div class="container" style="opacity: 0;">
         <div class="header-container">
             <div class="top-nav-buttons" id="nav-buttons">
@@ -2687,7 +2706,6 @@
             <h3 class="section-title" id="schedule-title">Class Schedule</h3>
             
             <div class="links-grid stagger-children section-animate" id="schedule-grid">
-                <!-- UPDATED STARDUST CARD WITH 4-WEEK INTRO CYCLE -->
                 <div class="link-card stardust next-class-highlight" 
                      data-studio="Stardust Ballroom" 
                      id="stardust-card">
@@ -3035,14 +3053,12 @@
                 }, 500);
             }
             
-            // Add event listener for the new calendar icon
             const calendarIcon = document.getElementById('welcome-calendar-icon');
             if (calendarIcon) {
                 calendarIcon.addEventListener('click', function(e) {
                     e.preventDefault();
                     fadeOutWelcomeArray();
                     
-                    // Scroll to schedule section after a delay
                     setTimeout(function() {
                         document.getElementById('schedule-title').scrollIntoView({ 
                             behavior: 'smooth', 
@@ -3052,10 +3068,8 @@
                 });
             }
             
-            // CHANGED FROM 7000 TO 9000 (9 SECONDS)
             setTimeout(fadeOutWelcomeArray, 9000);
             
-            // The rest of the JavaScript remains exactly the same
             function initMainPage() {
                 function initSectionAnimations() {
                     const animatedSections = document.querySelectorAll('.section-animate');
