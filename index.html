@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rebecca & Daniel | Professional Dance Instruction</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Updated fonts to match Daniel single page -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Updated color variables to match Daniel single page */
         :root {
             --primary: #2c6e9d;
             --primary-light: #5dade2;
@@ -30,7 +28,6 @@
             --card-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             
-            /* Rebecca & Daniel original colors for other elements */
             --primary-blue: #2c5aa0;
             --secondary-blue: #4a7bc1;
             --light-blue: #e8f0fe;
@@ -53,7 +50,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            /* Updated font-family to match Daniel single page */
             font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
@@ -70,16 +66,11 @@
             position: relative;
             color: var(--medium);
             background: linear-gradient(135deg, #f7fafc, #edf2f7);
-            line-height: 1.7;
-            font-size: 1.15rem;
+            line-height: 1.6;
+            font-size: 1.1rem;
             scroll-behavior: smooth;
         }
         
-        /* All existing Rebecca & Daniel styles preserved */
-        /* Only updating specific sections */
-        
-        /* ===== UPDATED PAYMENT SECTION STYLES ===== */
-        /* Updated to match Daniel single page icon styles */
         .links-grid .link-card .link-icon {
             width: 60px;
             height: 60px;
@@ -98,23 +89,18 @@
             transition: var(--transition);
         }
         
-        /* Updated Venmo icon to match Daniel single page */
         .venmo .link-icon {
             background: linear-gradient(135deg, #2d7db0, #0066cc) !important;
         }
         
-        /* Updated Cash icon to match Daniel single page */
         .cash .link-icon {
             background: linear-gradient(135deg, #27ae60, #1d8c4f) !important;
         }
         
-        /* ===== UPDATED CONTACT SECTION STYLES ===== */
-        /* Updated Contact icon to match Daniel single page */
         .contact .link-icon {
             background: var(--primary-gradient) !important;
         }
         
-        /* Keep the original studio icons (Stardust, Let's Bailar, etc.) as they were */
         .stardust-icon {
             background: var(--primary-gradient) !important;
         }
@@ -131,13 +117,10 @@
             background: linear-gradient(135deg, #3498db, #8e44ad) !important;
         }
         
-        /* ===== FONT UPDATES ===== */
-        /* Headings updated to match Daniel single page */
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Playfair Display', serif;
         }
         
-        /* Updated all section titles to match Daniel single page */
         .section-title {
             font-family: 'Playfair Display', serif;
             scroll-margin-top: 80px;
@@ -159,9 +142,6 @@
             font-family: 'Playfair Display', serif;
         }
         
-        /* Rest of the original Rebecca & Daniel styles preserved exactly */
-        
-        /* Welcome Array Styles */
         body.no-scroll {
             overflow: hidden;
         }
@@ -227,7 +207,7 @@
         }
         
         .welcome-subtitle {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--medium);
             margin-bottom: 50px;
             font-weight: 500;
@@ -404,6 +384,33 @@
         .app-icon.register.loaded { animation-delay: 0.45s; }
         .app-icon.calendar.loaded { animation-delay: 0.6s; }
         
+        .welcome-social {
+            margin: 20px 0 10px;
+            text-align: center;
+        }
+        .welcome-social p {
+            font-size: 1.1rem;
+            color: var(--dark-blue);
+            background: rgba(255,255,255,0.5);
+            backdrop-filter: blur(5px);
+            padding: 12px 20px;
+            border-radius: 40px;
+            display: inline-block;
+            border: 1px solid rgba(44,90,160,0.2);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            line-height: 1.5;
+        }
+        .welcome-social a {
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid rgba(44,90,160,0.3);
+            transition: border-color 0.3s;
+        }
+        .welcome-social a:hover {
+            border-bottom-color: var(--primary-blue);
+        }
+        
         .welcome-footer {
             margin-top: 40px;
             color: var(--medium);
@@ -503,7 +510,7 @@
             border: none;
             border-radius: 20px;
             padding: 14px 26px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             color: var(--primary-blue);
             cursor: pointer;
@@ -578,6 +585,7 @@
             box-shadow: 0 10px 30px rgba(74, 123, 193, 0.2);
             transition: var(--transition);
             animation: gentle-beat 4s infinite ease-in-out;
+            cursor: pointer;
         }
         
         @keyframes gentle-beat {
@@ -637,8 +645,8 @@
         }
         
         h1 {
-            font-size: 3.2rem;
-            font-weight: 800;
+            font-size: 3rem;
+            font-weight: 700;
             margin-bottom: 18px;
             letter-spacing: 0.5px;
             color: var(--dark);
@@ -649,12 +657,12 @@
         }
         
         .tagline {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 500;
             color: var(--medium);
             margin: 24px auto 0;
             max-width: 700px;
-            line-height: 1.8;
+            line-height: 1.6;
         }
         
         .divider {
@@ -667,7 +675,8 @@
         }
         
         .section-title {
-            font-size: 2.3rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
             font-weight: 700;
             margin: 56px 0 36px;
             text-align: center;
@@ -746,6 +755,7 @@
         }
         
         .announcement-title {
+            font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 12px;
@@ -755,7 +765,7 @@
         }
         
         .announcement-details {
-            font-size: 1.35rem;
+            font-size: 1.3rem;
             font-weight: 500;
             margin-bottom: 14px;
             line-height: 1.6;
@@ -845,7 +855,8 @@
         }
         
         .instructor-name {
-            font-size: 1.75rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
             font-weight: 700;
             margin-bottom: 6px;
             color: var(--dark-blue);
@@ -854,7 +865,7 @@
         }
         
         .instructor-subtitle {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--medium);
             line-height: 1.4;
             margin-bottom: 10px;
@@ -934,7 +945,7 @@
         }
         
         .social-link-platform {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             color: var(--dark);
             margin-bottom: 4px;
@@ -945,7 +956,7 @@
         }
         
         .social-link-username {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--medium);
             font-weight: 500;
             white-space: nowrap;
@@ -974,7 +985,7 @@
             clear: both;
             color: var(--medium);
             font-weight: 500;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             line-height: 1.5;
         }
         
@@ -1000,7 +1011,7 @@
         }
         
         .cta-header {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 600;
             margin-bottom: 22px;
             letter-spacing: 0.35px;
@@ -1022,13 +1033,13 @@
             border-radius: 14px;
             padding: 16px 22px;
             margin-bottom: 22px;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             line-height: 1.7;
             color: var(--dark);
         }
         
         .cta-action {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             padding: 18px;
             background: var(--gradient-blue);
@@ -1069,7 +1080,6 @@
             margin: 40px 0;
         }
         
-        /* Link card styles remain the same except for the icon updates above */
         .link-card {
             background: #fff;
             border-radius: 22px;
@@ -1092,8 +1102,6 @@
             border-color: rgba(44, 90, 160, 0.3);
         }
         
-        /* Link icon updated above to match Daniel single page */
-        
         .studio-info {
             display: flex;
             justify-content: space-between;
@@ -1106,7 +1114,7 @@
         }
         
         .link-title {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 650;
             margin-bottom: 8px;
             color: var(--dark);
@@ -1115,7 +1123,7 @@
         }
         
         .link-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--medium);
             line-height: 1.4;
             margin-bottom: 10px;
@@ -1174,7 +1182,7 @@
             margin-bottom: 10px;
             padding-bottom: 6px;
             border-bottom: 1px dashed #e0e0e0;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             line-height: 1.3;
         }
         
@@ -1191,13 +1199,13 @@
             font-weight: 620;
             min-width: 100px;
             color: var(--dark);
-            font-size: 1.15rem;
+            font-size: 1.1rem;
         }
         
         .class-name {
             flex: 1;
             padding-left: 15px;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             line-height: 1.4;
         }
         
@@ -1231,7 +1239,8 @@
         }
         
         .form-title {
-            font-size: 2.3rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.1rem;
             font-weight: 700;
             margin-bottom: 30px;
             color: var(--dark);
@@ -1258,7 +1267,7 @@
             text-align: center;
             margin-bottom: 40px;
             color: var(--medium);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 500;
             display: block;
             line-height: 1.8;
@@ -1277,7 +1286,7 @@
             border: 1px solid #e0e0e0;
             background: #f9f9f9;
             color: var(--dark);
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             -webkit-appearance: none;
             appearance: none;
@@ -1293,7 +1302,7 @@
         
         .form-input::placeholder {
             color: #777;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
         
         .form-select {
@@ -1303,7 +1312,7 @@
             border: 1px solid #e0e0e0;
             background: #f9f9f9;
             color: var(--dark);
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232c5aa0'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
@@ -1327,7 +1336,7 @@
             border: none;
             border-radius: 16px;
             padding: 22px;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 600;
             cursor: pointer;
             width: 100%;
@@ -1361,7 +1370,7 @@
             border: 1px solid #ddd;
             border-radius: 24px;
             padding: 8px 22px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #666;
             cursor: pointer;
             transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -1489,10 +1498,10 @@
         }
         
         .review-text {
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             font-style: italic;
             color: #444;
-            line-height: 1.8;
+            line-height: 1.7;
             margin-bottom: 30px;
             position: relative;
             padding: 0 50px;
@@ -1518,7 +1527,7 @@
         }
         
         .review-author {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: var(--primary-blue);
             font-style: normal;
@@ -1528,7 +1537,7 @@
         
         .review-stars {
             color: #f59e0b;
-            font-size: 1.45rem;
+            font-size: 1.4rem;
             margin: 18px 0;
             letter-spacing: 4px;
             text-align: center;
@@ -1573,8 +1582,9 @@
         }
         
         .video-title {
-            font-size: 2.5rem;
-            font-weight: 800;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.3rem;
+            font-weight: 700;
             color: var(--dark-blue);
             margin-bottom: 15px;
             position: relative;
@@ -1595,7 +1605,7 @@
         }
         
         .video-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--medium);
             max-width: 600px;
             margin: 0 auto;
@@ -1743,7 +1753,7 @@
         }
         
         .video-item-title {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
             margin-bottom: 10px;
             line-height: 1.3;
@@ -1760,14 +1770,14 @@
             color: white;
             padding: 5px 12px;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 600;
             line-height: 1.5;
         }
         
         .video-views {
             color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             display: flex;
             align-items: center;
             gap: 5px;
@@ -1846,7 +1856,7 @@
             border: 1px solid rgba(44, 90, 160, 0.2);
             border-radius: 8px;
             padding: 10px 20px;
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 500;
             color: var(--dark-blue);
             cursor: pointer;
@@ -2000,7 +2010,7 @@
             }
             
             .instructor-subtitle {
-                font-size: 1.1rem;
+                font-size: 1.05rem;
             }
             
             .social-links-grid {
@@ -2037,7 +2047,7 @@
             }
             
             .announcement-details {
-                font-size: 1.25rem;
+                font-size: 1.2rem;
             }
             
             .links-grid {
@@ -2046,11 +2056,11 @@
             }
             
             h1 {
-                font-size: 2.8rem;
+                font-size: 2.6rem;
             }
             
             .tagline {
-                font-size: 1.35rem;
+                font-size: 1.3rem;
             }
             
             .section-title {
@@ -2059,16 +2069,16 @@
             }
             
             .cta-header {
-                font-size: 1.35rem;
+                font-size: 1.3rem;
             }
             
             .cta-schedule {
-                font-size: 1.1rem;
+                font-size: 1.05rem;
                 padding: 14px;
             }
             
             .cta-action {
-                font-size: 1.2rem;
+                font-size: 1.15rem;
                 padding: 16px;
             }
             
@@ -2077,17 +2087,17 @@
             }
             
             .form-title {
-                font-size: 2rem;
+                font-size: 1.9rem;
             }
             
             .form-input, .form-select {
                 padding: 20px 26px;
-                font-size: 1.2rem;
+                font-size: 1.15rem;
             }
             
             .submit-btn {
                 padding: 20px;
-                font-size: 1.3rem;
+                font-size: 1.25rem;
             }
             
             .top-nav-buttons {
@@ -2097,7 +2107,7 @@
             
             .nav-btn {
                 padding: 12px 22px;
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
             
             .nav-btn i {
@@ -2109,11 +2119,11 @@
             }
             
             .schedule-day-header {
-                font-size: 1.25rem;
+                font-size: 1.2rem;
             }
             
             .class-time, .class-name {
-                font-size: 1.1rem;
+                font-size: 1.05rem;
             }
             
             .tiktok-video-feed {
@@ -2122,7 +2132,7 @@
             }
             
             .video-title {
-                font-size: 2.2rem;
+                font-size: 2.1rem;
             }
             
             .video-subtitle {
@@ -2185,7 +2195,7 @@
         
         @media (max-width: 550px) {
             body {
-                font-size: 1.15rem;
+                font-size: 1rem;
                 padding: 20px 14px;
             }
             
@@ -2259,7 +2269,7 @@
             }
             
             .instructor-subtitle {
-                font-size: 1.05rem;
+                font-size: 1rem;
             }
             
             .social-links-grid {
@@ -2279,11 +2289,11 @@
             }
             
             .social-link-platform {
-                font-size: 0.95rem;
+                font-size: 0.9rem;
             }
             
             .social-link-username {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
             }
             
             .announcement-banner {
@@ -2319,12 +2329,12 @@
             }
             
             h1 {
-                font-size: 2.4rem;
+                font-size: 2.2rem;
                 margin-bottom: 16px;
             }
             
             .tagline {
-                font-size: 1.25rem;
+                font-size: 1.2rem;
                 margin-top: 14px;
             }
             
@@ -2362,11 +2372,11 @@
             }
             
             .link-title {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
             }
             
             .link-subtitle {
-                font-size: 1.15rem;
+                font-size: 1.1rem;
             }
             
             .schedule-list {
@@ -2374,16 +2384,16 @@
             }
             
             .schedule-day-header {
-                font-size: 1.2rem;
+                font-size: 1.15rem;
             }
             
             .class-time, .class-name {
-                font-size: 1.05rem;
+                font-size: 1rem;
             }
             
             .salsa-text, .bachata-text {
                 padding: 1px 4px;
-                font-size: 0.95rem;
+                font-size: 0.9rem;
             }
             
             .cta-header {
@@ -2396,36 +2406,36 @@
             }
             
             .cta-schedule {
-                font-size: 1.05rem;
+                font-size: 1rem;
                 padding: 12px 14px;
             }
             
             .cta-action {
-                font-size: 1.1rem;
+                font-size: 1.05rem;
                 padding: 14px;
             }
             
             .date-section {
                 margin: 0 0 22px auto;
                 padding: 12px 20px;
-                font-size: 1.15rem;
+                font-size: 1.05rem;
             }
             
             .form-title {
-                font-size: 1.9rem;
+                font-size: 1.8rem;
             }
             
             .partner-notice {
-                font-size: 1.2rem;
+                font-size: 1.15rem;
             }
             
             .form-input, .form-select {
                 padding: 18px 24px;
-                font-size: 1.15rem;
+                font-size: 1.1rem;
             }
             
             .submit-btn {
-                font-size: 1.25rem;
+                font-size: 1.2rem;
                 padding: 18px;
             }
             
@@ -2434,7 +2444,7 @@
             }
             
             .review-text {
-                font-size: 1.2rem;
+                font-size: 1.15rem;
                 padding: 0 30px;
             }
             
@@ -2569,7 +2579,7 @@
         
         footer p {
             margin: 10px 0;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             line-height: 1.5;
         }
         
@@ -2639,8 +2649,12 @@
                     <span>Schedule</span>
                 </a>
             </div>
-            
+
             <p class="welcome-footer">Tap any icon to get started</p>
+            
+            <div class="welcome-social">
+                <p>Come to our next social at <a href="https://www.facebook.com/share/1EZWNdBBq1/?mibextid=wwXIfr" target="_blank" rel="noopener">Buena Vista Social</a>!</p>
+            </div>
         </div>
     </div>
 
@@ -2678,7 +2692,6 @@
         </div>
         
         <div class="content">
-            <!-- ========== UPDATED ANNOUNCEMENT SECTION ========== -->
             <div class="announcement-banner section-animate">
                 <div class="announcement-content">
                     <i class="fas fa-heart announcement-icon"></i>
@@ -2868,46 +2881,6 @@
                     </div>
                 </div>
                 
-                <div class="link-card letsbailar" 
-                     data-studio="Let's Bailar Dance Studio" 
-                     id="letsbailar-card">
-                    <div class="link-icon letsbailar-icon">
-                        <i class="fas fa-city"></i>
-                    </div>
-                    <div class="link-text">
-                        <div class="studio-info">
-                            <div class="studio-name-address">
-                                <div class="link-title">Let's Bailar Dance Studio</div>
-                                <div class="link-subtitle">Philly - Chinese Assoc.</div>
-                            </div>
-                            <div class="location-icons">
-                                <a href="https://www.facebook.com/share/1F7HATupDw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Let's Bailar Dance Studio on Facebook" aria-label="Let's Bailar Dance Studio Facebook Page">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="https://www.google.com/maps/search/?api=1&query=Chinese+Association+of+Greater+Philadelphia" 
-                                   class="location-icon maps-icon" 
-                                   title="Directions to Let's Bailar Dance Studio" 
-                                   aria-label="Let's Bailar Dance Studio on Google Maps">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="schedule-list">
-                            <div class="schedule-day-group" data-day="Friday">
-                                <div class="schedule-day-header">Friday</div>
-                                <div class="schedule-class">
-                                    <span class="class-time">7:00pm</span>
-                                    <span class="class-name"><span class="salsa-text">Salsa</span></span>
-                                </div>
-                                <div class="schedule-class">
-                                    <span class="class-time">8:00pm</span>
-                                    <span class="class-name"><span class="bachata-text">Bachata</span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
                 <div class="link-card estilo" 
                      data-studio="Estilo Dance Studio" 
                      id="estilo-card">
@@ -3017,8 +2990,6 @@
                         </button>
                     </div>
                     
-                    <!-- REMOVED LOCATION SELECTION -->
-                    
                     <button type="submit" class="submit-btn">
                         <span id="register-button">Register</span>
                     </button>
@@ -3104,7 +3075,6 @@
                     <button class="lang-btn" data-lang="es">Español</button>
                 </div>
                 <p id="copyright">© 2025 Rebecca & Daniel | Professional Dance Instruction</p>
-                <!-- ===== UPDATED FOOTER QUOTE ===== -->
                 <p id="quote">dancing is the hidden language of the soul</p>
                 
                 <div class="signature-container">
@@ -3114,12 +3084,53 @@
         </div>
     </div>
 
-    <!-- JavaScript with the specific changes -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Triple click for logo to open WhatsApp
+            const logo = document.querySelector('.logo');
+            let clickCount = 0;
+            let clickTimer = null;
+            const WHATSAPP_LINK = 'https://chat.whatsapp.com/IRz7E4pKaZaJKA53HWQIPB?mode=gi_t';
+
+            if (logo) {
+                logo.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    clickCount++;
+                    
+                    if (clickTimer) {
+                        clearTimeout(clickTimer);
+                    }
+                    
+                    clickTimer = setTimeout(() => {
+                        clickCount = 0;
+                    }, 500);
+                    
+                    if (clickCount === 3) {
+                        clearTimeout(clickTimer);
+                        clickCount = 0;
+                        window.open(WHATSAPP_LINK, '_blank');
+                    }
+                });
+            }
+
             const welcomeArray = document.getElementById('welcome-array');
             const mainContainer = document.querySelector('.container');
             const body = document.body;
+            
+            welcomeArray.addEventListener('click', function(e) {
+                const target = e.target;
+                const dismissClasses = ['welcome-array', 'welcome-content', 'welcome-title', 'welcome-subtitle', 'welcome-footer', 'welcome-social'];
+                if (target === welcomeArray || 
+                    target.classList.contains('welcome-content') ||
+                    target.classList.contains('welcome-title') ||
+                    target.classList.contains('welcome-subtitle') ||
+                    target.classList.contains('welcome-footer') ||
+                    target.classList.contains('welcome-social') ||
+                    target.tagName === 'P') {
+                    
+                    fadeOutWelcomeArray();
+                }
+            });
             
             const appIcons = document.querySelectorAll('.app-icon');
             
@@ -3135,24 +3146,65 @@
             });
             
             let touchStartY = 0;
+            let touchStartX = 0;
             let touchEndY = 0;
             let touchStartTime = 0;
             let touchEndTime = 0;
             let lastSwipeTime = 0;
             let swipeCount = 0;
+            let touchActive = false;
+            let touchMoved = false;
+            let swipeHoldTimer = null;
             const SWIPE_THRESHOLD = 50;
             const LONG_SWIPE_THRESHOLD = 100;
             const DOUBLE_SWIPE_TIMEOUT = 500;
             const SHORT_SWIPE_MAX_TIME = 300;
+            const HOLD_DELAY = 1000;
             
             welcomeArray.addEventListener('touchstart', function(e) {
                 touchStartY = e.touches[0].clientY;
+                touchStartX = e.touches[0].clientX;
                 touchStartTime = Date.now();
-            });
+                touchActive = true;
+                touchMoved = false;
+                if (swipeHoldTimer) {
+                    clearTimeout(swipeHoldTimer);
+                    swipeHoldTimer = null;
+                }
+            }, { passive: false });
+            
+            welcomeArray.addEventListener('touchmove', function(e) {
+                if (!touchActive) return;
+                const touch = e.touches[0];
+                const moveY = touch.clientY;
+                const moveX = touch.clientX;
+                const diffY = Math.abs(moveY - touchStartY);
+                const diffX = Math.abs(moveX - touchStartX);
+                const distance = Math.sqrt(diffX*diffX + diffY*diffY);
+                
+                if (distance > SWIPE_THRESHOLD) {
+                    touchMoved = true;
+                    if (swipeHoldTimer) {
+                        clearTimeout(swipeHoldTimer);
+                    }
+                    swipeHoldTimer = setTimeout(() => {
+                        if (touchActive && touchMoved) {
+                            fadeOutWelcomeArray();
+                        }
+                        swipeHoldTimer = null;
+                    }, HOLD_DELAY);
+                }
+                e.preventDefault();
+            }, { passive: false });
             
             welcomeArray.addEventListener('touchend', function(e) {
                 touchEndY = e.changedTouches[0].clientY;
                 touchEndTime = Date.now();
+                touchActive = false;
+                if (swipeHoldTimer) {
+                    clearTimeout(swipeHoldTimer);
+                    swipeHoldTimer = null;
+                }
                 
                 const swipeDistance = Math.abs(touchEndY - touchStartY);
                 const swipeTime = touchEndTime - touchStartTime;
@@ -3221,13 +3273,12 @@
                     
                     initMainPage();
                     
-                    // CHANGED: Reduced from 2000ms to 1000ms
                     setTimeout(function() {
                         body.classList.remove('no-scroll');
                         if (callback && typeof callback === 'function') {
                             callback();
                         }
-                    }, 1000); // Changed from 2000 to 1000
+                    }, 1000);
                     
                 }, 500);
             }
@@ -3237,7 +3288,6 @@
                 calendarIcon.addEventListener('click', function(e) {
                     e.preventDefault();
                     fadeOutWelcomeArray(function() {
-                        // Scroll to the schedule section after welcome array is hidden
                         document.getElementById('schedule-title').scrollIntoView({ 
                             behavior: 'smooth', 
                             block: 'start'
@@ -3351,7 +3401,6 @@
                         contactTitleText: "Professional Inquiries",
                         contactSubtitle: "Bookings and partnerships",
                         copyright: "© 2025 Rebecca & Daniel | Professional Dance Instruction",
-                        // UPDATED ENGLISH QUOTE
                         quote: "dancing is the hidden language of the soul"
                     },
                     es: {
@@ -3450,7 +3499,7 @@
                 const removeParticipantBtn = document.getElementById('remove-participant');
                 
                 let participantCount = 1;
-                const maxParticipants = 6; // CHANGED: Increased from 4 to 6
+                const maxParticipants = 6;
                 
                 addParticipantBtn.addEventListener('click', function() {
                     if (participantCount < maxParticipants) {
@@ -3509,17 +3558,6 @@
                             "8:00pm Advance Beginner Bachata"
                         ],
                         locationId: "stardust-card",
-                        endTime: 2100
-                    },
-                    { 
-                        day: "Friday", 
-                        dayIndex: 5,
-                        studio: "Let's Bailar Dance Studio",
-                        classes: [
-                            "7:00pm Salsa",
-                            "8:00pm Bachata"
-                        ],
-                        locationId: "letsbailar-card",
                         endTime: 2100
                     },
                     { 
@@ -3694,8 +3732,6 @@
                             }
                         });
                         
-                        // REMOVED: Location validation since location selection is removed
-                        
                         if (!hasName) {
                             e.preventDefault();
                             showNotification(currentLanguage === 'es' ? "Por favor ingresa al menos un nombre" : "Please enter at least one name", "info");
@@ -3782,7 +3818,6 @@
                         });
                     });
                     
-                    // FIXED: Changed btn-next-class to scroll to schedule-title instead of class-cta
                     document.getElementById('btn-next-class').addEventListener('click', (e) => {
                         e.preventDefault();
                         document.getElementById('schedule-title').scrollIntoView({ 
