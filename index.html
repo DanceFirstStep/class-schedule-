@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ALL ORIGINAL STYLES – KEPT INTACT */
+        /* ALL ORIGINAL STYLES – KEPT INTACT (with subtle contrast & readability refinements) */
         :root {
             --primary: #2c6e9d;
             --primary-light: #5dade2;
@@ -161,15 +161,16 @@
             transition: filter 0.5s ease, opacity 0.5s ease;
         }
         
+        /* ===== WELCOME ARRAY – IMPROVED CONTRAST & ELEGANCE ===== */
         #welcome-array {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            background: rgba(250, 250, 255, 0.96); /* slightly more opaque for better contrast */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             z-index: 9999;
             display: flex;
             justify-content: center;
@@ -192,7 +193,7 @@
             text-align: center;
             width: 100%;
             max-width: 800px;
-            padding: 40px;
+            padding: 60px 40px; /* increased top/bottom from 40px to 60px */
             position: relative;
             z-index: 2;
         }
@@ -202,15 +203,16 @@
             font-size: 3rem;
             font-weight: 700;
             color: var(--dark-blue);
-            margin-bottom: 12px;
+            margin-bottom: 20px; /* increased from 12px */
             letter-spacing: 0.5px;
             line-height: 1.2;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.02);
         }
         
         .welcome-subtitle {
             font-size: 1.2rem;
-            color: var(--medium);
-            margin-bottom: 50px;
+            color: #1e2b3c;
+            margin-bottom: 70px; /* increased from 50px */
             font-weight: 500;
             letter-spacing: 0.5px;
             line-height: 1.5;
@@ -221,7 +223,7 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 40px;
-            margin-bottom: 40px;
+            margin-bottom: 60px; /* increased from 40px */
         }
         
         .app-icon {
@@ -235,14 +237,15 @@
             text-decoration: none;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 0 0 1.5px rgba(255, 255, 255, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15), 0 0 0 2px rgba(255, 255, 255, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.5);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             pointer-events: all;
             opacity: 0;
             transform: translateY(30px) scale(0.9);
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.92));
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
+            border: 2px solid transparent; /* refined border */
         }
         
         .app-icon::before {
@@ -252,7 +255,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
             z-index: 3;
         }
         
@@ -286,7 +289,7 @@
         
         .app-icon span {
             font-size: 13px;
-            font-weight: 700;
+            font-weight: 600; /* slightly bolder */
             z-index: 2;
             position: relative;
             letter-spacing: 1px;
@@ -295,8 +298,8 @@
         }
         
         .app-icon.facebook {
-            background: linear-gradient(135deg, rgba(24, 119, 242, 0.15), rgba(59, 89, 152, 0.1));
-            border: 2px solid rgba(24, 119, 242, 0.3);
+            background: linear-gradient(135deg, rgba(24, 119, 242, 0.2), rgba(59, 89, 152, 0.15));
+            border: 2px solid rgba(24, 119, 242, 0.4);
         }
         
         .app-icon.facebook i {
@@ -309,8 +312,8 @@
         }
         
         .app-icon.instagram {
-            background: linear-gradient(135deg, rgba(225, 48, 108, 0.15), rgba(193, 53, 132, 0.1));
-            border: 2px solid rgba(225, 48, 108, 0.3);
+            background: linear-gradient(135deg, rgba(225, 48, 108, 0.2), rgba(193, 53, 132, 0.15));
+            border: 2px solid rgba(225, 48, 108, 0.4);
         }
         
         .app-icon.instagram i {
@@ -325,8 +328,8 @@
         }
         
         .app-icon.venmo {
-            background: linear-gradient(135deg, rgba(61, 149, 206, 0.15), rgba(0, 140, 255, 0.1));
-            border: 2px solid rgba(61, 149, 206, 0.3);
+            background: linear-gradient(135deg, rgba(61, 149, 206, 0.2), rgba(0, 140, 255, 0.15));
+            border: 2px solid rgba(61, 149, 206, 0.4);
         }
         
         .app-icon.venmo i {
@@ -339,8 +342,8 @@
         }
         
         .app-icon.register {
-            background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(46, 125, 50, 0.1));
-            border: 2px solid rgba(76, 175, 80, 0.3);
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(46, 125, 50, 0.15));
+            border: 2px solid rgba(76, 175, 80, 0.4);
         }
         
         .app-icon.register i {
@@ -353,8 +356,8 @@
         }
         
         .app-icon.calendar {
-            background: linear-gradient(135deg, rgba(155, 89, 182, 0.15), rgba(142, 68, 173, 0.1));
-            border: 2px solid rgba(155, 89, 182, 0.3);
+            background: linear-gradient(135deg, rgba(155, 89, 182, 0.2), rgba(142, 68, 173, 0.15));
+            border: 2px solid rgba(155, 89, 182, 0.4);
         }
         
         .app-icon.calendar i {
@@ -368,7 +371,8 @@
         
         .app-icon:hover {
             transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(255, 255, 255, 0.9), inset 0 2px 0 rgba(255, 255, 255, 0.6);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2), 0 0 0 3px rgba(255, 255, 255, 0.95), inset 0 2px 0 rgba(255, 255, 255, 0.7);
+            border-color: rgba(255,255,255,0.5);
         }
         
         .app-icon:hover i {
@@ -386,26 +390,27 @@
         .app-icon.calendar.loaded { animation-delay: 0.6s; }
         
         .welcome-social {
-            margin: 20px 0 10px;
+            margin: 30px 0 20px; /* increased from 20px 0 10px */
             text-align: center;
         }
         .welcome-social p {
             font-size: 1.1rem;
-            color: var(--dark-blue);
-            background: rgba(255,255,255,0.5);
+            color: #1a2b3c; /* darker text */
+            background: rgba(255,255,255,0.7);
             backdrop-filter: blur(5px);
             padding: 12px 20px;
             border-radius: 40px;
             display: inline-block;
-            border: 1px solid rgba(44,90,160,0.2);
+            border: 1px solid rgba(44,90,160,0.25);
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             line-height: 1.5;
+            font-weight: 500;
         }
         .welcome-social a {
             color: var(--primary-blue);
             font-weight: 600;
             text-decoration: none;
-            border-bottom: 2px solid rgba(44,90,160,0.3);
+            border-bottom: 2px solid rgba(44,90,160,0.4);
             transition: border-color 0.3s;
         }
         .welcome-social a:hover {
@@ -413,12 +418,12 @@
         }
         
         .welcome-footer {
-            margin-top: 40px;
-            color: var(--medium);
+            margin-top: 60px; /* increased from 40px */
+            color: #1e2b3c;
             font-size: 1rem;
             font-weight: 500;
             letter-spacing: 0.5px;
-            opacity: 0.8;
+            opacity: 0.9;
             line-height: 1.5;
         }
         
@@ -443,7 +448,7 @@
             height: 2px;
             width: 80%;
             margin: 60px auto;
-            background: linear-gradient(90deg, transparent, rgba(44, 90, 160, 0.15), transparent);
+            background: linear-gradient(90deg, transparent, rgba(44, 90, 160, 0.2), transparent);
             border: none;
             opacity: 0;
             transform: scaleX(0.3);
@@ -492,7 +497,7 @@
             backdrop-filter: blur(10px);
             border-radius: 30px;
             box-shadow: var(--shadow-md);
-            border: 1px solid rgba(44, 90, 160, 0.1);
+            border: 1px solid rgba(44, 90, 160, 0.15);
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             opacity: 1;
             max-width: 95%;
@@ -905,7 +910,7 @@
             border-radius: 14px;
             text-decoration: none;
             transition: all 0.3s ease;
-            border: 1px solid #e5e7eb;
+            border: 1px solid #d1d9e6; /* slightly darker border for better definition */
             min-height: 55px;
         }
         
@@ -1182,7 +1187,7 @@
             color: var(--primary-blue);
             margin-bottom: 10px;
             padding-bottom: 6px;
-            border-bottom: 1px dashed #e0e0e0;
+            border-bottom: 1px dashed #d0d9e8; /* darker dash */
             font-size: 1.25rem;
             line-height: 1.3;
         }
@@ -1234,7 +1239,7 @@
             border-radius: 22px;
             padding: 44px 40px;
             margin: 40px 0 36px;
-            border: 1px solid #eee;
+            border: 1px solid #e6eefc; /* slightly more visible border */
             box-shadow: var(--shadow-sm);
             position: relative;
             overflow: hidden;
@@ -1285,34 +1290,36 @@
             width: 100%;
             padding: 22px 28px;
             border-radius: 16px;
-            border: 1px solid #e0e0e0;
-            background: #f9f9f9;
+            border: 1px solid #cbd5e0; /* darker border for better contrast */
+            background: #ffffff;
             color: var(--text-dark);
             font-size: 1.2rem;
             transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             -webkit-appearance: none;
             appearance: none;
             line-height: 1.5;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
         }
         
         .form-input:focus {
             outline: none;
             border-color: var(--primary-blue);
             background: #fff;
-            box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.12);
+            box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.12), inset 0 1px 2px rgba(0,0,0,0.02);
         }
         
         .form-input::placeholder {
-            color: var(--text-light);
+            color: #64748b; /* darker placeholder */
             font-size: 1.1rem;
+            font-weight: 400;
         }
         
         .form-select {
             width: 100%;
             padding: 22px 28px;
             border-radius: 16px;
-            border: 1px solid #e0e0e0;
-            background: #f9f9f9;
+            border: 1px solid #cbd5e0;
+            background: #ffffff;
             color: var(--text-dark);
             font-size: 1.2rem;
             appearance: none;
@@ -1369,7 +1376,7 @@
         
         .lang-btn {
             background: transparent;
-            border: 1px solid #ddd;
+            border: 1px solid #cbd5e0;
             border-radius: 24px;
             padding: 8px 22px;
             font-size: 1rem;
@@ -1379,6 +1386,7 @@
             min-width: 110px;
             min-height: 44px;
             line-height: 1.5;
+            font-weight: 500;
         }
         
         .lang-btn.active {
@@ -1472,7 +1480,7 @@
             padding: 40px;
             margin: 48px 0;
             box-shadow: var(--shadow-sm);
-            border: 1px solid #e5e7eb;
+            border: 1px solid #dde3ed;
             position: relative;
             overflow: hidden;
         }
@@ -2575,7 +2583,7 @@
             text-align: center;
             margin-top: 60px;
             padding-top: 36px;
-            border-top: 1px solid #f0f2f5;
+            border-top: 1px solid #e6eefc;
             color: var(--medium);
         }
         
@@ -2606,10 +2614,12 @@
     </style>
 </head>
 <body class="welcome-active no-scroll">
+    <!-- WELCOME ARRAY - MODIFIED AS REQUESTED (improved vertical spacing) -->
     <div id="welcome-array">
         <div class="welcome-content">
             <h1 class="welcome-title">Rebecca & Daniel</h1>
-            <p class="welcome-subtitle">Professional Dance Instruction | Connect With Us</p>
+            <!-- Changed subtitle -->
+            <p class="welcome-subtitle">Learn Bachata & Salsa • Dance Classes & Dance Nights</p>
             
             <div class="apps-container">
                 <a href="https://www.facebook.com/share/1D9jtpvP1x/?mibextid=wwXIfr" 
@@ -2652,10 +2662,12 @@
                 </a>
             </div>
 
-            <p class="welcome-footer">Tap any icon to get started</p>
+            <!-- Changed footer text -->
+            <p class="welcome-footer">No partner needed • All levels welcome.</p>
             
+            <!-- Changed social line -->
             <div class="welcome-social">
-                <p>Come to our next social at <a href="https://www.facebook.com/share/1EZWNdBBq1/?mibextid=wwXIfr" target="_blank" rel="noopener">Buena Vista Social</a>!</p>
+                <p>Join Us at <a href="https://www.facebook.com/share/1EZWNdBBq1/?mibextid=wwXIfr" target="_blank" rel="noopener">Buena Vista Social</a> — Dance Night</p>
             </div>
         </div>
     </div>
