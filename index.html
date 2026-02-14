@@ -67,7 +67,7 @@
             color: var(--medium);
             background: linear-gradient(135deg, #f7fafc, #edf2f7);
             line-height: 1.6;
-            font-size: 1.25rem; /* increased from 1.2rem for better readability */
+            font-size: 1.25rem;
             scroll-behavior: smooth;
         }
         
@@ -94,6 +94,11 @@
         }
         
         .cash .link-icon {
+            background: linear-gradient(135deg, #27ae60, #1d8c4f) !important;
+        }
+        
+        /* New style for Cash App link card */
+        .cash-app .link-icon {
             background: linear-gradient(135deg, #27ae60, #1d8c4f) !important;
         }
         
@@ -341,6 +346,21 @@
             color: #3d95ce;
         }
         
+        /* New Cash App icon style for welcome array */
+        .app-icon.cash-app {
+            background: linear-gradient(135deg, rgba(39, 174, 96, 0.2), rgba(29, 140, 79, 0.15));
+            border: 2px solid rgba(39, 174, 96, 0.4);
+        }
+        
+        .app-icon.cash-app i {
+            color: #27ae60;
+            text-shadow: 0 2px 8px rgba(39, 174, 96, 0.3);
+        }
+        
+        .app-icon.cash-app span {
+            color: #1d8c4f;
+        }
+        
         .app-icon.register {
             background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(46, 125, 50, 0.15));
             border: 2px solid rgba(76, 175, 80, 0.4);
@@ -388,6 +408,7 @@
         .app-icon.calendar.loaded { animation-delay: 0.3s; }
         .app-icon.register.loaded { animation-delay: 0.45s; }
         .app-icon.venmo.loaded { animation-delay: 0.6s; }
+        .app-icon.cash-app.loaded { animation-delay: 0.75s; } /* Added for Cash App */
         
         .welcome-social {
             margin: 30px 0 20px;
@@ -516,7 +537,7 @@
             border: none;
             border-radius: 20px;
             padding: 14px 26px;
-            font-size: 1.15rem; /* increased from 1.1rem */
+            font-size: 1.15rem;
             font-weight: 600;
             color: var(--primary-blue);
             cursor: pointer;
@@ -556,7 +577,7 @@
         }
         
         .nav-btn i {
-            font-size: 1.4rem; /* increased from 1.3rem */
+            font-size: 1.4rem;
             transition: transform 0.3s ease;
         }
         
@@ -771,7 +792,7 @@
         }
         
         .announcement-details {
-            font-size: 1.5rem; /* increased from 1.4rem */
+            font-size: 1.5rem;
             font-weight: 500;
             margin-bottom: 14px;
             line-height: 1.6;
@@ -786,12 +807,12 @@
             margin: 6px 0;
             border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            font-size: 1.35rem; /* increased from 1.3rem */
+            font-size: 1.35rem;
             line-height: 1.5;
         }
         
         .announcement-note {
-            font-size: 1.25rem; /* increased from 1.2rem */
+            font-size: 1.25rem;
             opacity: 0.9;
             margin-top: 12px;
             font-style: italic;
@@ -863,7 +884,7 @@
         
         .instructor-name {
             font-family: 'Playfair Display', serif;
-            font-size: 1.9rem; /* increased from 1.8rem */
+            font-size: 1.9rem;
             font-weight: 700;
             margin-bottom: 6px;
             color: var(--dark-blue);
@@ -872,7 +893,7 @@
         }
         
         .instructor-subtitle {
-            font-size: 1.25rem; /* increased from 1.2rem */
+            font-size: 1.25rem;
             color: var(--medium);
             line-height: 1.4;
             margin-bottom: 10px;
@@ -887,7 +908,7 @@
         }
         
         .social-links-title {
-            font-size: 1.25rem; /* increased from 1.2rem */
+            font-size: 1.25rem;
             font-weight: 600;
             color: var(--text-light);
             margin-bottom: 12px;
@@ -930,7 +951,7 @@
             align-items: center;
             justify-content: center;
             margin-right: 15px;
-            font-size: 1.4rem; /* increased from 1.3rem */
+            font-size: 1.4rem;
             color: white;
             flex-shrink: 0;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -952,7 +973,7 @@
         }
         
         .social-link-platform {
-            font-size: 1.15rem; /* increased from 1.1rem */
+            font-size: 1.15rem;
             font-weight: 600;
             color: var(--text-dark);
             margin-bottom: 4px;
@@ -963,7 +984,7 @@
         }
         
         .social-link-username {
-            font-size: 1.1rem; /* increased from 1rem */
+            font-size: 1.1rem;
             color: var(--text-light);
             font-weight: 500;
             white-space: nowrap;
@@ -992,7 +1013,7 @@
             clear: both;
             color: var(--medium);
             font-weight: 500;
-            font-size: 1.25rem; /* increased from 1.2rem */
+            font-size: 1.25rem;
             line-height: 1.5;
         }
         
@@ -1018,7 +1039,7 @@
         }
         
         .cta-header {
-            font-size: 1.6rem; /* increased from 1.5rem */
+            font-size: 1.6rem;
             font-weight: 600;
             margin-bottom: 22px;
             letter-spacing: 0.35px;
@@ -1031,7 +1052,7 @@
         }
         
         .cta-header i {
-            font-size: 1.9rem; /* increased from 1.8rem */
+            font-size: 1.9rem;
             color: var(--primary-blue);
         }
         
@@ -1040,13 +1061,13 @@
             border-radius: 14px;
             padding: 16px 22px;
             margin-bottom: 22px;
-            font-size: 1.25rem; /* increased from 1.2rem */
+            font-size: 1.25rem;
             line-height: 1.7;
             color: var(--text-dark);
         }
         
         .cta-action {
-            font-size: 1.4rem; /* increased from 1.3rem */
+            font-size: 1.4rem;
             font-weight: 600;
             padding: 18px;
             background: var(--gradient-blue);
@@ -1122,7 +1143,7 @@
         }
         
         .link-title {
-            font-size: 1.5rem; /* increased from 1.4rem */
+            font-size: 1.5rem;
             font-weight: 650;
             margin-bottom: 5px;
             color: var(--dark);
@@ -1131,7 +1152,7 @@
         }
         
         .link-subtitle {
-            font-size: 1.25rem; /* increased from 1.2rem */
+            font-size: 1.25rem;
             color: var(--medium);
             line-height: 1.4;
             margin-bottom: 5px;
@@ -1201,7 +1222,7 @@
             margin-bottom: 5px;
             padding-bottom: 3px;
             border-bottom: 1px dashed #d0d9e8;
-            font-size: 1.4rem; /* increased from 1.3rem */
+            font-size: 1.4rem;
             line-height: 1.3;
         }
         
@@ -1218,13 +1239,13 @@
             font-weight: 620;
             min-width: 95px;
             color: var(--text-dark);
-            font-size: 1.15rem; /* increased from 1.1rem */
+            font-size: 1.15rem;
         }
         
         .class-name {
             flex: 1;
             padding-left: 10px;
-            font-size: 1.15rem; /* increased from 1.1rem */
+            font-size: 1.15rem;
             line-height: 1.4;
             color: var(--text-medium);
         }
@@ -1260,7 +1281,7 @@
         
         .form-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.4rem; /* increased from 2.3rem */
+            font-size: 2.4rem;
             font-weight: 700;
             margin-bottom: 30px;
             color: var(--dark);
@@ -1287,7 +1308,7 @@
             text-align: center;
             margin-bottom: 40px;
             color: var(--medium);
-            font-size: 1.4rem; /* increased from 1.3rem */
+            font-size: 1.4rem;
             font-weight: 500;
             display: block;
             line-height: 1.8;
@@ -1358,7 +1379,7 @@
             border: none;
             border-radius: 16px;
             padding: 22px;
-            font-size: 1.5rem; /* increased from 1.4rem */
+            font-size: 1.5rem;
             font-weight: 600;
             cursor: pointer;
             width: 100%;
@@ -2597,7 +2618,7 @@
         
         footer p {
             margin: 10px 0;
-            font-size: 1.15rem; /* increased from 1.1rem */
+            font-size: 1.15rem;
             line-height: 1.5;
         }
         
@@ -2622,7 +2643,7 @@
     </style>
 </head>
 <body class="welcome-active no-scroll">
-    <!-- WELCOME ARRAY - MODIFIED AS REQUESTED (swapped calendar and venmo) -->
+    <!-- WELCOME ARRAY - MODIFIED AS REQUESTED (added Cash App after Venmo) -->
     <div id="welcome-array">
         <div class="welcome-content">
             <h1 class="welcome-title">Rebecca & Daniel</h1>
@@ -2667,6 +2688,15 @@
                    rel="noopener noreferrer">
                     <i class="fab fa-vimeo-v"></i>
                     <span>Venmo</span>
+                </a>
+
+                <!-- New Cash App icon added after Venmo -->
+                <a href="https://cash.app/$RebeccaRoseBachata" 
+                   class="app-icon cash-app" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>Cash App</span>
                 </a>
             </div>
 
@@ -3046,6 +3076,17 @@
                     </div>
                 </a>
                 
+                <!-- New Cash App link card added after Venmo -->
+                <a href="https://cash.app/$RebeccaRoseBachata" class="link-card cash-app" target="_blank">
+                    <div class="link-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="link-text">
+                        <div class="link-title">Cash App</div>
+                        <div class="link-subtitle" id="cash-app-sub">Quick & easy payment</div>
+                    </div>
+                </a>
+                
                 <div class="link-card cash">
                     <div class="link-icon">
                         <i class="fas fa-money-bill-wave"></i>
@@ -3407,6 +3448,7 @@
                         registerButton: "Register",
                         paymentTitle: "Payment Options",
                         venmoSub: "Secure payment option",
+                        cashAppSub: "Quick & easy payment",  // Added for Cash App
                         cashTitle: "Cash",
                         cashSub: "Pay at the studio",
                         contactTitle: "Contact Us",
@@ -3436,6 +3478,7 @@
                         registerButton: "Registrarse",
                         paymentTitle: "Opciones de Pago",
                         venmoSub: "Opción de pago segura",
+                        cashAppSub: "Pago rápido y fácil",    // Added for Cash App
                         cashTitle: "Efectivo",
                         cashSub: "Paga en el estudio",
                         contactTitle: "Contáctanos",
@@ -3479,6 +3522,9 @@
                     document.getElementById('register-button').textContent = langData.registerButton;
                     document.getElementById('payment-title').textContent = langData.paymentTitle;
                     document.getElementById('venmo-sub').textContent = langData.venmoSub;
+                    // Update Cash App subtitle
+                    const cashAppSub = document.getElementById('cash-app-sub');
+                    if (cashAppSub) cashAppSub.textContent = langData.cashAppSub;
                     document.getElementById('cash-title').textContent = langData.cashTitle;
                     document.getElementById('cash-sub').textContent = langData.cashSub;
                     document.getElementById('contact-title').textContent = langData.contactTitle;
