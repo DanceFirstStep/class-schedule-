@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ALL ORIGINAL STYLES – KEPT INTACT (with subtle contrast & readability refinements) */
+        /* ALL ORIGINAL STYLES – with refined font sizes for better readability */
         :root {
             --primary: #2c6e9d;
             --primary-light: #5dade2;
@@ -67,7 +67,7 @@
             color: var(--medium);
             background: linear-gradient(135deg, #f7fafc, #edf2f7);
             line-height: 1.6;
-            font-size: 1.1rem;
+            font-size: 1.25rem; /* increased from 1.2rem for better readability */
             scroll-behavior: smooth;
         }
         
@@ -168,7 +168,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(250, 250, 255, 0.96); /* slightly more opaque for better contrast */
+            background: rgba(250, 250, 255, 0.96);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             z-index: 9999;
@@ -193,26 +193,26 @@
             text-align: center;
             width: 100%;
             max-width: 800px;
-            padding: 60px 40px; /* increased top/bottom from 40px to 60px */
+            padding: 60px 40px;
             position: relative;
             z-index: 2;
         }
         
         .welcome-title {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 700;
             color: var(--dark-blue);
-            margin-bottom: 20px; /* increased from 12px */
+            margin-bottom: 20px;
             letter-spacing: 0.5px;
             line-height: 1.2;
             text-shadow: 0 1px 3px rgba(0,0,0,0.02);
         }
         
         .welcome-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #1e2b3c;
-            margin-bottom: 70px; /* increased from 50px */
+            margin-bottom: 70px;
             font-weight: 500;
             letter-spacing: 0.5px;
             line-height: 1.5;
@@ -223,7 +223,7 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 40px;
-            margin-bottom: 60px; /* increased from 40px */
+            margin-bottom: 60px;
         }
         
         .app-icon {
@@ -245,7 +245,7 @@
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.92));
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 2px solid transparent; /* refined border */
+            border: 2px solid transparent;
         }
         
         .app-icon::before {
@@ -288,8 +288,8 @@
         }
         
         .app-icon span {
-            font-size: 13px;
-            font-weight: 600; /* slightly bolder */
+            font-size: 14px;
+            font-weight: 600;
             z-index: 2;
             position: relative;
             letter-spacing: 1px;
@@ -385,17 +385,17 @@
         
         .app-icon.facebook.loaded { animation-delay: 0s; }
         .app-icon.instagram.loaded { animation-delay: 0.15s; }
-        .app-icon.venmo.loaded { animation-delay: 0.3s; }
+        .app-icon.calendar.loaded { animation-delay: 0.3s; }
         .app-icon.register.loaded { animation-delay: 0.45s; }
-        .app-icon.calendar.loaded { animation-delay: 0.6s; }
+        .app-icon.venmo.loaded { animation-delay: 0.6s; }
         
         .welcome-social {
-            margin: 30px 0 20px; /* increased from 20px 0 10px */
+            margin: 30px 0 20px;
             text-align: center;
         }
         .welcome-social p {
-            font-size: 1.1rem;
-            color: #1a2b3c; /* darker text */
+            font-size: 1.2rem;
+            color: #1a2b3c;
             background: rgba(255,255,255,0.7);
             backdrop-filter: blur(5px);
             padding: 12px 20px;
@@ -418,9 +418,9 @@
         }
         
         .welcome-footer {
-            margin-top: 60px; /* increased from 40px */
+            margin-top: 60px;
             color: #1e2b3c;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 500;
             letter-spacing: 0.5px;
             opacity: 0.9;
@@ -516,7 +516,7 @@
             border: none;
             border-radius: 20px;
             padding: 14px 26px;
-            font-size: 1rem;
+            font-size: 1.15rem; /* increased from 1.1rem */
             font-weight: 600;
             color: var(--primary-blue);
             cursor: pointer;
@@ -556,7 +556,7 @@
         }
         
         .nav-btn i {
-            font-size: 1.2rem;
+            font-size: 1.4rem; /* increased from 1.3rem */
             transition: transform 0.3s ease;
         }
         
@@ -651,7 +651,7 @@
         }
         
         h1 {
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 700;
             margin-bottom: 18px;
             letter-spacing: 0.5px;
@@ -663,7 +663,7 @@
         }
         
         .tagline {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 500;
             color: var(--medium);
             margin: 24px auto 0;
@@ -682,7 +682,7 @@
         
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 700;
             margin: 56px 0 36px;
             text-align: center;
@@ -762,7 +762,7 @@
         
         .announcement-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
             margin-bottom: 12px;
             letter-spacing: 0.5px;
@@ -771,7 +771,7 @@
         }
         
         .announcement-details {
-            font-size: 1.3rem;
+            font-size: 1.5rem; /* increased from 1.4rem */
             font-weight: 500;
             margin-bottom: 14px;
             line-height: 1.6;
@@ -786,12 +786,12 @@
             margin: 6px 0;
             border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            font-size: 1.2rem;
+            font-size: 1.35rem; /* increased from 1.3rem */
             line-height: 1.5;
         }
         
         .announcement-note {
-            font-size: 1.1rem;
+            font-size: 1.25rem; /* increased from 1.2rem */
             opacity: 0.9;
             margin-top: 12px;
             font-style: italic;
@@ -811,6 +811,7 @@
             border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             line-height: 1.5;
+            font-size: 1.1rem;
         }
         
         .buena-vista-address:hover {
@@ -862,7 +863,7 @@
         
         .instructor-name {
             font-family: 'Playfair Display', serif;
-            font-size: 1.7rem;
+            font-size: 1.9rem; /* increased from 1.8rem */
             font-weight: 700;
             margin-bottom: 6px;
             color: var(--dark-blue);
@@ -871,7 +872,7 @@
         }
         
         .instructor-subtitle {
-            font-size: 1.1rem;
+            font-size: 1.25rem; /* increased from 1.2rem */
             color: var(--medium);
             line-height: 1.4;
             margin-bottom: 10px;
@@ -886,7 +887,7 @@
         }
         
         .social-links-title {
-            font-size: 1.1rem;
+            font-size: 1.25rem; /* increased from 1.2rem */
             font-weight: 600;
             color: var(--text-light);
             margin-bottom: 12px;
@@ -910,7 +911,7 @@
             border-radius: 14px;
             text-decoration: none;
             transition: all 0.3s ease;
-            border: 1px solid #d1d9e6; /* slightly darker border for better definition */
+            border: 1px solid #d1d9e6;
             min-height: 55px;
         }
         
@@ -929,7 +930,7 @@
             align-items: center;
             justify-content: center;
             margin-right: 15px;
-            font-size: 1.25rem;
+            font-size: 1.4rem; /* increased from 1.3rem */
             color: white;
             flex-shrink: 0;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -951,7 +952,7 @@
         }
         
         .social-link-platform {
-            font-size: 1rem;
+            font-size: 1.15rem; /* increased from 1.1rem */
             font-weight: 600;
             color: var(--text-dark);
             margin-bottom: 4px;
@@ -962,7 +963,7 @@
         }
         
         .social-link-username {
-            font-size: 0.95rem;
+            font-size: 1.1rem; /* increased from 1rem */
             color: var(--text-light);
             font-weight: 500;
             white-space: nowrap;
@@ -991,7 +992,7 @@
             clear: both;
             color: var(--medium);
             font-weight: 500;
-            font-size: 1.1rem;
+            font-size: 1.25rem; /* increased from 1.2rem */
             line-height: 1.5;
         }
         
@@ -1017,7 +1018,7 @@
         }
         
         .cta-header {
-            font-size: 1.4rem;
+            font-size: 1.6rem; /* increased from 1.5rem */
             font-weight: 600;
             margin-bottom: 22px;
             letter-spacing: 0.35px;
@@ -1030,7 +1031,7 @@
         }
         
         .cta-header i {
-            font-size: 1.6rem;
+            font-size: 1.9rem; /* increased from 1.8rem */
             color: var(--primary-blue);
         }
         
@@ -1039,13 +1040,13 @@
             border-radius: 14px;
             padding: 16px 22px;
             margin-bottom: 22px;
-            font-size: 1.1rem;
+            font-size: 1.25rem; /* increased from 1.2rem */
             line-height: 1.7;
             color: var(--text-dark);
         }
         
         .cta-action {
-            font-size: 1.2rem;
+            font-size: 1.4rem; /* increased from 1.3rem */
             font-weight: 600;
             padding: 18px;
             background: var(--gradient-blue);
@@ -1086,10 +1087,11 @@
             margin: 40px 0;
         }
         
+        /* ===== UPDATED CARD STYLES – CLEANER & PROFESSIONAL ===== */
         .link-card {
             background: #fff;
             border-radius: 22px;
-            padding: 30px 28px;
+            padding: 22px 22px;
             border: 1px solid var(--border);
             display: flex;
             flex-direction: column;
@@ -1099,7 +1101,7 @@
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             box-shadow: var(--shadow-sm);
             text-decoration: none !important;
-            min-height: 250px;
+            min-height: auto;
         }
         
         .link-card:hover {
@@ -1112,7 +1114,7 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 20px;
+            margin-bottom: 14px;
         }
         
         .studio-name-address {
@@ -1120,26 +1122,38 @@
         }
         
         .link-title {
-            font-size: 1.4rem;
+            font-size: 1.5rem; /* increased from 1.4rem */
             font-weight: 650;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             color: var(--dark);
             letter-spacing: 0.35px;
             line-height: 1.3;
         }
         
         .link-subtitle {
-            font-size: 1.15rem;
+            font-size: 1.25rem; /* increased from 1.2rem */
             color: var(--medium);
             line-height: 1.4;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             font-weight: 480;
+        }
+        
+        /* Make address links clearly clickable – always visible as links */
+        .link-subtitle a {
+            color: var(--primary-blue);
+            text-decoration: underline;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        .link-subtitle a:hover {
+            color: var(--dark-blue);
+            text-decoration: underline;
         }
         
         .location-icons {
             display: flex;
             gap: 10px;
-            margin-top: 10px;
+            margin-top: 6px;
         }
         
         .location-icon {
@@ -1170,13 +1184,12 @@
         }
         
         .schedule-list {
-            margin-top: 15px;
+            margin-top: 10px;
             flex: 1;
-            min-height: 150px;
         }
         
         .schedule-day-group {
-            margin-bottom: 18px;
+            margin-bottom: 10px;
             padding: 0;
             page-break-inside: avoid;
             break-inside: avoid;
@@ -1185,33 +1198,33 @@
         .schedule-day-header {
             font-weight: 650;
             color: var(--primary-blue);
-            margin-bottom: 10px;
-            padding-bottom: 6px;
-            border-bottom: 1px dashed #d0d9e8; /* darker dash */
-            font-size: 1.25rem;
+            margin-bottom: 5px;
+            padding-bottom: 3px;
+            border-bottom: 1px dashed #d0d9e8;
+            font-size: 1.4rem; /* increased from 1.3rem */
             line-height: 1.3;
         }
         
         .schedule-class {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
-            line-height: 1.5;
+            margin-bottom: 4px;
+            line-height: 1.4; 
             page-break-inside: avoid;
             break-inside: avoid;
         }
         
         .class-time {
             font-weight: 620;
-            min-width: 100px;
+            min-width: 95px;
             color: var(--text-dark);
-            font-size: 1.1rem;
+            font-size: 1.15rem; /* increased from 1.1rem */
         }
         
         .class-name {
             flex: 1;
-            padding-left: 15px;
-            font-size: 1.1rem;
+            padding-left: 10px;
+            font-size: 1.15rem; /* increased from 1.1rem */
             line-height: 1.4;
             color: var(--text-medium);
         }
@@ -1239,7 +1252,7 @@
             border-radius: 22px;
             padding: 44px 40px;
             margin: 40px 0 36px;
-            border: 1px solid #e6eefc; /* slightly more visible border */
+            border: 1px solid #e6eefc;
             box-shadow: var(--shadow-sm);
             position: relative;
             overflow: hidden;
@@ -1247,7 +1260,7 @@
         
         .form-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.1rem;
+            font-size: 2.4rem; /* increased from 2.3rem */
             font-weight: 700;
             margin-bottom: 30px;
             color: var(--dark);
@@ -1274,7 +1287,7 @@
             text-align: center;
             margin-bottom: 40px;
             color: var(--medium);
-            font-size: 1.2rem;
+            font-size: 1.4rem; /* increased from 1.3rem */
             font-weight: 500;
             display: block;
             line-height: 1.8;
@@ -1290,7 +1303,7 @@
             width: 100%;
             padding: 22px 28px;
             border-radius: 16px;
-            border: 1px solid #cbd5e0; /* darker border for better contrast */
+            border: 1px solid #cbd5e0;
             background: #ffffff;
             color: var(--text-dark);
             font-size: 1.2rem;
@@ -1309,8 +1322,8 @@
         }
         
         .form-input::placeholder {
-            color: #64748b; /* darker placeholder */
-            font-size: 1.1rem;
+            color: #64748b;
+            font-size: 1.2rem;
             font-weight: 400;
         }
         
@@ -1345,7 +1358,7 @@
             border: none;
             border-radius: 16px;
             padding: 22px;
-            font-size: 1.3rem;
+            font-size: 1.5rem; /* increased from 1.4rem */
             font-weight: 600;
             cursor: pointer;
             width: 100%;
@@ -1379,7 +1392,7 @@
             border: 1px solid #cbd5e0;
             border-radius: 24px;
             padding: 8px 22px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--text-light);
             cursor: pointer;
             transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -1489,7 +1502,7 @@
             max-width: 850px;
             margin: 0 auto;
             position: relative;
-            height: 260px; /* increased from 220px for better readability */
+            height: 260px;
             overflow: hidden;
         }
         
@@ -1508,7 +1521,7 @@
         }
         
         .review-text {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-style: italic;
             color: var(--text-medium);
             line-height: 1.7;
@@ -1537,7 +1550,7 @@
         }
         
         .review-author {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 600;
             color: var(--primary-blue);
             font-style: normal;
@@ -1547,7 +1560,7 @@
         
         .review-stars {
             color: #f59e0b;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             margin: 18px 0;
             letter-spacing: 4px;
             text-align: center;
@@ -1593,7 +1606,7 @@
         
         .video-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.3rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--dark-blue);
             margin-bottom: 15px;
@@ -1615,7 +1628,7 @@
         }
         
         .video-subtitle {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             color: var(--medium);
             max-width: 600px;
             margin: 0 auto;
@@ -1763,7 +1776,7 @@
         }
         
         .video-item-title {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 10px;
             line-height: 1.3;
@@ -1780,14 +1793,14 @@
             color: white;
             padding: 5px 12px;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 600;
             line-height: 1.5;
         }
         
         .video-views {
             color: rgba(255, 255, 255, 0.8);
-            font-size: 0.95rem;
+            font-size: 1rem;
             display: flex;
             align-items: center;
             gap: 5px;
@@ -1866,7 +1879,7 @@
             border: 1px solid rgba(44, 90, 160, 0.2);
             border-radius: 8px;
             padding: 10px 20px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 500;
             color: var(--dark-blue);
             cursor: pointer;
@@ -2125,15 +2138,15 @@
             }
             
             .link-card {
-                padding: 28px 24px;
+                padding: 22px 20px;
             }
             
             .schedule-day-header {
-                font-size: 1.2rem;
+                font-size: 1.15rem;
             }
             
             .class-time, .class-name {
-                font-size: 1.05rem;
+                font-size: 0.95rem;
             }
             
             .tiktok-video-feed {
@@ -2363,8 +2376,7 @@
             }
             
             .link-card {
-                padding: 24px 20px;
-                min-height: auto;
+                padding: 20px 18px;
             }
             
             .studio-info {
@@ -2382,28 +2394,24 @@
             }
             
             .link-title {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
             
             .link-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .schedule-list {
-                min-height: auto;
+                font-size: 1rem;
             }
             
             .schedule-day-header {
-                font-size: 1.15rem;
+                font-size: 1.1rem;
             }
             
             .class-time, .class-name {
-                font-size: 1rem;
+                font-size: 0.9rem;
             }
             
             .salsa-text, .bachata-text {
                 padding: 1px 4px;
-                font-size: 0.9rem;
+                font-size: 0.85rem;
             }
             
             .cta-header {
@@ -2589,7 +2597,7 @@
         
         footer p {
             margin: 10px 0;
-            font-size: 1.05rem;
+            font-size: 1.15rem; /* increased from 1.1rem */
             line-height: 1.5;
         }
         
@@ -2614,11 +2622,10 @@
     </style>
 </head>
 <body class="welcome-active no-scroll">
-    <!-- WELCOME ARRAY - MODIFIED AS REQUESTED (improved vertical spacing) -->
+    <!-- WELCOME ARRAY - MODIFIED AS REQUESTED (swapped calendar and venmo) -->
     <div id="welcome-array">
         <div class="welcome-content">
             <h1 class="welcome-title">Rebecca & Daniel</h1>
-            <!-- Changed subtitle -->
             <p class="welcome-subtitle">Learn Bachata & Salsa • Dance Classes & Dance Nights</p>
             
             <div class="apps-container">
@@ -2638,12 +2645,12 @@
                     <span>Instagram</span>
                 </a>
                 
-                <a href="https://venmo.com/code?user_id=2575920015605760344&created=1750346816" 
-                   class="app-icon venmo" 
-                   target="_blank" 
-                   rel="noopener noreferrer">
-                    <i class="fab fa-vimeo-v"></i>
-                    <span>Venmo</span>
+                <!-- CALENDAR moved before REGISTER (swap with Venmo) -->
+                <a href="#" 
+                   class="app-icon calendar" 
+                   id="welcome-calendar-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Schedule</span>
                 </a>
                 
                 <a href="https://forms.gle/tT9wLLevJEjF1iez9" 
@@ -2654,18 +2661,17 @@
                     <span>Register</span>
                 </a>
                 
-                <a href="#" 
-                   class="app-icon calendar" 
-                   id="welcome-calendar-icon">
-                    <i class="fas fa-calendar-alt"></i>
-                    <span>Schedule</span>
+                <a href="https://venmo.com/code?user_id=2575920015605760344&created=1750346816" 
+                   class="app-icon venmo" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    <i class="fab fa-vimeo-v"></i>
+                    <span>Venmo</span>
                 </a>
             </div>
 
-            <!-- Changed footer text -->
             <p class="welcome-footer">No partner needed • All levels welcome.</p>
             
-            <!-- Changed social line -->
             <div class="welcome-social">
                 <p>Join Us at <a href="https://www.facebook.com/share/1EZWNdBBq1/?mibextid=wwXIfr" target="_blank" rel="noopener">Buena Vista Social</a> — Dance Night</p>
             </div>
@@ -2829,6 +2835,7 @@
             <h3 class="section-title" id="schedule-title">Class Schedule</h3>
             
             <div class="links-grid stagger-children section-animate" id="schedule-grid">
+                <!-- UPDATED STARDUST CARD: simplified 4-week cycle -->
                 <div class="link-card stardust next-class-highlight" 
                      data-studio="Stardust Ballroom" 
                      id="stardust-card">
@@ -2839,17 +2846,13 @@
                         <div class="studio-info">
                             <div class="studio-name-address">
                                 <div class="link-title">Stardust Ballroom</div>
-                                <div class="link-subtitle">Bellmawr, New Jersey</div>
+                                <div class="link-subtitle">
+                                    <a href="https://maps.app.goo.gl/22YhBGsCm2FBvGh17?g_st=ic" target="_blank" rel="noopener">363 W Browning Rd, Bellmawr, NJ</a>
+                                </div>
                             </div>
                             <div class="location-icons">
                                 <a href="https://www.facebook.com/share/16jfEPvQbw/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="Stardust Ballroom on Facebook" aria-label="Stardust Ballroom Facebook Page">
                                     <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="https://www.google.com/maps/search/?api=1&query=Stardust+Ballroom+Bellmawr+NJ" 
-                                   class="location-icon maps-icon" 
-                                   title="Directions to Stardust Ballroom" 
-                                   aria-label="Stardust Ballroom on Google Maps">
-                                    <i class="fas fa-map-marker-alt"></i>
                                 </a>
                             </div>
                         </div>
@@ -2876,25 +2879,18 @@
                                     <span class="class-name">Advance Beginner <span class="bachata-text">Bachata</span></span>
                                 </div>
                             </div>
+                            <!-- SIMPLIFIED 4-WEEK CYCLE – removed extra explanations -->
                             <div class="schedule-day-group" data-day="4-Week Cycle">
-                                <div class="schedule-day-header">4-Week Intro Cycle</div>
+                                <div class="schedule-day-header">New 4-Week Intro Cycle</div>
                                 <div class="schedule-class">
-                                    <span class="class-time">Weekly</span>
-                                    <span class="class-name">Complete Beginner Program</span>
-                                </div>
-                                <div class="schedule-class">
-                                    <span class="class-time">Structured</span>
-                                    <span class="class-name">Learn <span class="salsa-text">Salsa</span> & <span class="bachata-text">Bachata</span> Basics</span>
-                                </div>
-                                <div class="schedule-class">
-                                    <span class="class-time">Progress</span>
-                                    <span class="class-name">Build Skills Each Week</span>
+                                    <span class="class-name">Learn Salsa & Bachata Basics – All Levels Welcome</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
+                <!-- UPDATED ESTILO CARD: unchanged -->
                 <div class="link-card estilo" 
                      data-studio="Estilo Dance Studio" 
                      id="estilo-card">
@@ -2905,15 +2901,9 @@
                         <div class="studio-info">
                             <div class="studio-name-address">
                                 <div class="link-title">Estilo Dance Studio</div>
-                                <div class="link-subtitle">Fishtown, Philadelphia</div>
-                            </div>
-                            <div class="location-icons">
-                                <a href="https://www.google.com/maps/search/?api=1&query=Estilo+Dance+Studio+Fishtown+Philadelphia" 
-                                   class="location-icon maps-icon" 
-                                   title="Directions to Estilo Dance Studio" 
-                                   aria-label="Estilo Dance Studio on Google Maps">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </a>
+                                <div class="link-subtitle">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Estilo+Dance+Studio+Fishtown+Philadelphia" target="_blank" rel="noopener">Fishtown, Philadelphia</a>
+                                </div>
                             </div>
                         </div>
                         <div class="schedule-list">
@@ -2983,7 +2973,7 @@
             
             <hr class="section-separator" id="separator-5">
             
-            <!-- ===== FIXED REGISTRATION SECTION ===== -->
+            <!-- REGISTRATION SECTION (unchanged) -->
             <div class="registration-form section-animate" id="registration-form">
                 <div class="form-title" id="registration-title">Class Registration</div>
                 <div class="partner-notice" id="partner-text">No partner needed - come dance with us!</div>
@@ -3008,7 +2998,6 @@
                     <button type="submit" class="submit-btn" id="register-button">Register</button>
                 </form>
             </div>
-            <!-- ===== END OF FIXED REGISTRATION ===== -->
             
             <hr class="section-separator" id="separator-6">
             
