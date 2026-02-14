@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* ALL ORIGINAL STYLES – KEPT INTACT */
         :root {
             --primary: #2c6e9d;
             --primary-light: #5dade2;
@@ -2970,14 +2971,15 @@
             
             <hr class="section-separator" id="separator-5">
             
+            <!-- ===== FIXED REGISTRATION SECTION ===== -->
             <div class="registration-form section-animate" id="registration-form">
                 <div class="form-title" id="registration-title">Class Registration</div>
                 <div class="partner-notice" id="partner-text">No partner needed - come dance with us!</div>
-                <form id="dance-registration" action="https://forms.gle/tT9wLLevJEjF1iez9" method="get" target="_blank">
+                <form id="dance-registration">
                     <div id="participant-container">
                         <div class="participant-fields name-field">
                             <div class="participant-form-group">
-                                <input type="text" class="form-input" name="entry.[YOUR_NAME_FIELD_ID]" placeholder="Full Name" required>
+                                <input type="text" class="form-input" name="participant_1" placeholder="Full Name" required>
                             </div>
                         </div>
                     </div>
@@ -2991,11 +2993,10 @@
                         </button>
                     </div>
                     
-                    <button type="submit" class="submit-btn">
-                        <span id="register-button">Register</span>
-                    </button>
+                    <button type="submit" class="submit-btn" id="register-button">Register</button>
                 </form>
             </div>
+            <!-- ===== END OF FIXED REGISTRATION ===== -->
             
             <hr class="section-separator" id="separator-6">
             
@@ -3118,9 +3119,7 @@
             const mainContainer = document.querySelector('.container');
             const body = document.body;
             
-            // Flag to ensure initMainPage runs only once
             let mainInitialized = false;
-            // Auto-dismiss timeout
             let autoDismissTimeout = setTimeout(function() {
                 fadeOutWelcomeArray();
             }, 9000);
@@ -3272,7 +3271,6 @@
             });
             
             function fadeOutWelcomeArray(callback) {
-                // Clear auto-dismiss timeout to prevent duplicate init
                 if (autoDismissTimeout) {
                     clearTimeout(autoDismissTimeout);
                     autoDismissTimeout = null;
@@ -3311,7 +3309,6 @@
             }
             
             function initMainPage() {
-                // Prevent duplicate initialization
                 if (mainInitialized) return;
                 mainInitialized = true;
                 
@@ -3508,9 +3505,11 @@
                     updateCurrentDate('en');
                 }
                 
+                // ===== FIXED PARTICIPANT HANDLING & FORM SUBMISSION =====
                 const participantContainer = document.getElementById('participant-container');
                 const addParticipantBtn = document.getElementById('add-participant');
                 const removeParticipantBtn = document.getElementById('remove-participant');
+                const registrationForm = document.getElementById('dance-registration');
                 
                 let participantCount = 1;
                 const maxParticipants = 6;
@@ -3523,7 +3522,7 @@
                         newParticipant.className = 'participant-fields name-field';
                         newParticipant.innerHTML = `
                             <div class="participant-form-group">
-                                <input type="text" class="form-input" name="entry.[YOUR_NAME_FIELD_ID_${participantCount}]" placeholder="${translations[currentLanguage].namePlaceholder}" required>
+                                <input type="text" class="form-input" name="participant_${participantCount}" placeholder="${translations[currentLanguage].namePlaceholder}" required>
                             </div>
                         `;
                         
@@ -3551,217 +3550,51 @@
                     }
                 });
                 
-                const classSchedule = [
-                    { 
-                        day: "Thursday", 
-                        dayIndex: 4,
-                        studio: "Stardust Ballroom",
-                        classes: [
-                            "7:00pm Intro to Salsa",
-                            "8:00pm Bachata Sensual"
-                        ],
-                        locationId: "stardust-card",
-                        endTime: 2100
-                    },
-                    { 
-                        day: "Sunday", 
-                        dayIndex: 0,
-                        studio: "Stardust Ballroom",
-                        classes: [
-                            "7:00pm Intro to Salsa & Bachata",
-                            "8:00pm Advance Beginner Bachata"
-                        ],
-                        locationId: "stardust-card",
-                        endTime: 2100
-                    },
-                    { 
-                        day: "Saturday", 
-                        dayIndex: 6,
-                        studio: "Estilo Dance Studio",
-                        classes: [
-                            "4:00pm Salsa",
-                            "5:00pm Bachata"
-                        ],
-                        locationId: "estilo-card",
-                        endTime: 1800
-                    }
-                ];
-
-                function getNextClassInfo() {
-                    const now = new Date();
-                    const currentDayIndex = now.getDay(); 
-                    const currentHours = now.getHours();
-                    const currentMinutes = now.getMinutes();
-                    const currentTime = currentHours * 100 + currentMinutes;
+                // Registration form submit handler – collects names and opens Google Form with prefill
+                registrationForm.addEventListener('submit', function(e) {
+                    e.preventDefault();  // Stop normal form submission
                     
-                    const todayClass = classSchedule.find(s => s.dayIndex === currentDayIndex);
-                    
-                    if (todayClass && currentTime < todayClass.endTime) {
-                        return {
-                            day: todayClass.day,
-                            studio: todayClass.studio,
-                            schedule: todayClass.classes,
-                            timePrefix: currentLanguage === 'es' ? "Esta noche" : "Tonight",
-                            locationId: todayClass.locationId
-                        };
-                    }
-                    
-                    const futureClasses = classSchedule.filter(s => s.dayIndex > currentDayIndex);
-                    
-                    if (futureClasses.length > 0) {
-                        const nextClass = futureClasses[0];
-                        const dayDifference = nextClass.dayIndex - currentDayIndex;
-                        let timePrefix = "";
-                        
-                        if (dayDifference === 1) {
-                            timePrefix = currentLanguage === 'es' ? "Mañana" : "Tomorrow";
-                        } else if (dayDifference === 2) {
-                            timePrefix = currentLanguage === 'es' ? "Este " : "This " + nextClass.day;
-                        } else {
-                            timePrefix = currentLanguage === 'es' ? "Próximo " : "Next " + nextClass.day;
+                    // Collect all non-empty participant names
+                    const nameInputs = participantContainer.querySelectorAll('.form-input');
+                    const names = [];
+                    nameInputs.forEach(input => {
+                        if (input.value.trim() !== '') {
+                            names.push(input.value.trim());
                         }
-                        
-                        return {
-                            day: nextClass.day,
-                            studio: nextClass.studio,
-                            schedule: nextClass.classes,
-                            timePrefix: timePrefix,
-                            locationId: nextClass.locationId
-                        };
-                    }
-                    
-                    const nextClass = classSchedule[0];
-                    return {
-                        day: nextClass.day,
-                        studio: nextClass.studio,
-                        schedule: nextClass.classes,
-                        timePrefix: currentLanguage === 'es' ? "Próximo " : "Next " + nextClass.day,
-                        locationId: nextClass.locationId
-                    };
-                }
-
-                function updateCTASection() {
-                    const nextClass = getNextClassInfo();
-                    
-                    const ctaTitle = document.getElementById('cta-title');
-                    ctaTitle.innerHTML = `<span class="pulse">${nextClass.timePrefix}</span>: ${nextClass.studio}`;
-                    
-                    document.getElementById('cta-schedule').textContent = nextClass.schedule.join(' | ');
-                    
-                    document.querySelectorAll('.link-card').forEach(card => {
-                        card.classList.remove('next-class-highlight');
                     });
                     
-                    const locationCard = document.getElementById(nextClass.locationId);
-                    if (locationCard) {
-                        locationCard.classList.add('next-class-highlight');
+                    if (names.length === 0) {
+                        alert(currentLanguage === 'es' ? 'Por favor ingresa al menos un nombre' : 'Please enter at least one name');
+                        return;
                     }
-                }
+                    
+                    // Combine names into a single string (e.g., "John, Mary, Alex")
+                    const combinedNames = names.join(', ');
+                    
+                    // -----------------------------------------------------------------
+                    // IMPORTANT: Replace the placeholders below with your actual Google Form details!
+                    // 1. Find your form ID: open your form in a browser, the URL contains something like:
+                    //    https://docs.google.com/forms/d/e/1FAIpQLS.../viewform
+                    //    The part between /d/e/ and /viewform is your FORM_ID.
+                    // 2. Find your name field's entry ID: inspect the form's HTML, look for an input with name="entry.123456789"
+                    //    Use that number.
+                    // -----------------------------------------------------------------
+                    const FORM_ID = 'YOUR_FORM_ID';          // e.g., '1FAIpQLS...'
+                    const ENTRY_ID = 'YOUR_ENTRY_ID';        // e.g., '123456789'
+                    
+                    // Build the prefill URL
+                    const googleFormUrl = `https://docs.google.com/forms/d/e/${FORM_ID}/viewform?entry.${ENTRY_ID}=${encodeURIComponent(combinedNames)}`;
+                    
+                    // Open in a new tab
+                    window.open(googleFormUrl, '_blank');
+                    
+                    // Optional: show a success message
+                    alert(currentLanguage === 'es' ? 'Redirigiendo al formulario...' : 'Redirecting to registration form...');
+                });
+                // ===== END OF FIXED REGISTRATION =====
                 
-                function reorderDayGroupsInCards() {
-                    const now = new Date();
-                    const currentDayName = now.toLocaleDateString('en-US', { weekday: 'long' });
-                    
-                    const studioCards = document.querySelectorAll('.link-card');
-                    
-                    studioCards.forEach(card => {
-                        const scheduleList = card.querySelector('.schedule-list');
-                        if (!scheduleList) return;
-                        
-                        const dayGroups = Array.from(scheduleList.querySelectorAll('.schedule-day-group'));
-                        
-                        if (dayGroups.length > 1) {
-                            const todayGroupIndex = dayGroups.findIndex(group => 
-                                group.dataset.day === currentDayName
-                            );
-                            
-                            if (todayGroupIndex > 0) {
-                                const todayGroup = dayGroups[todayGroupIndex];
-                                todayGroup.remove();
-                                scheduleList.insertBefore(todayGroup, scheduleList.firstChild);
-                            }
-                        }
-                    });
-                }
-                
-                function updateScheduleDisplay() {
-                    const now = new Date();
-                    const currentDayIndex = now.getDay();
-                    const currentHours = now.getHours();
-                    const currentMinutes = now.getMinutes();
-                    const currentTime = currentHours * 100 + currentMinutes;
-                    
-                    const studioMap = {};
-                    classSchedule.forEach(schedule => {
-                        const locationId = schedule.locationId;
-                        
-                        let daysUntil = schedule.dayIndex - currentDayIndex;
-                        if (daysUntil < 0) daysUntil += 7;
-                        
-                        if (daysUntil === 0 && currentTime >= schedule.endTime) {
-                            daysUntil = 7;
-                        }
-                        
-                        if (!studioMap[locationId] || daysUntil < studioMap[locationId].daysUntil) {
-                            studioMap[locationId] = {
-                                daysUntil: daysUntil,
-                                schedule: schedule
-                            };
-                        }
-                    });
-                    
-                    const sortedStudios = Object.values(studioMap).sort((a, b) => {
-                        return a.daysUntil - b.daysUntil;
-                    });
-                    
-                    const scheduleGrid = document.getElementById('schedule-grid');
-                    const cards = Array.from(scheduleGrid.children);
-                    
-                    const orderedCards = sortedStudios.map(studio => {
-                        return cards.find(card => card.id === studio.schedule.locationId);
-                    });
-                    
-                    while (scheduleGrid.firstChild) {
-                        scheduleGrid.removeChild(scheduleGrid.firstChild);
-                    }
-                    
-                    orderedCards.forEach(card => {
-                        if (card) {
-                            scheduleGrid.appendChild(card);
-                        }
-                    });
-                    
-                    reorderDayGroupsInCards();
-                }
-
                 function initForm() {
-                    const registrationForm = document.getElementById('dance-registration');
-                    
-                    registrationForm.addEventListener('submit', function(e) {
-                        const nameInputs = participantContainer.querySelectorAll('.form-input');
-                        let hasName = false;
-                        nameInputs.forEach(input => {
-                            if (input.value.trim()) {
-                                hasName = true;
-                            }
-                        });
-                        
-                        if (!hasName) {
-                            e.preventDefault();
-                            showNotification(currentLanguage === 'es' ? "Por favor ingresa al menos un nombre" : "Please enter at least one name", "info");
-                            return;
-                        }
-                        
-                        const submitBtn = registrationForm.querySelector('button[type="submit"]');
-                        const originalText = submitBtn.innerHTML;
-                        submitBtn.innerHTML = currentLanguage === 'es' ? 'Redirigiendo...' : 'Redirecting...';
-                        submitBtn.disabled = true;
-                        
-                        setTimeout(function() {
-                            submitBtn.innerHTML = originalText;
-                            submitBtn.disabled = false;
-                        }, 2000);
-                    });
+                    // Left empty – we already handled registration above
                 }
                 
                 function showNotification(message, type) {
@@ -4222,12 +4055,194 @@
                     initVideoSection();
                 }
                 
+                // Class schedule update functions (unchanged)
+                const classSchedule = [
+                    { 
+                        day: "Thursday", 
+                        dayIndex: 4,
+                        studio: "Stardust Ballroom",
+                        classes: [
+                            "7:00pm Intro to Salsa",
+                            "8:00pm Bachata Sensual"
+                        ],
+                        locationId: "stardust-card",
+                        endTime: 2100
+                    },
+                    { 
+                        day: "Sunday", 
+                        dayIndex: 0,
+                        studio: "Stardust Ballroom",
+                        classes: [
+                            "7:00pm Intro to Salsa & Bachata",
+                            "8:00pm Advance Beginner Bachata"
+                        ],
+                        locationId: "stardust-card",
+                        endTime: 2100
+                    },
+                    { 
+                        day: "Saturday", 
+                        dayIndex: 6,
+                        studio: "Estilo Dance Studio",
+                        classes: [
+                            "4:00pm Salsa",
+                            "5:00pm Bachata"
+                        ],
+                        locationId: "estilo-card",
+                        endTime: 1800
+                    }
+                ];
+
+                function getNextClassInfo() {
+                    const now = new Date();
+                    const currentDayIndex = now.getDay(); 
+                    const currentHours = now.getHours();
+                    const currentMinutes = now.getMinutes();
+                    const currentTime = currentHours * 100 + currentMinutes;
+                    
+                    const todayClass = classSchedule.find(s => s.dayIndex === currentDayIndex);
+                    
+                    if (todayClass && currentTime < todayClass.endTime) {
+                        return {
+                            day: todayClass.day,
+                            studio: todayClass.studio,
+                            schedule: todayClass.classes,
+                            timePrefix: currentLanguage === 'es' ? "Esta noche" : "Tonight",
+                            locationId: todayClass.locationId
+                        };
+                    }
+                    
+                    const futureClasses = classSchedule.filter(s => s.dayIndex > currentDayIndex);
+                    
+                    if (futureClasses.length > 0) {
+                        const nextClass = futureClasses[0];
+                        const dayDifference = nextClass.dayIndex - currentDayIndex;
+                        let timePrefix = "";
+                        
+                        if (dayDifference === 1) {
+                            timePrefix = currentLanguage === 'es' ? "Mañana" : "Tomorrow";
+                        } else if (dayDifference === 2) {
+                            timePrefix = currentLanguage === 'es' ? "Este " : "This " + nextClass.day;
+                        } else {
+                            timePrefix = currentLanguage === 'es' ? "Próximo " : "Next " + nextClass.day;
+                        }
+                        
+                        return {
+                            day: nextClass.day,
+                            studio: nextClass.studio,
+                            schedule: nextClass.classes,
+                            timePrefix: timePrefix,
+                            locationId: nextClass.locationId
+                        };
+                    }
+                    
+                    const nextClass = classSchedule[0];
+                    return {
+                        day: nextClass.day,
+                        studio: nextClass.studio,
+                        schedule: nextClass.classes,
+                        timePrefix: currentLanguage === 'es' ? "Próximo " : "Next " + nextClass.day,
+                        locationId: nextClass.locationId
+                    };
+                }
+
+                function updateCTASection() {
+                    const nextClass = getNextClassInfo();
+                    
+                    const ctaTitle = document.getElementById('cta-title');
+                    ctaTitle.innerHTML = `<span class="pulse">${nextClass.timePrefix}</span>: ${nextClass.studio}`;
+                    
+                    document.getElementById('cta-schedule').textContent = nextClass.schedule.join(' | ');
+                    
+                    document.querySelectorAll('.link-card').forEach(card => {
+                        card.classList.remove('next-class-highlight');
+                    });
+                    
+                    const locationCard = document.getElementById(nextClass.locationId);
+                    if (locationCard) {
+                        locationCard.classList.add('next-class-highlight');
+                    }
+                }
+                
+                function reorderDayGroupsInCards() {
+                    const now = new Date();
+                    const currentDayName = now.toLocaleDateString('en-US', { weekday: 'long' });
+                    
+                    const studioCards = document.querySelectorAll('.link-card');
+                    
+                    studioCards.forEach(card => {
+                        const scheduleList = card.querySelector('.schedule-list');
+                        if (!scheduleList) return;
+                        
+                        const dayGroups = Array.from(scheduleList.querySelectorAll('.schedule-day-group'));
+                        
+                        if (dayGroups.length > 1) {
+                            const todayGroupIndex = dayGroups.findIndex(group => 
+                                group.dataset.day === currentDayName
+                            );
+                            
+                            if (todayGroupIndex > 0) {
+                                const todayGroup = dayGroups[todayGroupIndex];
+                                todayGroup.remove();
+                                scheduleList.insertBefore(todayGroup, scheduleList.firstChild);
+                            }
+                        }
+                    });
+                }
+                
+                function updateScheduleDisplay() {
+                    const now = new Date();
+                    const currentDayIndex = now.getDay();
+                    const currentHours = now.getHours();
+                    const currentMinutes = now.getMinutes();
+                    const currentTime = currentHours * 100 + currentMinutes;
+                    
+                    const studioMap = {};
+                    classSchedule.forEach(schedule => {
+                        const locationId = schedule.locationId;
+                        
+                        let daysUntil = schedule.dayIndex - currentDayIndex;
+                        if (daysUntil < 0) daysUntil += 7;
+                        
+                        if (daysUntil === 0 && currentTime >= schedule.endTime) {
+                            daysUntil = 7;
+                        }
+                        
+                        if (!studioMap[locationId] || daysUntil < studioMap[locationId].daysUntil) {
+                            studioMap[locationId] = {
+                                daysUntil: daysUntil,
+                                schedule: schedule
+                            };
+                        }
+                    });
+                    
+                    const sortedStudios = Object.values(studioMap).sort((a, b) => {
+                        return a.daysUntil - b.daysUntil;
+                    });
+                    
+                    const scheduleGrid = document.getElementById('schedule-grid');
+                    const cards = Array.from(scheduleGrid.children);
+                    
+                    const orderedCards = sortedStudios.map(studio => {
+                        return cards.find(card => card.id === studio.schedule.locationId);
+                    });
+                    
+                    while (scheduleGrid.firstChild) {
+                        scheduleGrid.removeChild(scheduleGrid.firstChild);
+                    }
+                    
+                    orderedCards.forEach(card => {
+                        if (card) {
+                            scheduleGrid.appendChild(card);
+                        }
+                    });
+                    
+                    reorderDayGroupsInCards();
+                }
+
                 function initPage() {
                     initSectionAnimations();
                     updateCTASection();
                     updateScheduleDisplay();
-                    initForm();
-                    initRegistrationFlow();
                     initReviewsCarousel();
                     initNavButtons();
                     initNavScrollBehavior();
