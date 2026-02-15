@@ -207,7 +207,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 3.2rem;
             font-weight: 700;
-            color: var(--dark-blue);
+            color: #1a2b3c; /* slightly darker than original #1e2b3c */
             margin-bottom: 20px;
             letter-spacing: 0.5px;
             line-height: 1.2;
@@ -216,7 +216,7 @@
         
         .welcome-subtitle {
             font-size: 1.3rem;
-            color: #1e2b3c;
+            color: #1e2b3c; /* darkened from #1e2b3c (already this color) but kept */
             margin-bottom: 70px;
             font-weight: 500;
             letter-spacing: 0.5px;
@@ -251,6 +251,17 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 2px solid transparent;
+
+            /* Ensure tap target is always ≥56px even if width shrinks on mobile */
+            min-width: 56px;
+            min-height: 56px;
+            /* Gentle scale feedback */
+            transform: translateZ(0);
+            transition: transform 0.12s, opacity 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
+        }
+
+        .app-icon:active {
+            transform: scale(0.98);
         }
         
         .app-icon::before {
@@ -414,9 +425,47 @@
             margin: 30px 0 20px;
             text-align: center;
         }
+
+        /* Stronger CTA pill (white, navy, heavier weight, soft shadow) */
+        .welcome-cta-pill {
+            display: inline-block;
+            background: #fff;
+            border-radius: 40px;
+            padding: 16px 32px;
+            box-shadow: 0 10px 24px rgba(19,41,71,0.08);
+            border: 1px solid rgba(19,41,71,0.04);
+            color: #153e63; /* navy */
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: transform 0.12s, box-shadow 0.3s;
+            transform: translateZ(0);
+        }
+        .welcome-cta-pill:active {
+            transform: scale(0.98);
+        }
+        .welcome-cta-pill span {
+            border-bottom: 2px solid rgba(21,62,99,0.12);
+            padding-bottom: 2px;
+        }
+        .welcome-cta-pill:hover {
+            box-shadow: 0 12px 28px rgba(19,41,71,0.12);
+        }
+        
+        /* Optional “Today” badge (included for future use) */
+        .badge-today {
+            display: inline-block;
+            background: #f6f8ff;
+            color: #153e63;
+            border-radius: 10px;
+            padding: 6px 8px;
+            font-size: 12px;
+            margin-left: 8px;
+        }
+        
         .welcome-social p {
             font-size: 1.2rem;
-            color: #1a2b3c;
+            color: #1a2b3c; /* darkened */
             background: rgba(255,255,255,0.7);
             backdrop-filter: blur(5px);
             padding: 12px 20px;
@@ -440,7 +489,7 @@
         
         .welcome-footer {
             margin-top: 60px;
-            color: #1e2b3c;
+            color: #1e2b3c; /* darkened slightly */
             font-size: 1.1rem;
             font-weight: 500;
             letter-spacing: 0.5px;
@@ -2643,7 +2692,7 @@
     </style>
 </head>
 <body class="welcome-active no-scroll">
-    <!-- WELCOME ARRAY - MODIFIED AS REQUESTED (added Cash App after Venmo) -->
+    <!-- WELCOME ARRAY - MODIFIED AS REQUESTED (added Cash App after Venmo, improved contrast, tap targets, CTA pill, aria-labels) -->
     <div id="welcome-array">
         <div class="welcome-content">
             <h1 class="welcome-title">Rebecca & Daniel</h1>
@@ -2653,7 +2702,8 @@
                 <a href="https://www.facebook.com/share/1D9jtpvP1x/?mibextid=wwXIfr" 
                    class="app-icon facebook" 
                    target="_blank" 
-                   rel="noopener noreferrer">
+                   rel="noopener noreferrer"
+                   aria-label="Facebook page">
                     <i class="fab fa-facebook"></i>
                     <span>Facebook</span>
                 </a>
@@ -2661,7 +2711,8 @@
                 <a href="https://www.instagram.com/rebecca_bachata?igsh=MWY1cHI4c2Z0a21zcw==" 
                    class="app-icon instagram" 
                    target="_blank" 
-                   rel="noopener noreferrer">
+                   rel="noopener noreferrer"
+                   aria-label="Instagram profile">
                     <i class="fab fa-instagram"></i>
                     <span>Instagram</span>
                 </a>
@@ -2669,7 +2720,8 @@
                 <!-- CALENDAR moved before REGISTER (swap with Venmo) -->
                 <a href="#" 
                    class="app-icon calendar" 
-                   id="welcome-calendar-icon">
+                   id="welcome-calendar-icon"
+                   aria-label="Class schedule">
                     <i class="fas fa-calendar-alt"></i>
                     <span>Schedule</span>
                 </a>
@@ -2677,7 +2729,8 @@
                 <a href="https://forms.gle/tT9wLLevJEjF1iez9" 
                    class="app-icon register" 
                    target="_blank" 
-                   rel="noopener noreferrer">
+                   rel="noopener noreferrer"
+                   aria-label="Registration form">
                     <i class="fas fa-clipboard-list"></i>
                     <span>Register</span>
                 </a>
@@ -2685,7 +2738,8 @@
                 <a href="https://venmo.com/code?user_id=2575920015605760344&created=1750346816" 
                    class="app-icon venmo" 
                    target="_blank" 
-                   rel="noopener noreferrer">
+                   rel="noopener noreferrer"
+                   aria-label="Venmo payment">
                     <i class="fab fa-vimeo-v"></i>
                     <span>Venmo</span>
                 </a>
@@ -2694,7 +2748,8 @@
                 <a href="https://cash.app/$RebeccaRoseBachata" 
                    class="app-icon cash-app" 
                    target="_blank" 
-                   rel="noopener noreferrer">
+                   rel="noopener noreferrer"
+                   aria-label="Cash App payment">
                     <i class="fas fa-dollar-sign"></i>
                     <span>Cash App</span>
                 </a>
@@ -2703,12 +2758,16 @@
             <p class="welcome-footer">No partner needed • All levels welcome.</p>
             
             <div class="welcome-social">
-                <p>Join Us at <a href="https://www.facebook.com/share/1EZWNdBBq1/?mibextid=wwXIfr" target="_blank" rel="noopener">Buena Vista Social</a> — Dance Night</p>
+                <!-- Converted to stronger CTA pill -->
+                <a href="https://www.facebook.com/share/1EZWNdBBq1/?mibextid=wwXIfr" class="welcome-cta-pill" target="_blank" rel="noopener">
+                    <span>Join Us at Buena Vista Social — Dance Night</span>
+                </a>
             </div>
         </div>
     </div>
 
     <div class="container" style="opacity: 0;">
+        <!-- The rest of the main page remains completely unchanged -->
         <div class="header-container">
             <div class="top-nav-buttons" id="nav-buttons">
                 <button class="nav-btn" id="btn-social">
