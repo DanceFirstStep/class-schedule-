@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Rebecca & Daniel | Professional Dance Instruction</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- new modern font: Inter (clean, crisp) + keep Playfair only for the logo text -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ———— (all original styles, unchanged) ———— */
+        /* ———— modern polished variables – same structure, refined sizes & fonts ———— */
         :root {
             --primary: #2c6e9d;
             --primary-light: #5dade2;
@@ -50,19 +51,13 @@
             --intro-green: #2e7d5e;
             --intro-bg: #e0f2e9;
             --oldcity-bg: linear-gradient(135deg, #b14a4a, #8b3a3a);
-
-            /* ----- new strategic colors per venue ----- */
-            --stardust-accent: #1e4a6b;        /* deep teal-blue */
-            --estilo-accent: #6b2e6b;          /* rich purple */
-            --oldcity-accent: #b14a4a;          /* warm red */
-            --buenavista-accent: #2a7a5c;       /* vibrant green */
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -78,57 +73,29 @@
             position: relative;
             color: var(--text-medium);
             background: linear-gradient(135deg, #f0f5fc, #e6edf7);
+            font-size: 1rem;
             line-height: 1.6;
-            font-size: 1.2rem;
             scroll-behavior: smooth;
             text-shadow: 0 1px 1px rgba(255,255,255,0.8), 0 0 0.5px rgba(0,0,0,0.05);
         }
         
-        .links-grid .link-card .link-icon {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-            font-size: 1.8rem;
-            border-radius: 14px;
-            flex-shrink: 0;
-            color: white;
-            background: var(--primary);
-            box-shadow: 0 5px 12px rgba(0,0,0,0.08);
-            position: relative;
-            overflow: hidden;
-            transition: var(--transition);
+        .logo-font, 
+        h1#main-title, 
+        .welcome-title {
+            font-family: 'Playfair Display', serif !important;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
-        
-        .venmo .link-icon {
-            background: linear-gradient(135deg, #2d7db0, #0066cc) !important;
-        }
-        
-        .cash .link-icon {
-            background: linear-gradient(135deg, #27ae60, #1d8c4f) !important;
-        }
-        
-        .cash-app .link-icon {
-            background: linear-gradient(135deg, #27ae60, #1d8c4f) !important;
-        }
-        
-        .contact .link-icon {
-            background: var(--primary-gradient) !important;
-        }
-        
-        /* icons are kept for payment/contact cards, but removed from schedule cards */
         
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
+            font-family: inherit;
             color: var(--dark);
             font-weight: 600;
             line-height: 1.3;
         }
         
         .section-title {
-            font-family: 'Playfair Display', serif;
+            font-family: inherit;
             scroll-margin-top: 80px;
         }
         
@@ -198,7 +165,7 @@
         }
         
         .welcome-subtitle {
-            font-size: clamp(1rem, 4vw, 1.3rem);
+            font-size: clamp(1rem, 4vw, 1.2rem);
             color: #1e2b3c;
             margin-bottom: 40px;
             font-weight: 500;
@@ -388,7 +355,7 @@
         .welcome-footer {
             margin-top: 32px;
             color: #1e2b3c;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 500;
             letter-spacing: 0.5px;
             opacity: 0.9;
@@ -409,7 +376,7 @@
             border: 1px solid rgba(19,41,71,0.04);
             color: #153e63;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-decoration: none;
             transition: transform 0.12s, box-shadow 0.3s;
             transform: translateZ(0);
@@ -436,7 +403,7 @@
         }
         
         .welcome-social p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #1a2b3c;
             background: rgba(255,255,255,0.7);
             backdrop-filter: blur(5px);
@@ -548,7 +515,7 @@
             border: none;
             border-radius: 20px;
             padding: 12px 22px;
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 600;
             color: var(--primary-blue);
             cursor: pointer;
@@ -589,7 +556,7 @@
         }
         
         .nav-btn i {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             transition: transform 0.3s ease;
         }
         
@@ -683,7 +650,8 @@
             }
         }
         
-        h1 {
+        h1#main-title {
+            font-family: 'Playfair Display', serif;
             font-size: clamp(2.5rem, 7vw, 3.2rem);
             font-weight: 700;
             margin-bottom: 16px;
@@ -696,7 +664,7 @@
         }
         
         .tagline {
-            font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+            font-size: clamp(1.1rem, 3.5vw, 1.4rem);
             font-weight: 500;
             color: var(--medium);
             margin: 20px auto 0;
@@ -714,8 +682,8 @@
         }
         
         .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.2rem, 5vw, 2.6rem);
+            font-family: inherit;
+            font-size: clamp(2rem, 5vw, 2.4rem);
             font-weight: 700;
             margin: 40px 0 28px;
             text-align: center;
@@ -758,8 +726,8 @@
         }
 
         .event-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 26px;
+            font-family: inherit;
+            font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 18px;
             color: #1a2b3c;
@@ -768,8 +736,8 @@
         }
 
         .event-datetime, .event-venue {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.2rem;
+            font-family: inherit;
+            font-size: 1.1rem;
             font-weight: 500;
             color: #2d3748;
             margin-bottom: 14px;
@@ -811,7 +779,7 @@
         }
 
         .event-venue .address-link {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             padding: 4px 12px 4px 8px;
         }
 
@@ -827,7 +795,7 @@
             letter-spacing: 1.5px;
             text-transform: uppercase;
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             border: none;
             transition: background 0.15s ease, transform 0.1s;
             margin: 20px 0 16px;
@@ -855,8 +823,8 @@
             margin-bottom: 12px;
         }
         .event-secondary-actions a {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.1rem;
+            font-family: inherit;
+            font-size: 1rem;
             color: #1e3a5f;
             opacity: 0.55;
             text-decoration: none;
@@ -871,8 +839,8 @@
         }
 
         .event-note {
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.95rem;
+            font-family: inherit;
+            font-size: 0.9rem;
             color: #718096;
             text-align: center;
             font-style: italic;
@@ -885,7 +853,7 @@
                 margin: 24px 0 28px;
             }
             .event-title {
-                font-size: 24px;
+                font-size: 1.5rem;
                 margin-bottom: 16px;
             }
             .event-datetime, .event-venue {
@@ -947,8 +915,8 @@
         }
         
         .instructor-name {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.6rem, 4vw, 2rem);
+            font-family: inherit;
+            font-size: clamp(1.5rem, 4vw, 1.9rem);
             font-weight: 700;
             margin-bottom: 4px;
             color: var(--dark-blue);
@@ -964,7 +932,7 @@
         }
         
         .social-links-title {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             color: var(--text-light);
             margin-bottom: 10px;
@@ -1033,7 +1001,7 @@
         }
         
         .social-link-platform {
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 600;
             color: var(--text-dark);
             margin-bottom: 2px;
@@ -1044,7 +1012,7 @@
         }
         
         .social-link-username {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             color: var(--text-light);
             font-weight: 500;
             white-space: nowrap;
@@ -1073,7 +1041,7 @@
             clear: both;
             color: var(--medium);
             font-weight: 500;
-            font-size: 1.1rem;
+            font-size: 1rem;
             line-height: 1.5;
         }
         
@@ -1099,7 +1067,7 @@
         }
         
         .cta-header {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 600;
             margin-bottom: 18px;
             display: flex;
@@ -1112,7 +1080,7 @@
         }
         
         .cta-header i {
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             color: var(--primary-blue);
         }
         
@@ -1121,13 +1089,13 @@
             border-radius: 14px;
             padding: 14px 18px;
             margin-bottom: 18px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             line-height: 1.7;
             color: var(--text-dark);
         }
         
         .cta-action {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 600;
             padding: 16px;
             background: var(--gradient-blue);
@@ -1161,7 +1129,7 @@
             100% { transform: scale(1); }
         }
         
-        /* ========== REDESIGNED SCHEDULE CARDS – per‑venue colors & new cycle badge ========== */
+        /* ===== REDESIGNED SCHEDULE CARDS – clean, no colored edges ===== */
         .links-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
@@ -1183,7 +1151,7 @@
             box-shadow: var(--shadow-sm);
             text-decoration: none !important;
             min-height: auto;
-            border-top: 6px solid transparent; /* placeholder for accent */
+            /* no colored border-top */
         }
 
         .link-card:hover {
@@ -1192,22 +1160,12 @@
             border-color: rgba(44, 90, 160, 0.25);
         }
 
-        /* per‑venue color strategy */
-        .link-card.stardust {
-            border-top-color: var(--stardust-accent);
-            background: linear-gradient(to bottom, #ffffff, #f4f9ff);
-        }
-        .link-card.estilo {
-            border-top-color: var(--estilo-accent);
-            background: linear-gradient(to bottom, #ffffff, #faf3ff);
-        }
-        .link-card.oldcity {
-            border-top-color: var(--oldcity-accent);
-            background: linear-gradient(to bottom, #ffffff, #fff2f2);
-        }
+        /* all cards now have neutral background – remove gradients */
+        .link-card.stardust,
+        .link-card.estilo,
+        .link-card.oldcity,
         .link-card.buenavista {
-            border-top-color: var(--buenavista-accent);
-            background: linear-gradient(to bottom, #ffffff, #f0faf5);
+            background: #ffffff;
         }
 
         .link-card .link-icon {
@@ -1231,7 +1189,7 @@
         }
 
         .link-title {
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             font-weight: 700;
             margin-bottom: 4px;
             color: var(--dark-blue);
@@ -1240,7 +1198,7 @@
         }
 
         .link-subtitle {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--text-light);
             line-height: 1.4;
             font-weight: 400;
@@ -1293,7 +1251,7 @@
         .schedule-badge {
             background: rgba(44, 90, 160, 0.08);
             color: var(--dark-blue);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             padding: 6px 14px;
             border-radius: 40px;
@@ -1301,15 +1259,6 @@
             margin-bottom: 18px;
             letter-spacing: 0.3px;
             border: 1px solid rgba(44, 90, 160, 0.15);
-        }
-
-        /* new cycle badge inside Stardust – aggressive but no extra text */
-        .stardust .schedule-badge {
-            background: #fee2e2;
-            color: #b91c1c;
-            border-color: #fecaca;
-            font-weight: 700;
-            box-shadow: 0 2px 8px rgba(220,38,38,0.1);
         }
 
         .schedule-list {
@@ -1327,7 +1276,7 @@
             color: var(--primary-blue);
             margin-bottom: 10px;
             padding-bottom: 4px;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             letter-spacing: 0.3px;
             border-bottom: 2px solid rgba(44, 90, 160, 0.15);
             display: inline-block;
@@ -1340,7 +1289,7 @@
             justify-content: space-between;
             margin-bottom: 6px;
             line-height: 1.5;
-            font-size: 1.1rem;
+            font-size: 1rem;
             background: rgba(44, 90, 160, 0.02);
             padding: 6px 12px;
             border-radius: 8px;
@@ -1354,7 +1303,7 @@
             font-weight: 700;
             min-width: 95px;
             color: var(--text-dark);
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .class-name {
@@ -1362,7 +1311,7 @@
             padding-left: 15px;
             color: var(--text-medium);
             font-weight: 500;
-            font-size: 1.1rem;
+            font-size: 1rem;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -1373,7 +1322,7 @@
             display: inline-block;
             padding: 3px 10px;
             border-radius: 30px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
             letter-spacing: 0.3px;
             text-transform: uppercase;
@@ -1416,7 +1365,7 @@
             border-radius: 40px;
             display: inline-block;
             margin-top: 16px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             border: 1px solid rgba(212, 63, 63, 0.2);
             box-shadow: 0 2px 8px rgba(212, 63, 63, 0.05);
         }
@@ -1432,7 +1381,7 @@
             background: var(--gradient-blue);
             color: white;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.95rem;
             padding: 10px 22px;
             border-radius: 40px;
             border: none;
@@ -1459,7 +1408,7 @@
             transform: translateX(4px);
         }
 
-        /* Next class highlight */
+        /* next-class-highlight remains intact (blue border + "Next Class" badge) */
         .link-card.next-class-highlight {
             border: 2px solid var(--primary-blue);
             background: linear-gradient(145deg, #ffffff, #f0f9ff);
@@ -1487,10 +1436,10 @@
                 align-items: flex-start;
             }
             .schedule-day-header {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             .class-time, .class-name {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
         }
         
@@ -1506,8 +1455,8 @@
         }
         
         .form-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.2rem, 5vw, 2.6rem);
+            font-family: inherit;
+            font-size: clamp(2rem, 5vw, 2.4rem);
             font-weight: 700;
             margin-bottom: 24px;
             color: var(--dark);
@@ -1534,7 +1483,7 @@
             text-align: center;
             margin-bottom: 32px;
             color: var(--medium);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 500;
             display: block;
             line-height: 1.8;
@@ -1553,7 +1502,7 @@
             border: 1px solid #cbd5e0;
             background: #ffffff;
             color: var(--text-dark);
-            font-size: 1.2rem;
+            font-size: 1rem;
             transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             -webkit-appearance: none;
             appearance: none;
@@ -1571,7 +1520,7 @@
         
         .form-input::placeholder {
             color: #64748b;
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 400;
         }
         
@@ -1582,7 +1531,7 @@
             border: 1px solid #cbd5e0;
             background: #ffffff;
             color: var(--text-dark);
-            font-size: 1.2rem;
+            font-size: 1rem;
             appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232c5aa0'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
@@ -1607,7 +1556,7 @@
             border: none;
             border-radius: 16px;
             padding: 18px;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 600;
             cursor: pointer;
             width: 100%;
@@ -1642,7 +1591,7 @@
             border: 1px solid #cbd5e0;
             border-radius: 24px;
             padding: 8px 22px;
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: var(--text-light);
             cursor: pointer;
             transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -1747,7 +1696,7 @@
             border: none;
             border-radius: 40px;
             padding: 16px 40px;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             cursor: pointer;
             box-shadow: var(--shadow-md);
@@ -1808,7 +1757,7 @@
             opacity: 1;
         }
         .review-text {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-style: italic;
             color: var(--text-medium);
             line-height: 1.7;
@@ -1833,7 +1782,7 @@
             transform: rotate(180deg);
         }
         .review-author {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: var(--primary-blue);
             font-style: normal;
@@ -1877,7 +1826,7 @@
             color: var(--primary-blue);
             border-radius: 30px;
             padding: 12px 30px;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -1912,8 +1861,8 @@
         }
         
         .video-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.2rem, 5vw, 2.6rem);
+            font-family: inherit;
+            font-size: clamp(2rem, 5vw, 2.4rem);
             font-weight: 700;
             color: var(--dark-blue);
             margin-bottom: 12px;
@@ -1935,7 +1884,7 @@
         }
         
         .video-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--medium);
             max-width: 600px;
             margin: 0 auto;
@@ -2067,7 +2016,7 @@
         }
         
         .video-item-title {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 8px;
             line-height: 1.3;
@@ -2084,14 +2033,14 @@
             color: white;
             padding: 5px 12px;
             border-radius: 20px;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 600;
             line-height: 1.5;
         }
         
         .video-views {
             color: rgba(255, 255, 255, 0.8);
-            font-size: 1rem;
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
             gap: 5px;
@@ -2170,7 +2119,7 @@
             border: 1px solid rgba(44, 90, 160, 0.2);
             border-radius: 8px;
             padding: 10px 20px;
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 500;
             color: var(--dark-blue);
             cursor: pointer;
@@ -2229,7 +2178,7 @@
             border: none;
             border-radius: 50px;
             padding: 15px 35px;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
             cursor: pointer;
             transition: var(--transition);
@@ -2361,16 +2310,16 @@
                 font-size: 1.6rem;
             }
             
-            h1 {
+            h1#main-title {
                 font-size: 2.4rem;
             }
             
             .tagline {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
             
             .section-title {
-                font-size: 2.2rem;
+                font-size: 2rem;
                 margin: 36px 0 24px;
             }
             
@@ -2379,7 +2328,7 @@
             }
             
             .cta-schedule {
-                font-size: 1.1rem;
+                font-size: 1rem;
                 padding: 12px;
             }
             
@@ -2398,12 +2347,12 @@
             
             .form-input, .form-select {
                 padding: 16px 20px;
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             
             .submit-btn {
                 padding: 16px;
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
             
             .top-nav-buttons {
@@ -2413,11 +2362,11 @@
             
             .nav-btn {
                 padding: 10px 18px;
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             
             .nav-btn i {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             
             .link-card {
@@ -2425,11 +2374,11 @@
             }
             
             .schedule-day-header {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             
             .class-time, .class-name {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
             
             .tiktok-video-feed {
@@ -2438,11 +2387,11 @@
             }
             
             .video-title {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             
             .video-subtitle {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             
             .video-info-overlay {
@@ -2450,7 +2399,7 @@
             }
             
             .video-item-title {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             
             .welcome-title {
@@ -2493,7 +2442,7 @@
         
         @media (max-width: 550px) {
             body {
-                font-size: 1rem;
+                font-size: 0.95rem;
                 padding: 16px 12px;
             }
             
@@ -2518,7 +2467,7 @@
             }
             
             .welcome-subtitle {
-                font-size: 1rem;
+                font-size: 0.95rem;
                 margin-bottom: 30px;
             }
             
@@ -2581,11 +2530,11 @@
             }
             
             .social-link-platform {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             
             .social-link-username {
-                font-size: 1rem;
+                font-size: 0.9rem;
             }
             
             .logo-container {
@@ -2602,13 +2551,13 @@
                 font-size: 60px;
             }
             
-            h1 {
+            h1#main-title {
                 font-size: 2rem;
                 margin-bottom: 14px;
             }
             
             .tagline {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
                 margin-top: 12px;
             }
             
@@ -2618,7 +2567,7 @@
             }
             
             .section-title {
-                font-size: 1.9rem;
+                font-size: 1.8rem;
                 margin: 32px 0 20px;
             }
             
@@ -2640,34 +2589,34 @@
             }
             
             .link-subtitle {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
             
             .schedule-day-header {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             
             .class-time, .class-name {
-                font-size: 0.95rem;
+                font-size: 0.9rem;
             }
             
             .cta-header {
                 flex-direction: column;
                 gap: 8px;
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             
             .cta-header i {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
             
             .cta-schedule {
-                font-size: 1rem;
+                font-size: 0.95rem;
                 padding: 10px 12px;
             }
             
             .cta-action {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
                 padding: 12px;
                 min-height: 58px;
             }
@@ -2675,25 +2624,25 @@
             .date-section {
                 margin: 0 0 18px auto;
                 padding: 8px 16px;
-                font-size: 1rem;
+                font-size: 0.9rem;
             }
             
             .form-title {
-                font-size: 1.9rem;
+                font-size: 1.8rem;
             }
             
             .partner-notice {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             
             .form-input, .form-select {
                 padding: 14px 18px;
-                font-size: 1.1rem;
+                font-size: 0.95rem;
                 min-height: 56px;
             }
             
             .submit-btn {
-                font-size: 1.3rem;
+                font-size: 1.1rem;
                 padding: 14px;
                 min-height: 58px;
             }
@@ -2705,7 +2654,7 @@
                 padding: 0;
             }
             .review-text {
-                font-size: 1.1rem;
+                font-size: 1rem;
                 padding: 0 20px;
             }
             
@@ -2717,7 +2666,7 @@
             
             .nav-btn {
                 padding: 8px 14px;
-                font-size: 0.95rem;
+                font-size: 0.9rem;
                 min-height: 44px;
             }
             
@@ -2726,7 +2675,7 @@
             }
             
             .nav-btn i {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
                 margin: 0;
             }
             
@@ -2736,11 +2685,11 @@
             }
             
             .video-title {
-                font-size: 1.9rem;
+                font-size: 1.8rem;
             }
             
             .video-subtitle {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
             
             .play-button {
@@ -2754,7 +2703,7 @@
             }
             
             .video-item-title {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             
             .nav-arrow {
@@ -2769,7 +2718,7 @@
             
             .category-btn {
                 padding: 8px 16px;
-                font-size: 1rem;
+                font-size: 0.9rem;
                 min-height: 44px;
             }
             
@@ -2838,7 +2787,7 @@
         
         footer p {
             margin: 8px 0;
-            font-size: 1.1rem;
+            font-size: 1rem;
             line-height: 1.5;
         }
         
@@ -2967,7 +2916,6 @@
         </div>
         
         <div class="content">
-            <!-- MODIFIED: generic Buena Vista event card (2nd & 4th Saturday) -->
             <div class="modern-event-card section-animate">
                 <h3 class="event-title">Buena Vista Social Night – Every 2nd & 4th Saturday</h3>
                 <div class="event-datetime">
@@ -3016,9 +2964,9 @@
             
             <h3 class="section-title" id="schedule-title">Class Schedule</h3>
             
-            <!-- REDESIGNED SCHEDULE CARDS – per‑venue colors + new cycle badge (no dates) -->
+            <!-- REDESIGNED SCHEDULE CARDS – clean, no colored edges, duplicate "intro" badges removed -->
             <div class="links-grid stagger-children section-animate" id="schedule-grid">
-                <!-- Stardust card – new 4‑week cycle badge (aggressive but no extra text) -->
+                <!-- Stardust card – new 4‑week cycle, no extra intro badges -->
                 <div class="link-card stardust next-class-highlight" 
                      data-studio="Stardust Ballroom" 
                      id="stardust-card">
@@ -3039,7 +2987,6 @@
                             </div>
                         </div>
                         
-                        <!-- NEW CYCLE BADGE – no dates, just the cycle message -->
                         <div class="schedule-badge">🔥 New 4‑Week Cycle · Thu & Sun</div>
                         
                         <div class="schedule-list">
@@ -3048,8 +2995,7 @@
                                 <div class="schedule-class">
                                     <span class="class-time">7:00pm</span>
                                     <span class="class-name">
-                                        <span class="salsa-text">Salsa</span> Intro
-                                        <span class="class-badge badge-intro">INTRO</span>
+                                        <span class="salsa-text">Salsa Intro</span>
                                     </span>
                                 </div>
                                 <div class="schedule-class">
@@ -3070,8 +3016,7 @@
                                 <div class="schedule-class">
                                     <span class="class-time">7:00pm</span>
                                     <span class="class-name">
-                                        <span class="salsa-text">Salsa</span> & <span class="bachata-text">Bachata</span> Intro
-                                        <span class="class-badge badge-intro">INTRO</span>
+                                        <span class="salsa-text">Salsa</span> & <span class="bachata-text">Bachata Intro</span>
                                     </span>
                                 </div>
                                 <div class="schedule-class">
@@ -3089,7 +3034,7 @@
                     </div>
                 </div>
                 
-                <!-- Estilo Card – purple accent -->
+                <!-- Estilo Card – clean, no extra badges -->
                 <div class="link-card estilo" 
                      data-studio="Estilo Dance Studio" 
                      id="estilo-card">
@@ -3125,7 +3070,7 @@
                     </div>
                 </div>
 
-                <!-- Old City Card – red accent, single FB icon as requested -->
+                <!-- Old City Card (117) – simplified, no duplicate text -->
                 <div class="link-card oldcity" 
                      data-studio="Old City Philly" 
                      id="oldcity-card">
@@ -3140,7 +3085,6 @@
                                 </div>
                             </div>
                             <div class="location-icons">
-                                <!-- single Facebook icon for 117 -->
                                 <a href="https://www.facebook.com/share/14XAaCAStJV/?mibextid=wwXIfr" class="location-icon facebook-icon" target="_blank" rel="noopener" title="117 Old City Philly on Facebook" aria-label="Facebook">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
@@ -3181,7 +3125,7 @@
                     </div>
                 </div>
 
-                <!-- NEW BUENA VISTA CARD – green accent, single FB icon -->
+                <!-- Buena Vista Card – simplified, clean -->
                 <div class="link-card buenavista" 
                      data-studio="Buena Vista Restaurant" 
                      id="buenavista-card">
@@ -3511,8 +3455,9 @@
         </div>
     </div>
 
+    <!-- the original script remains exactly the same -->
     <script>
-        // (JavaScript unchanged – all original functions remain intact, as provided)
+        // (JavaScript unchanged – all original functions remain intact)
         document.addEventListener('DOMContentLoaded', function() {
             const logo = document.querySelector('.logo');
             let clickCount = 0;
@@ -4431,7 +4376,6 @@
                     initVideoSection();
                 }
                 
-                // Updated classSchedule with new Buena Vista card
                 const classSchedule = [
                     { 
                         day: "Thursday", 
@@ -4443,7 +4387,7 @@
                             "9:00pm Bachata Elite"
                         ],
                         locationId: "stardust-card",
-                        endTime: 2200 // last class ends 10pm
+                        endTime: 2200
                     },
                     { 
                         day: "Sunday", 
@@ -4476,7 +4420,7 @@
                             "10:30pm Bachata · Cumbia · Salsa & more"
                         ],
                         locationId: "oldcity-card",
-                        endTime: 2330 // after social night
+                        endTime: 2330
                     },
                     { 
                         day: "Saturday", 
@@ -4487,7 +4431,7 @@
                             "10:30pm Social Dancing until 1am"
                         ],
                         locationId: "buenavista-card",
-                        endTime: 2400 // midnight (dance until 1am, but treat as midnight)
+                        endTime: 2400
                     }
                 ];
 
